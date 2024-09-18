@@ -11,11 +11,14 @@ var current_turn:int = 0
 
 
 
-var turn_timer:Timer = Timer.new()
+@onready var turn_timer:Timer = Timer.new()
+
 func _ready() -> void:
 	
+	add_child(turn_timer)
 	turn_timer.wait_time = time_between_turns
 	turn_timer.start()
+	turn_timer.timeout.connect(next_turn)
 
 
 ## calls the next turn. By default, triggered by a timer of length time_between_turns

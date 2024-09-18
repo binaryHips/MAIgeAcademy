@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7k2qaagjqa1e"]
+
+[ext_resource type="Script" path="res://src/exemples/exemple1/agent1brain.gd" id="1_smrfd"]
+[ext_resource type="Script" path="res://src/exemples/exemple1/agentPBrain.gd" id="2_0jftb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r2br2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fqb2q"]
+radius = 54.3701
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5sn2v"]
+
+[node name="TestScene" type="Node2D"]
+position = Vector2(315, 240)
+
+[node name="Agent1" type="CharacterBody2D" parent="."]
+motion_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Agent1"]
+shape = SubResource("CircleShape2D_r2br2")
+
+[node name="Polygon2D" type="Polygon2D" parent="Agent1"]
+polygon = PackedVector2Array(-7, -7, -1, -10, 4, -8, 8, -4, 9, 1, 6, 7, 0, 9, -7, 8, -9, 0)
+
+[node name="Brain" type="Node" parent="Agent1"]
+script = ExtResource("1_smrfd")
+
+[node name="VisionRange" type="Area2D" parent="Agent1"]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Agent1/VisionRange"]
+shape = SubResource("CircleShape2D_fqb2q")
+
+[node name="AgentP" type="CharacterBody2D" parent="."]
+position = Vector2(52, 7)
+motion_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AgentP"]
+shape = SubResource("CapsuleShape2D_5sn2v")
+
+[node name="Polygon2D" type="Polygon2D" parent="AgentP"]
+polygon = PackedVector2Array(9, -7, 10, 5, 7, 12, 0, 14.5, -7, 12.5, -10, 6.5, -10, -8, -5.5, -14, -0.5, -15, 5.5, -13.5)
+
+[node name="Brain" type="Node" parent="AgentP"]
+script = ExtResource("2_0jftb")
+
+[node name="VisionRange" type="Area2D" parent="AgentP"]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AgentP/VisionRange"]
+shape = SubResource("CircleShape2D_fqb2q")
