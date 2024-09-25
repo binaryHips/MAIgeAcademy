@@ -18,6 +18,10 @@ config/icon="res://icon.svg"
 
 Gamemaster="*res://src/autoloads/gamemaster.gd"
 
+[global_group]
+
+sheep=""
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

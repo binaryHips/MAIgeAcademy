@@ -10,7 +10,6 @@ var turn_order:Array[Brain]
 var current_turn:int = 0
 
 
-
 @onready var turn_timer:Timer = Timer.new()
 
 func _ready() -> void:
