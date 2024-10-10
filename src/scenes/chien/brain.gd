@@ -3,7 +3,7 @@ extends Brain
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
-	speed = 10.0
+	speed = 1000.0
 	#getPathPoints()
 	#pointProche(get_parent().position)
 	#goProche()
@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 func getPathPoints():
 	#print(get_parent())
 	#print(get_parent().get_parent())
-	var path = get_parent().get_parent().get_node("Path2D")
+	var path = body.get_node("../Map/Path2D")
 	var courbe = path.curve
 	var points = []
 	for i in range(courbe.get_point_count()):
@@ -33,7 +33,7 @@ func pointProche(position):
 	
 	for i in range(len(points)):
 		var dist = points[i].distance_to(position)
-		if(dist < minDistance && min != points[i]):
+		if(dist < minDistance && minDistance < 20):
 			#print("Ouaf !")
 			minDistance = dist
 			min = points[i]    
@@ -54,3 +54,32 @@ func pointProche(position):
 	
 func goProche():
 	move_target = pointProche(body.global_position)
+
+#func _see():
+	#
+	#var percept = {
+		#"sheep_seen":false,
+		#"is_inside":false
+	#}
+	#
+	#for body in view.get_overlapping_bodies():
+		#if body.is_in_group("dog"):
+#
+				#percept["dog_seen"] = true
+	#
+	#percept["is_inside"] = body in Gamemaster.world_state["sheep_in"]
+	#
+	#return percept
+#
+#
+#func _act(percept):
+	#print(states)
+#
+	#if has_state("idle"):
+		#if not percept["dog_seen"] and not percept["is_inside"]:
+			#override_state("runaway")
+		#
+		#move_target = body.global_position + Vector2(
+			#randf_range(-50, 50),
+			#randf_range(-50, 50),
+		#)
