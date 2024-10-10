@@ -6,8 +6,11 @@ var world_state:Dictionary = {
 	"sheep_in" = [],
 }
 
+
+
 var turn_order:Array[Brain]
 var current_turn:int = 0
+
 
 @onready var turn_timer:Timer = Timer.new()
 
@@ -26,3 +29,6 @@ func next_turn():
 	turn_order[current_turn].run()
 	
 	current_turn = (current_turn + 1) % turn_order.size()
+
+func win():
+	pass
