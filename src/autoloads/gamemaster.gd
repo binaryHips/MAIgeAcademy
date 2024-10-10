@@ -2,7 +2,9 @@ extends Node
 
 var time_between_turns:float = 2.0
 
-var world_state:Array[String]
+var world_state:Dictionary = {
+	"sheep_in" = [],
+}
 
 
 

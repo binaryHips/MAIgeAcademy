@@ -1,9 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3noy08dla50m"]
+[gd_scene load_steps=9 format=3 uid="uid://b3noy08dla50m"]
 
 [ext_resource type="Script" path="res://src/scenes/sheep/brain.gd" id="1_cb3go"]
+[ext_resource type="Texture2D" uid="uid://djvmrjhon2nd7" path="res://resources/images/mouton_fixe.png" id="2_vbpay"]
+[ext_resource type="Texture2D" uid="uid://d10nr2yyugb5h" path="res://resources/images/mouton_marche1.png" id="3_rnoor"]
+[ext_resource type="Texture2D" uid="uid://bkifpeids1juy" path="res://resources/images/mouton_marche.png" id="4_vx80i"]
+[ext_resource type="Texture2D" uid="uid://c1udp8kxh24vr" path="res://resources/images/mouton_saut.png" id="5_4po7o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7vykp"]
-radius = 15.1327
+radius = 22.2036
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b0ld6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vbpay")
+}],
+"loop": true,
+"name": &"fixe",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_rnoor")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vx80i")
+}],
+"loop": true,
+"name": &"marche",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_4po7o")
+}],
+"loop": true,
+"name": &"saute",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b5yep"]
 radius = 107.019
@@ -16,13 +50,17 @@ freeze_mode = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7vykp")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2(0.535714, 0)
-scale = Vector2(0.964286, 1)
-polygon = PackedVector2Array(0, -15, -12, -10, -13, 9, 0, 15, 10, 11, 15, 0, 11, -10)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_b0ld6")
+animation = &"marche"
 
 [node name="Brain" type="Node" parent="."]
 script = ExtResource("1_cb3go")
+asynchronous = null
+speed = null
+states = null
 
 [node name="view" type="Area2D" parent="."]
 

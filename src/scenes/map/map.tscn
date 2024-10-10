@@ -27,7 +27,6 @@ offset = Vector2(0, -1.61)
 zoom = Vector2(0.88, 0.88)
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
 position = Vector2(-11, 15)
 rotation = 1.5708
 
