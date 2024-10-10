@@ -5,7 +5,7 @@ class_name Brain
 
 ## A list of strings that define state flags for the agent
 var moving := false
-var move_target:Vector2
+var move_target:Vector2 #FIXME
 
 ## Event system
 var event_queue:Array[Dictionary]
@@ -17,13 +17,13 @@ var event_queue:Array[Dictionary]
 @onready var body:PhysicsBody2D = get_parent()
 
 
-func _ready() -> void: 
+func _init() -> void: 
 	Gamemaster.turn_order.append(self)
 
 func run():
 	parse_events()
 	_act(_see())
-	move_towards()
+	move()
 	
 
 func _see():
@@ -32,9 +32,17 @@ func _see():
 func _act(percept):
 	pass
 
-func move_towards():
+func move():
+	print(move_target)
 	if move_target:
-		get_parent().global_position = get_parent().global_position.move_toward(move_target, speed)
+		
+		var tween = get_tree().create_tween()
+		tween.tween_property(body,
+		"global_position",
+		body.global_position.move_toward(move_target, speed),
+		Gamemaster.time_between_turns
+		).set_trans(Tween.TRANS_ELASTIC)
+		tween.play()
 
 func parse_events():
 	for evt in event_queue:
@@ -65,3 +73,7 @@ static func send_event(agent:Brain, event:Dictionary):
 	
 func add_event(event:Dictionary):
 	event_queue.append(event)
+
+static func kill(agent:Brain):
+	Gamemaster.turn_order.erase(agent)
+	agent.queue_free()
