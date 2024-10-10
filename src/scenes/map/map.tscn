@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bnbyvqieew8wu"]
 
 [ext_resource type="Texture2D" uid="uid://difvyndmfhtpb" path="res://resources/images/Enclos.png" id="1_hp2vv"]
-[ext_resource type="PackedScene" uid="uid://c3h086n4tu8x5" path="res://src/scenes/chien/chien.tscn" id="2_deygp"]
+[ext_resource type="Script" path="res://src/scenes/map/enclosure_area.gd" id="2_owcem"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_csnad"]
 radius = 124.0
@@ -29,12 +29,14 @@ zoom = Vector2(0.5, 0.5)
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(-11, 15)
 rotation = 1.5708
+script = ExtResource("2_owcem")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(0.8, 0.8)
 shape = SubResource("CapsuleShape2D_csnad")
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_c0myq")
 
-[node name="Chien" parent="." instance=ExtResource("2_deygp")]
-position = Vector2(-329, 295)
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

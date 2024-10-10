@@ -7,7 +7,7 @@ var dir_view:Vector2
 var count_return:int = 0
 
 func _ready():
-	speed = 4000
+	speed = 50
 	override_state("idle")
 
 func _parse_event(event:Dictionary):
@@ -32,7 +32,7 @@ func _see():
 			if dir_view.dot( body.global_position - get_parent().global_position) > 0:
 				percept["dog_seen"] = true
 	
-	percept["is_inside"] = self in Gamemaster.world_state["sheep_in"]
+	percept["is_inside"] = body in Gamemaster.world_state["sheep_in"]
 	
 	return percept
 
@@ -55,9 +55,8 @@ func _act(percept):
 		count_return -= 1
 
 	elif has_state("idle"):
-		
 		if not percept["dog_seen"] and not percept["is_inside"]:
-			pass #override_state("runaway")
+			override_state("runaway")
 		
 		move_target = body.global_position + Vector2(
 			randf_range(-50, 50),
