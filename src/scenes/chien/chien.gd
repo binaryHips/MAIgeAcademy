@@ -13,7 +13,6 @@ func _ready() -> void:
 	_animated_sprite.play("fixe")
 	 # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if linear_velocity.x < 0:

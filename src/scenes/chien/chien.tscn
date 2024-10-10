@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3h086n4tu8x5"]
+[gd_scene load_steps=9 format=3 uid="uid://c3h086n4tu8x5"]
 
 [ext_resource type="Script" path="res://src/scenes/chien/chien.gd" id="1_f0vgp"]
 [ext_resource type="Texture2D" uid="uid://wttefocce8u0" path="res://resources/images/chien_fixe.png" id="1_lwpa3"]
 [ext_resource type="Texture2D" uid="uid://b0mlokg7skn1d" path="res://resources/images/chien_aboie.png" id="2_w2psj"]
 [ext_resource type="Texture2D" uid="uid://r6eipbpvslqq" path="res://resources/images/chien_cours.png" id="4_qhbjt"]
 [ext_resource type="Texture2D" uid="uid://dpubu47aoxb2s" path="res://resources/images/chien_cours2.png" id="5_opua5"]
+[ext_resource type="Script" path="res://src/scenes/chien/brain.gd" id="6_4pepw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4jolv"]
 animations = [{
@@ -65,3 +66,6 @@ shape = SubResource("CapsuleShape2D_hnioy")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
+
+[node name="Brain" type="Node" parent="."]
+script = ExtResource("6_4pepw")
