@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://crnpbul23uwag"]
+
+[ext_resource type="PackedScene" uid="uid://bnbyvqieew8wu" path="res://src/scenes/map/map.tscn" id="1_lwrs2"]
+[ext_resource type="PackedScene" uid="uid://b3noy08dla50m" path="res://src/scenes/sheep/sheep.tscn" id="2_rhssb"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Map" parent="." instance=ExtResource("1_lwrs2")]
+
+[node name="sheep" parent="." instance=ExtResource("2_rhssb")]
+position = Vector2(-69, -69)
+
+[node name="sheep2" parent="." instance=ExtResource("2_rhssb")]
+position = Vector2(56, -20)
+
+[node name="sheep3" parent="." instance=ExtResource("2_rhssb")]
+position = Vector2(-62, 65)

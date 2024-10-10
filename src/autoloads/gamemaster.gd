@@ -1,6 +1,6 @@
 extends Node
 
-var time_between_turns:float = 2.0
+var time_between_turns:float = 0.5
 
 var world_state:Dictionary = {
 	"sheep_in" = [],
@@ -24,7 +24,6 @@ func _ready() -> void:
 
 ## calls the next turn. By default, triggered by a timer of length time_between_turns
 func next_turn():
-	
 	if turn_order == []: return
 	
 	turn_order[current_turn].run()
