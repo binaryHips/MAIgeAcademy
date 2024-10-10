@@ -8,6 +8,10 @@ var count_return:int = 0
 
 func _parse_event(event:Dictionary):
 	
+	match event["name"]:
+		
+		"bark":
+			pass
 
 
 

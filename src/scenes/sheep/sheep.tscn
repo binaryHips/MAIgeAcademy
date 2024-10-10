@@ -58,9 +58,6 @@ animation = &"marche"
 
 [node name="Brain" type="Node" parent="."]
 script = ExtResource("1_cb3go")
-asynchronous = null
-speed = null
-states = null
 
 [node name="view" type="Area2D" parent="."]
 
