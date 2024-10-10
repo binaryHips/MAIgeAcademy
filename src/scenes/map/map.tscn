@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnbyvqieew8wu"]
+[gd_scene load_steps=6 format=3 uid="uid://bnbyvqieew8wu"]
 
 [ext_resource type="Texture2D" uid="uid://difvyndmfhtpb" path="res://resources/images/Enclos.png" id="1_hp2vv"]
 [ext_resource type="Script" path="res://src/scenes/map/enclosure_area.gd" id="2_owcem"]
@@ -14,6 +14,9 @@ _data = {
 }
 point_count = 12
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2oxvk"]
+size = Vector2(57, 911)
+
 [node name="Map" type="Node2D"]
 
 [node name="Enclos" type="Sprite2D" parent="."]
@@ -26,17 +29,37 @@ position = Vector2(0, 2)
 offset = Vector2(0, -1.61)
 zoom = Vector2(0.5, 0.5)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Enclosure" type="Area2D" parent="."]
 position = Vector2(-11, 15)
 rotation = 1.5708
 script = ExtResource("2_owcem")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosure"]
 scale = Vector2(0.8, 0.8)
 shape = SubResource("CapsuleShape2D_csnad")
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_c0myq")
 
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
-[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
+[node name="Border" type="Area2D" parent="."]
+
+[node name="DownWall" type="CollisionShape2D" parent="Border"]
+position = Vector2(-3, 428)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_2oxvk")
+
+[node name="UpWall" type="CollisionShape2D" parent="Border"]
+position = Vector2(16, -403)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_2oxvk")
+
+[node name="RightWall" type="CollisionShape2D" parent="Border"]
+position = Vector2(457, 6)
+shape = SubResource("RectangleShape2D_2oxvk")
+
+[node name="LeftWall" type="CollisionShape2D" parent="Border"]
+position = Vector2(-467, 5)
+shape = SubResource("RectangleShape2D_2oxvk")
+
+[connection signal="body_entered" from="Enclosure" to="Enclosure" method="_on_body_entered"]
+[connection signal="body_exited" from="Enclosure" to="Enclosure" method="_on_body_exited"]
