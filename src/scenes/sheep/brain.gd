@@ -7,7 +7,8 @@ var dir_view:Vector2
 var count_return:int = 0
 
 func _ready():
-	speed = 50
+	register()
+	speed = 40
 	override_state("idle")
 	
 	add_action("idle_walk" , 
@@ -24,9 +25,13 @@ func _ready():
 
 func _parse_event(event:Dictionary):
 	
-	match event["name"]:
+	match event["type"]:
 		"bark":
 			move_target = (body.global_position - event["from"]) * 999
+			speed = 80
+			override_state("return")
+			count_return += 5
+			
 
 func _see():
 	
@@ -65,8 +70,13 @@ func _act(percept):
 		execute_action("escape_run")
 		
 	elif has_state("return"):
+		if percept["is_inside"]:
+			speed = 40
+			count_return = 0
+			override_state("idle")
+			
 		if count_return <= 0:
-			override_state("runaway")
+			override_state("idle")
 		
 		count_return -= 1
 		

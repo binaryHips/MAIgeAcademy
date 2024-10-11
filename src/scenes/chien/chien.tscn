@@ -45,7 +45,7 @@ radius = 9.0
 height = 32.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sr43b"]
-radius = 111.0
+radius = 147.122
 
 [node name="Chien" type="RigidBody2D"]
 gravity_scale = 0.0
@@ -59,7 +59,7 @@ texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_4jolv")
 animation = &"court"
-frame_progress = 0.317326
+frame_progress = 0.752083
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

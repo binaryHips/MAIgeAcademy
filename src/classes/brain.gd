@@ -18,8 +18,11 @@ var event_queue:Array[Dictionary]
 
 var actions = {}
 
-func _init() -> void: 
+func _init() -> void:
 	Gamemaster.turn_order.append(self)
+
+func register():
+	body.set_meta("brain", self)
 
 func run():
 	parse_events()
