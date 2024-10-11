@@ -7,8 +7,8 @@ var dir_view:Vector2
 var count_return:int = 0
 
 func _ready():
-	register()
-	speed = 40
+	_register()
+	speed = Settings.sheep_speed
 	override_state("idle")
 	
 	add_action("idle_walk" , 
@@ -28,9 +28,9 @@ func _parse_event(event:Dictionary):
 	match event["type"]:
 		"bark":
 			move_target = (body.global_position - event["from"]) * 999
-			speed = 80
+			speed = Settings.sheep_speed * 1.8
 			override_state("return")
-			count_return += 5
+			count_return += randi_range(1, 5)
 			
 
 func _see():
@@ -56,8 +56,6 @@ func _see():
 	return percept
 
 
-
-
 func _act(percept):
 	print(states)
 	if has_state("runaway"):
@@ -71,12 +69,15 @@ func _act(percept):
 		
 	elif has_state("return"):
 		if percept["is_inside"]:
-			speed = 40
+			speed = Settings.sheep_speed
 			count_return = 0
 			override_state("idle")
+			execute_action("idle_walk")
+			return
 			
-		if count_return <= 0:
-			override_state("idle")
+		elif count_return <= 0:
+			override_state("runaway")
+			return
 		
 		count_return -= 1
 		

@@ -18,11 +18,10 @@ var event_queue:Array[Dictionary]
 
 var actions = {}
 
-func _init() -> void:
-	Gamemaster.turn_order.append(self)
 
-func register():
+func _register():
 	body.set_meta("brain", self)
+	Gamemaster.turn_order.append(self)
 
 func run():
 	parse_events()
@@ -44,8 +43,8 @@ func move():
 		tween.tween_property(body,
 		"global_position",
 		body.global_position.move_toward(move_target, speed),
-		Gamemaster.time_between_turns
-		).set_trans(Tween.TRANS_ELASTIC)
+		Settings.time_between_turns
+		).set_trans(Tween.TRANS_SINE)
 		tween.play()
 
 func parse_events():
@@ -84,6 +83,9 @@ static func kill(agent:Brain):
 	
 func die():
 	Gamemaster.turn_order.erase(self)
+	Gamemaster.turn_order.filter(
+		func (a) : return not (a == self)
+		)
 	body.queue_free()
 	print("rip")
 

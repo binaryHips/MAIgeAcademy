@@ -1,10 +1,7 @@
 extends Node
 
-var time_between_turns:float = 0.5
 
-var length_in_rounds:int = 50
 
-var n_sheep:int = 5
 
 var world_state:Dictionary = {
 	"sheep_in" = [],
@@ -29,9 +26,10 @@ func _ready() -> void:
 	
 	add_child(turn_timer)
 
+
 func start_game():
 	turn_timer.start()
-	turn_timer.wait_time = time_between_turns
+	turn_timer.wait_time = Settings.time_between_turns
 	turn_timer.timeout.connect(next_turn)
 
 var round_count:int
@@ -48,7 +46,7 @@ func next_turn():
 	
 	current_turn = (current_turn + 1) % turn_order.size()
 	
-	if round_count == length_in_rounds:
+	if round_count == Settings.length_in_rounds:
 		end()
 	
 func end():
@@ -57,3 +55,4 @@ func end():
 	
 func win():
 	game_ended.emit(0)
+	

@@ -11,7 +11,7 @@ func _ready() -> void:
 	col = sky_colors.sample(0.0)
 	$ColorRect.material.set_shader_parameter("color", col)
 	
-	for k in Gamemaster.n_sheep:
+	for k in Settings.n_sheep:
 		var sheep := SHEEP.instantiate()
 		add_child(sheep)
 		sheep.position = Vector2i(
@@ -22,9 +22,9 @@ func _ready() -> void:
 	
 func on_new_round(curr_round:int):
 	if not sky_colors: return
-	var time_between_rounds = Gamemaster.time_between_turns * Gamemaster.turn_order.size()
+	var time_between_rounds = Settings.time_between_turns * Gamemaster.turn_order.size()
 	
-	var fac = min(1.0, 1.0 / Gamemaster.length_in_rounds * curr_round + 0.0001)
+	var fac = min(1.0, 1.0 / Settings.length_in_rounds * curr_round + 0.0001)
 	
 	print("FAC "  ,fac)
 	$CanvasLayer/UI.set_time(fac)

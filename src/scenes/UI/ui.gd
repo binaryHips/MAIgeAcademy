@@ -3,16 +3,17 @@ extends Control
 
 func _ready():
 	$Panel.position = Vector2(0, -100)
-	$Panel/time.text = "[center]Round " + str(Gamemaster.round_count) + "/" + str(Gamemaster.length_in_rounds)
-
+	$Panel/time.text = "[center]Round " + str(Gamemaster.round_count) + "/" + str(Settings.length_in_rounds)
+	_on_h_slider_value_changed(Settings.time_between_turns)
+	$Panel/VBoxContainer/HSlider.value = Settings.time_between_turns
 func set_time(time:float):
-	$Panel/time.text = "[center]Round " + str(Gamemaster.round_count) + "/" + str(Gamemaster.length_in_rounds)
+	$Panel/time.text = "[center]Round " + str(Gamemaster.round_count) + "/" + str(Settings.length_in_rounds)
 	
 
 func _on_h_slider_value_changed(value: float) -> void:
-	value = snapped(value, 0.01)
+	value = snapped(value, 0.001)
 	$Panel/VBoxContainer/turn_time.text = "Turn time (" + str(value) + "s)"
-	Gamemaster.time_between_turns = value
+	Settings.time_between_turns = value
 	Gamemaster.turn_timer.wait_time = value
 
 var tween:Tween

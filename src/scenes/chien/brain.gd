@@ -2,9 +2,23 @@ extends Brain
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	register()
-	speed = 200.0
+	_register()
+	speed = Settings.dog_speed
 	add_state("patrol")
+
+func _register():
+	body.set_meta("brain", self)
+	
+	if Settings.intertwine_dog_turns:
+		(
+			func ():
+				for i in range(Gamemaster.turn_order.size()-1, 0, -1):
+					Gamemaster.turn_order.insert(i, self)
+					print("TO", Gamemaster.turn_order)
+				
+		).call_deferred()
+	else:
+		Gamemaster.turn_order.append(self)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -52,7 +66,7 @@ func _act(percept):
 			else:
 				move_target = e.global_position * 1.3
 				body.bark()
-				send_event(e.get_meta("brain"),{"type": "bark", "from" : e.global_position * 1.3})
+				send_event(e.get_meta("brain"),{"type": "bark", "from" : body.global_position * 1.3})
 				override_state("patrol")
 			
 	if has_state("idle"):

@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://vqro77kagm5m"]
+[gd_scene load_steps=11 format=3 uid="uid://vqro77kagm5m"]
 
 [ext_resource type="Script" path="res://src/scenes/menu/menu.gd" id="1_6s0fk"]
 [ext_resource type="Texture2D" uid="uid://wttefocce8u0" path="res://resources/images/chien_fixe.png" id="2_fsttc"]
+[ext_resource type="Shader" path="res://resources/shaders/blur.gdshader" id="2_wivfl"]
 [ext_resource type="Texture2D" uid="uid://b0mlokg7skn1d" path="res://resources/images/chien_aboie.png" id="3_5dj14"]
+[ext_resource type="Texture2D" uid="uid://difvyndmfhtpb" path="res://resources/images/Enclos.png" id="3_skap5"]
 [ext_resource type="Texture2D" uid="uid://r6eipbpvslqq" path="res://resources/images/chien_cours.png" id="4_u3gfn"]
 [ext_resource type="Texture2D" uid="uid://dpubu47aoxb2s" path="res://resources/images/chien_cours2.png" id="5_reg57"]
+[ext_resource type="Texture2D" uid="uid://djvmrjhon2nd7" path="res://resources/images/mouton_fixe.png" id="7_1wwna"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_io443"]
 animations = [{
@@ -39,6 +42,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mn8wv"]
+shader = ExtResource("2_wivfl")
+shader_parameter/lod = 4.219
+
 [node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -47,6 +54,41 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6s0fk")
+
+[node name="Enclos" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(119, 1301)
+scale = Vector2(6.17, 5.833)
+texture = ExtResource("3_skap5")
+
+[node name="doggo" type="AnimatedSprite2D" parent="Enclos"]
+texture_filter = 1
+position = Vector2(-41.9773, -130.979)
+scale = Vector2(0.945381, 1)
+sprite_frames = SubResource("SpriteFrames_io443")
+animation = &"court"
+
+[node name="Timer" type="Timer" parent="Enclos/doggo"]
+wait_time = 0.4
+autostart = true
+
+[node name="MoutonFixe" type="Sprite2D" parent="Enclos"]
+position = Vector2(-13.7763, -66.6895)
+scale = Vector2(-1, 1)
+texture = ExtResource("7_1wwna")
+
+[node name="MoutonFixe2" type="Sprite2D" parent="Enclos"]
+position = Vector2(29.3355, -27.9445)
+scale = Vector2(-1, 1)
+texture = ExtResource("7_1wwna")
+
+[node name="MoutonFixe3" type="Sprite2D" parent="Enclos"]
+position = Vector2(37.6013, -64.4608)
+texture = ExtResource("7_1wwna")
+
+[node name="MoutonFixe4" type="Sprite2D" parent="Enclos"]
+position = Vector2(-20.4214, -26.9158)
+texture = ExtResource("7_1wwna")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -81,8 +123,9 @@ fit_content = true
 
 [node name="SheepNum" type="HSlider" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-max_value = 20.0
+min_value = 1.0
 value = 5.0
+exp_edit = true
 
 [node name="TurnText" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -91,17 +134,86 @@ fit_content = true
 
 [node name="TurnNum" type="HSlider" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+min_value = 1.0
+max_value = 300.0
 value = 50.0
+exp_edit = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-texture_filter = 1
-position = Vector2(73, 62)
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_io443")
-animation = &"court"
-autoplay = "court"
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Secret Settings"
 
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.5
+offset_top = 236.51
+offset_right = 108.5
+offset_bottom = 396.51
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Button" type="Button" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Menu"
+
+[node name="doggo_plays" type="CheckButton" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="doggo" type="RichTextLabel" parent="MarginContainer2/VBoxContainer/doggo_plays"]
+layout_mode = 2
+offset_right = 217.0
+offset_bottom = 23.0
+mouse_filter = 2
+text = "Dog turns intertwined"
+fit_content = true
+
+[node name="SheepText" type="RichTextLabel" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Sheep base speed"
+fit_content = true
+
+[node name="SheepSpeed" type="HSlider" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+max_value = 200.0
+value = 20.0
+
+[node name="DogText" type="RichTextLabel" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Dog speed"
+fit_content = true
+
+[node name="DogSpeed" type="HSlider" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+max_value = 500.0
+value = 200.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_mn8wv")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[connection signal="timeout" from="Enclos/doggo/Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/SheepNum" to="." method="_on_sheep_num_value_changed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/TurnNum" to="." method="_on_turn_num_value_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="swap_to_advanced"]
+[connection signal="pressed" from="MarginContainer2/VBoxContainer/Button" to="." method="swap_to_menu"]
+[connection signal="toggled" from="MarginContainer2/VBoxContainer/doggo_plays" to="." method="_on_doggo_plays_toggled"]
+[connection signal="value_changed" from="MarginContainer2/VBoxContainer/SheepSpeed" to="." method="_on_sheep_speed_value_changed"]
+[connection signal="value_changed" from="MarginContainer2/VBoxContainer/DogSpeed" to="." method="_on_dog_speed_value_changed"]
