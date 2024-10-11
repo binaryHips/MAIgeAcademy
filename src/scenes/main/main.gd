@@ -12,6 +12,7 @@ func _ready() -> void:
 
 
 func on_new_round(curr_round:int):
+	if not sky_colors: return
 	var time_between_rounds = Gamemaster.time_between_turns * Gamemaster.turn_order.size()
 	
 	var fac = float (Gamemaster.length_in_rounds) / curr_round
