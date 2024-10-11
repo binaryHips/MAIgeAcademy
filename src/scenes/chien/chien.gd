@@ -15,14 +15,15 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if linear_velocity.x < 0:
-		_animated_sprite.scale.x = -2
-	if linear_velocity.x > 0:
-		_animated_sprite.scale.x = 2
-	prev_position = position
+	#if linear_velocity.x < 0:
+		#_animated_sprite.scale.x = -2
+	#if linear_velocity.x > 0:
+		#_animated_sprite.scale.x = 2
+	#prev_position = position
 	_animated_sprite.play("court")
-	var ax = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	apply_central_force(ax* speed)
+	#var ax = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	#apply_central_force(ax* speed)
+	pass
 	
 func bark():
 	_animated_sprite.play("aboie")
