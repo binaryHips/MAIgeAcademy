@@ -2,7 +2,7 @@ extends Node
 
 var time_between_turns:float = 0.5
 
-var length_in_turn:int
+var length_in_rounds:int = 15
 
 var world_state:Dictionary = {
 	"sheep_in" = [],
@@ -45,6 +45,13 @@ func next_turn():
 	turn_order[current_turn].run()
 	
 	current_turn = (current_turn + 1) % turn_order.size()
-
+	
+	if round_count == length_in_rounds:
+		end()
+	
+func end():
+	print("FINI")
+	get_tree().paused = true
+	
 func win():
 	game_ended.emit(0)

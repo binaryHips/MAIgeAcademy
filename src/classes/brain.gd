@@ -16,7 +16,6 @@ var event_queue:Array[Dictionary]
 
 @onready var body:PhysicsBody2D = get_parent()
 
-
 func _init() -> void: 
 	Gamemaster.turn_order.append(self)
 
