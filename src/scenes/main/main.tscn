@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://crnpbul23uwag"]
+[gd_scene load_steps=10 format=3 uid="uid://crnpbul23uwag"]
 
 [ext_resource type="Script" path="res://src/scenes/main/main.gd" id="1_733e2"]
 [ext_resource type="PackedScene" uid="uid://bnbyvqieew8wu" path="res://src/scenes/map/map.tscn" id="1_lwrs2"]
-[ext_resource type="PackedScene" uid="uid://b3noy08dla50m" path="res://src/scenes/sheep/sheep.tscn" id="2_rhssb"]
 [ext_resource type="PackedScene" uid="uid://c3h086n4tu8x5" path="res://src/scenes/chien/chien.tscn" id="3_7kmae"]
 [ext_resource type="Shader" path="res://resources/shaders/tint.gdshader" id="4_babmt"]
 [ext_resource type="PackedScene" uid="uid://b64eogwqgw02t" path="res://src/scenes/UI/ui.tscn" id="6_giq1u"]
@@ -30,15 +29,6 @@ script = ExtResource("1_733e2")
 sky_colors = SubResource("Gradient_5j847")
 
 [node name="Map" parent="." instance=ExtResource("1_lwrs2")]
-
-[node name="sheep" parent="." instance=ExtResource("2_rhssb")]
-position = Vector2(-69, -69)
-
-[node name="sheep2" parent="." instance=ExtResource("2_rhssb")]
-position = Vector2(56, -20)
-
-[node name="sheep3" parent="." instance=ExtResource("2_rhssb")]
-position = Vector2(-62, 65)
 
 [node name="Chien" parent="." instance=ExtResource("3_7kmae")]
 position = Vector2(315, 272)

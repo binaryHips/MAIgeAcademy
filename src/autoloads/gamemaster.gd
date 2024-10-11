@@ -4,6 +4,8 @@ var time_between_turns:float = 0.5
 
 var length_in_rounds:int = 50
 
+var n_sheep:int = 5
+
 var world_state:Dictionary = {
 	"sheep_in" = [],
 	"out_of_bounds" = [],
@@ -26,7 +28,6 @@ signal new_turn(player_idx:int)
 func _ready() -> void:
 	
 	add_child(turn_timer)
-	start_game()
 
 func start_game():
 	turn_timer.start()
