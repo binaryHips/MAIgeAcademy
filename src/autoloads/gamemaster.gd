@@ -2,7 +2,7 @@ extends Node
 
 var time_between_turns:float = 0.5
 
-var length_in_rounds:int = 15
+var length_in_rounds:int = 50
 
 var world_state:Dictionary = {
 	"sheep_in" = [],

@@ -23,11 +23,16 @@ func _process(delta: float) -> void:
 		#_animated_sprite.scale.x = -2
 	#if(prev_position.x<position.x):
 		#_animated_sprite.scale.x = 2
-	_animated_sprite.play("court")
+	#_animated_sprite.play("court")
 	prev_position = position
 	#var ax = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	#apply_central_force(ax* speed)
 	#pass
 	
+func patrol():
+	print("Le chien court")
+	_animated_sprite.play("court")
+	
 func bark():
+	print("Le chien aboie !")
 	_animated_sprite.play("aboie")
