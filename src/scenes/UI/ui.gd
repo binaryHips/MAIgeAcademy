@@ -10,7 +10,7 @@ func set_time(time:float):
 	
 
 func _on_h_slider_value_changed(value: float) -> void:
-	
+	value = snapped(value, 0.01)
 	$Panel/VBoxContainer/turn_time.text = "Turn time (" + str(value) + "s)"
 	Gamemaster.time_between_turns = value
 	Gamemaster.turn_timer.wait_time = value
