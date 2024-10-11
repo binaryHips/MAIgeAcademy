@@ -62,4 +62,5 @@ script = ExtResource("1_cb3go")
 [node name="view" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="view"]
+scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_b5yep")

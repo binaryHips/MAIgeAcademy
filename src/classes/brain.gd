@@ -78,6 +78,12 @@ func add_event(event:Dictionary):
 static func kill(agent:Brain):
 	Gamemaster.turn_order.erase(agent)
 	agent.queue_free()
+	
+func die():
+	Gamemaster.turn_order.erase(self)
+	body.queue_free()
+	print("rip")
+
 
 func add_action(name:String , fun:Callable):
 	actions[name] = fun
