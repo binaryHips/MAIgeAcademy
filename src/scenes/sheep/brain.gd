@@ -9,6 +9,18 @@ var count_return:int = 0
 func _ready():
 	speed = 50
 	override_state("idle")
+	
+	add_action("idle_walk" , 
+		func():
+			move_target = body.global_position + Vector2(
+			randf_range(-50, 50),
+			randf_range(-50, 50),
+		)
+	)
+	
+	add_action("escape_run" , func():
+		move_target = body.global_position * 9999
+	)
 
 func _parse_event(event:Dictionary):
 	
@@ -46,7 +58,7 @@ func _act(percept):
 		if percept["is_inside"]:
 			override_state("idle")
 			
-		move_target = body.global_position * 9999
+		execute_action("escape_run")
 		
 	elif has_state("return"):
 		if count_return <= 0:
@@ -57,8 +69,5 @@ func _act(percept):
 	elif has_state("idle"):
 		if not percept["dog_seen"] and not percept["is_inside"]:
 			override_state("runaway")
-		
-		move_target = body.global_position + Vector2(
-			randf_range(-50, 50),
-			randf_range(-50, 50),
-		)
+			
+		execute_action("idle_walk")
