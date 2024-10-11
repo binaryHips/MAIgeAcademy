@@ -7,16 +7,15 @@ func _ready() -> void:
 	Gamemaster.main_scene = self
 	Gamemaster.new_round.connect(on_new_round)
 	
-	sky_colors.sample(0.1)
-	on_new_round(0)
 
-
+	
 func on_new_round(curr_round:int):
 	if not sky_colors: return
 	var time_between_rounds = Gamemaster.time_between_turns * Gamemaster.turn_order.size()
 	
 	var fac = 1.0 / Gamemaster.length_in_rounds * curr_round
 	
+	print("FAC "  ,fac)
 	$CanvasLayer/UI.set_time(fac)
 	
 	var newcol:Color = sky_colors.sample(

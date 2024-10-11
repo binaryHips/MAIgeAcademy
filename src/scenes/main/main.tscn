@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://b64eogwqgw02t" path="res://src/scenes/UI/ui.tscn" id="6_giq1u"]
 
 [sub_resource type="Gradient" id="Gradient_5j847"]
-offsets = PackedFloat32Array(0, 0.0957447, 0.170213, 0.489362, 0.776596, 0.888298, 1)
-colors = PackedColorArray(0.635906, 0.866728, 1, 1, 0.769929, 0.409055, 3.85046e-07, 1, 0.0719065, 0.187173, 0.356465, 1, 0.0494467, 0.144684, 0.284528, 1, 0.184572, 0.372953, 0.5922, 1, 0.560887, 0.294349, 0.045614, 1, 0.626599, 0.790336, 0.985808, 1)
+offsets = PackedFloat32Array(0, 0.0957447, 0.170213, 0.398936, 0.638298, 0.776596, 0.888298, 1)
+colors = PackedColorArray(0.603796, 0.693651, 0.720123, 1, 0.724542, 0.383523, 1.92523e-07, 1, 0.0719065, 0.187173, 0.356465, 1, 0.0494467, 0.144684, 0.284528, 1, 0.0994015, 0.226549, 0.377304, 1, 0.121928, 0.267538, 0.436373, 1, 0.560887, 0.294349, 0.045614, 1, 0.708632, 0.714387, 0.705808, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_3xb10"]
 noise_type = 4
@@ -44,7 +44,6 @@ position = Vector2(-62, 65)
 position = Vector2(315, 272)
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 material = SubResource("ShaderMaterial_6mngh")
 offset_left = -584.0
 offset_top = -605.0

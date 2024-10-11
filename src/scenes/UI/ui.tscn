@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://b64eogwqgw02t"]
+[gd_scene load_steps=3 format=3 uid="uid://b64eogwqgw02t"]
 
 [ext_resource type="Script" path="res://src/scenes/UI/ui.gd" id="1_w5855"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1dy5d"]
+bg_color = Color(0.365632, 0.14354, 0.123519, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 5
+shadow_offset = Vector2(3.865, 2.7)
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -15,14 +24,46 @@ script = ExtResource("1_w5855")
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.282
-anchor_bottom = 0.102
+anchor_bottom = 0.273
 offset_right = 0.0999985
-offset_bottom = 0.0999985
+offset_bottom = 0.150002
+theme_override_styles/panel = SubResource("StyleBoxFlat_1dy5d")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.819
-anchor_bottom = 0.87
-offset_right = 22.987
-offset_bottom = 5.98
+anchor_right = 1.0
+anchor_bottom = 1.154
+offset_bottom = 0.0579987
+
+[node name="turn_time" type="RichTextLabel" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+mouse_filter = 1
+text = "Turn time () "
+
+[node name="HSlider" type="HSlider" parent="Panel/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+min_value = 0.1
+max_value = 2.718
+step = 0.05
+value = 0.5
+exp_edit = true
+
+[node name="time" type="RichTextLabel" parent="Panel"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+anchor_top = 0.22
+anchor_right = 0.282
+anchor_bottom = 0.276
+offset_top = 71.94
+offset_right = 0.0999985
+offset_bottom = 90.052
+mouse_filter = 1
+bbcode_enabled = true
+text = "dfdf"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="value_changed" from="Panel/VBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
