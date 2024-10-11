@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3h086n4tu8x5"]
+[gd_scene load_steps=10 format=3 uid="uid://c3h086n4tu8x5"]
 
 [ext_resource type="Script" path="res://src/scenes/chien/chien.gd" id="1_f0vgp"]
 [ext_resource type="Texture2D" uid="uid://wttefocce8u0" path="res://resources/images/chien_fixe.png" id="1_lwpa3"]
@@ -44,6 +44,9 @@ animations = [{
 radius = 9.0
 height = 32.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_sr43b"]
+radius = 111.0
+
 [node name="Chien" type="RigidBody2D"]
 gravity_scale = 0.0
 freeze = true
@@ -69,3 +72,8 @@ zoom = Vector2(2, 2)
 
 [node name="Brain" type="Node" parent="."]
 script = ExtResource("6_4pepw")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_sr43b")
