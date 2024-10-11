@@ -35,6 +35,7 @@ position = Vector2(56, -20)
 position = Vector2(-62, 65)
 
 [node name="Chien" parent="." instance=ExtResource("3_7kmae")]
+position = Vector2(315, 272)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_6mngh")
