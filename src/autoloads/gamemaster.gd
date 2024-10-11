@@ -6,6 +6,7 @@ var length_in_rounds:int = 50
 
 var world_state:Dictionary = {
 	"sheep_in" = [],
+	"out_of_bounds" = [],
 }
 
 var main_scene:Node2D

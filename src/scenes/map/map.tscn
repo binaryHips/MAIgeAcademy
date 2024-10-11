@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnbyvqieew8wu"]
+[gd_scene load_steps=7 format=3 uid="uid://bnbyvqieew8wu"]
 
 [ext_resource type="Texture2D" uid="uid://difvyndmfhtpb" path="res://resources/images/Enclos.png" id="1_hp2vv"]
 [ext_resource type="Script" path="res://src/scenes/map/enclosure_area.gd" id="2_owcem"]
+[ext_resource type="Script" path="res://src/scenes/map/border.gd" id="3_sefc4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_csnad"]
 radius = 124.0
@@ -42,6 +43,7 @@ shape = SubResource("CapsuleShape2D_csnad")
 curve = SubResource("Curve2D_c0myq")
 
 [node name="Border" type="Area2D" parent="."]
+script = ExtResource("3_sefc4")
 
 [node name="DownWall" type="CollisionShape2D" parent="Border"]
 position = Vector2(-3, 428)
@@ -63,3 +65,4 @@ shape = SubResource("RectangleShape2D_2oxvk")
 
 [connection signal="body_entered" from="Enclosure" to="Enclosure" method="_on_body_entered"]
 [connection signal="body_exited" from="Enclosure" to="Enclosure" method="_on_body_exited"]
+[connection signal="body_entered" from="Border" to="Border" method="_on_body_entered"]

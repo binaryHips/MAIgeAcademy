@@ -37,7 +37,8 @@ func _see():
 	
 	var percept = {
 		"dog_seen":false,
-		"is_inside":false
+		"is_inside":false,
+		"has_escaped":false,
 	}
 	
 	if move_target:
@@ -50,7 +51,8 @@ func _see():
 				percept["dog_seen"] = true
 	
 	percept["is_inside"] = body in Gamemaster.world_state["sheep_in"]
-	
+	percept["has_escaped"] = body in Gamemaster.world_state["out_of_bounds"]
+
 	return percept
 
 
@@ -63,6 +65,8 @@ func _act(percept):
 		if percept["is_inside"]:
 			override_state("idle")
 			
+		if percept["has_escaped"]:
+			die()
 		execute_action("escape_run")
 		
 	elif has_state("return"):
@@ -75,7 +79,7 @@ func _act(percept):
 			override_state("idle")
 		
 		count_return -= 1
-
+		
 	elif has_state("idle"):
 		if not percept["dog_seen"] and not percept["is_inside"]:
 			override_state("runaway")
