@@ -2,12 +2,14 @@ extends Node2D
 
 
 @export var sky_colors:Gradient
-
+var col:Color
 func _ready() -> void:
 	Gamemaster.main_scene = self
 	Gamemaster.new_round.connect(on_new_round)
+	
+	if sky_colors:
+		sky_colors.sample(0.0)
 
-var col:Color = sky_colors.sample(0.0)
 
 func on_new_round(curr_round:int):
 	var time_between_rounds = Gamemaster.time_between_turns * Gamemaster.turn_order.size()
