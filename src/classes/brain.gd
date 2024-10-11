@@ -16,6 +16,8 @@ var event_queue:Array[Dictionary]
 
 @onready var body:PhysicsBody2D = get_parent()
 
+var actions = {}
+
 
 func _init() -> void: 
 	Gamemaster.turn_order.append(self)
@@ -77,3 +79,18 @@ func add_event(event:Dictionary):
 static func kill(agent:Brain):
 	Gamemaster.turn_order.erase(agent)
 	agent.queue_free()
+
+func add_action(name:String , fun:Callable):
+	actions[name] = fun
+
+func initiate_actions(dic:Dictionary):
+	actions = dic
+
+func execute_action(name:String , args:Array = []):
+	if(args.is_empty()):
+			actions[name].call()
+	else:
+		actions[name].call(args)
+
+func remove_action(name:String):
+	actions.erase(name)
