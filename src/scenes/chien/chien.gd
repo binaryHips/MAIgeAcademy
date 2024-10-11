@@ -30,9 +30,9 @@ func _process(delta: float) -> void:
 	#pass
 	
 func patrol():
-	print("Le chien court")
+	#print("Le chien court")
 	_animated_sprite.play("court")
 	
 func bark():
-	print("Le chien aboie !")
+	#print("Le chien aboie !")
 	_animated_sprite.play("aboie")
