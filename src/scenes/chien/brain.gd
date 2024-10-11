@@ -3,6 +3,7 @@ extends Brain
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	speed = 200.0
+	add_state("patrol")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -23,17 +24,14 @@ func goProche():
 	
 func _see():
 	
-	var percept = {
-		"sheep_seen":false,
-		"is_inside":false
-	}
+	var percept = {"sheep" : []}
 	for element in $"../Area2D".get_overlapping_bodies():
 		if element.is_in_group("sheep"):
-
-				percept["sheep_seen"] = true
+			percept["sheep"].push_back(element)
+			#percept["sheep"]["sheep_seen"] = true
+			#percept["sheep"] = element
 	
-	percept["is_inside"] = body in Gamemaster.world_state["sheep_in"]
-	
+	print("Percept : ",percept)
 	return percept
 
 
@@ -42,9 +40,11 @@ func _act(percept):
 
 	if has_state("patrol"):
 		
-		if percept["sheep_seen"]:
+		if !percept["sheep"].is_empty():
 			override_state("bark")
-			move_target = $"../Area2D".get_overlapping_bodies().global_position
+			for e in percept["sheep"]:
+				move_target = e.global_position * 1.3
+				body.bark()
 			
 	if has_state("idle"):
 		if not percept["sheep_seen"] and not percept["is_inside"]:

@@ -38,6 +38,7 @@ position = Vector2(-62, 65)
 position = Vector2(315, 272)
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_6mngh")
 offset_left = -584.0
 offset_top = -605.0
