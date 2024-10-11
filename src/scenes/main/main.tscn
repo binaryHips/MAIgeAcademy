@@ -1,14 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://crnpbul23uwag"]
+[gd_scene load_steps=9 format=3 uid="uid://crnpbul23uwag"]
 
+[ext_resource type="Script" path="res://src/scenes/main/main.gd" id="1_733e2"]
 [ext_resource type="PackedScene" uid="uid://bnbyvqieew8wu" path="res://src/scenes/map/map.tscn" id="1_lwrs2"]
 [ext_resource type="PackedScene" uid="uid://b3noy08dla50m" path="res://src/scenes/sheep/sheep.tscn" id="2_rhssb"]
 [ext_resource type="PackedScene" uid="uid://c3h086n4tu8x5" path="res://src/scenes/chien/chien.tscn" id="3_7kmae"]
 [ext_resource type="Shader" path="res://resources/shaders/tint.gdshader" id="4_babmt"]
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3xb10"]
+noise_type = 4
+frequency = 0.0225
+fractal_octaves = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6s8xa"]
+seamless = true
+noise = SubResource("FastNoiseLite_3xb10")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6mngh"]
 shader = ExtResource("4_babmt")
+shader_parameter/color = Color(0.466072, 0.700482, 0.933048, 1)
+shader_parameter/clouds = SubResource("NoiseTexture2D_6s8xa")
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_733e2")
 
 [node name="Map" parent="." instance=ExtResource("1_lwrs2")]
 
@@ -25,7 +38,7 @@ position = Vector2(-62, 65)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_6mngh")
-offset_left = -605.0
+offset_left = -584.0
 offset_top = -605.0
-offset_right = 645.0
+offset_right = 613.0
 offset_bottom = 645.0

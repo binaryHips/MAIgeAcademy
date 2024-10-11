@@ -22,6 +22,7 @@ Gamemaster="*res://src/autoloads/gamemaster.gd"
 
 window/size/viewport_width=450
 window/size/viewport_height=450
+window/stretch/mode="canvas_items"
 
 [global_group]
 
