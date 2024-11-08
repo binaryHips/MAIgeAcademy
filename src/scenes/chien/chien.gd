@@ -6,6 +6,7 @@ var prev_position = Vector2()
 
 
 @onready var _animated_sprite = $AnimatedSprite2D
+@onready var _audio_stream = $AudioStreamPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -39,3 +40,4 @@ func patrol():
 func bark():
 	print("Le chien aboie !")
 	_animated_sprite.play("aboie")
+	_audio_stream.play()
