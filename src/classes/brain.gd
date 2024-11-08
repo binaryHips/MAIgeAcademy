@@ -48,8 +48,8 @@ func move():
 		tween.play()
 
 func parse_events():
-	for evt in event_queue:
-		_parse_event(evt)
+	while !event_queue.is_empty():
+		_parse_event(event_queue.pop_back())
 
 
 func _parse_event(event:Dictionary):
