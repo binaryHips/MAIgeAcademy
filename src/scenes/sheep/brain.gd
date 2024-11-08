@@ -59,7 +59,7 @@ func _see():
 func _act(percept):
 	print(states)
 	if has_state("runaway"):
-		
+		#body.walk()
 		if percept["is_inside"]:
 			override_state("idle")
 			
@@ -68,6 +68,7 @@ func _act(percept):
 		execute_action("escape_run")
 		
 	elif has_state("return"):
+		#body.walk()
 		if percept["is_inside"]:
 			speed = Settings.sheep_speed
 			count_return = 0
@@ -77,6 +78,7 @@ func _act(percept):
 			
 		elif count_return <= 0:
 			override_state("runaway")
+			body.jump()
 			return
 		
 		count_return -= 1
@@ -84,5 +86,21 @@ func _act(percept):
 	elif has_state("idle"):
 		if not percept["dog_seen"] and not percept["is_inside"]:
 			override_state("runaway")
-			
+			body.jump()
+		
+		body.wait()
 		execute_action("idle_walk")
+
+func move():
+	print(move_target)
+	if move_target:
+		body.walk()
+		var tween = get_tree().create_tween()
+		tween.tween_property(body,
+		"global_position",
+		body.global_position.move_toward(move_target, speed),
+		Settings.time_between_turns
+		).set_trans(Tween.TRANS_SINE)
+		tween.play()
+		await tween.finished
+		body.wait()
