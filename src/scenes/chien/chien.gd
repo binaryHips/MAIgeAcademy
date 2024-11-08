@@ -38,6 +38,6 @@ func patrol():
 	_animated_sprite.play("court")
 	
 func bark():
-	print("Le chien aboie !")
+	#print("Le chien aboie !")
 	_animated_sprite.play("aboie")
 	_audio_stream.play()

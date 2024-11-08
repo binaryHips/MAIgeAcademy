@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://pgbuk611eup1"]
+
+[ext_resource type="Script" path="res://src/scenes/end/end.gd" id="1_0mlu8"]
+[ext_resource type="Texture2D" uid="uid://difvyndmfhtpb" path="res://resources/images/Enclos.png" id="2_nvxde"]
+
+[node name="End" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0mlu8")
+
+[node name="Enclos" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(235, 224)
+scale = Vector2(1.88, 1.777)
+texture = ExtResource("2_nvxde")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="RemainingSheepText" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Sheep remaining : "
+fit_content = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -46.0
+offset_top = -31.0
+offset_right = 46.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+
+[node name="PlayAgain" type="Button" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Play Again"
+
+[connection signal="pressed" from="MarginContainer2/VBoxContainer/PlayAgain" to="." method="_on_button_pressed"]

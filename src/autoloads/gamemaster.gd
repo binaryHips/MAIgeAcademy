@@ -51,7 +51,9 @@ func next_turn():
 	
 func end():
 	print("FINI")
-	get_tree().paused = true
+	turn_timer.stop()
+	get_tree().change_scene_to_file("res://src/scenes/end/End.tscn")
+	#get_tree().paused = true
 	
 func win():
 	game_ended.emit(0)

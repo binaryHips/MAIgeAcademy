@@ -55,7 +55,7 @@ func _act(percept):
 
 	if has_state("patrol"):
 		body.patrol()
-		print(percept)
+		#print(percept)
 		if !percept["sheep"].is_empty():
 			override_state("bark")
 			
