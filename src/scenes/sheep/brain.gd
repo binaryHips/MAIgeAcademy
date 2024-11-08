@@ -30,7 +30,7 @@ func _parse_event(event:Dictionary):
 			move_target = (body.global_position - event["from"]) * 999
 			speed = Settings.sheep_speed * 1.8
 			override_state("return")
-			count_return += randi_range(1, 5)
+			count_return += randi_range(3, 5)
 			
 
 func _see():

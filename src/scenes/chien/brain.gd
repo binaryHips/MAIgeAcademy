@@ -15,7 +15,7 @@ func _register():
 				for i in range(Gamemaster.turn_order.size()-1, 0, -1):
 					Gamemaster.turn_order.insert(i, self)
 					print("TO", Gamemaster.turn_order)
-				
+				Gamemaster.turn_order.append(self)
 		).call_deferred()
 	else:
 		Gamemaster.turn_order.append(self)
@@ -55,19 +55,23 @@ func _act(percept):
 
 	if has_state("patrol"):
 		body.patrol()
+		print(percept)
 		if !percept["sheep"].is_empty():
 			override_state("bark")
 			
-					
+			
 	if has_state("bark"):
 		for e in percept["sheep"]:
 			if e in Gamemaster.world_state["sheep_in"]:
 				override_state("patrol")
 			else:
-				move_target = e.global_position * 1.3
-				body.bark()
-				send_event(e.get_meta("brain"),{"type": "bark", "from" : body.global_position * 1.3})
-				override_state("patrol")
+				var sheep_brain = e.get_meta("brain")
+				if sheep_brain.has_state("runaway"):
+					move_target = e.global_position+sheep_brain.move_target.limit_length(sheep_brain.speed) * 1.6
+					if body.global_position.distance_to(move_target) < sheep_brain.speed+10:
+						body.bark()
+						send_event(sheep_brain,{"type": "bark", "from" : body.global_position})
+						override_state("patrol")
 			
 	if has_state("idle"):
 		if not percept["sheep_seen"] and not percept["is_inside"]:

@@ -58,8 +58,7 @@ script = ExtResource("1_f0vgp")
 texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_4jolv")
-animation = &"court"
-frame_progress = 0.752083
+animation = &"aboie"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
