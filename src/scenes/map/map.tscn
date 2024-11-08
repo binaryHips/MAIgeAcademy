@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bnbyvqieew8wu"]
+[gd_scene load_steps=7 format=3 uid="uid://bnbyvqieew8wu"]
 
 [ext_resource type="Texture2D" uid="uid://difvyndmfhtpb" path="res://resources/images/Enclos.png" id="1_hp2vv"]
 [ext_resource type="Script" path="res://src/scenes/map/enclosure_area.gd" id="2_owcem"]
 [ext_resource type="Script" path="res://src/scenes/map/border.gd" id="3_sefc4"]
-[ext_resource type="PackedScene" uid="uid://dca6holc11y21" path="res://src/scenes/oiseau/oiseau.tscn" id="4_ynqog"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_csnad"]
 radius = 124.0
@@ -18,8 +17,6 @@ point_count = 7
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2oxvk"]
 size = Vector2(57, 911)
-
-[sub_resource type="Curve2D" id="Curve2D_tdgf4"]
 
 [node name="Map" type="Node2D"]
 
@@ -65,13 +62,6 @@ shape = SubResource("RectangleShape2D_2oxvk")
 [node name="LeftWall" type="CollisionShape2D" parent="Border"]
 position = Vector2(-467, 5)
 shape = SubResource("RectangleShape2D_2oxvk")
-
-[node name="AnimatedSprite2D" parent="." instance=ExtResource("4_ynqog")]
-position = Vector2(-245, 361)
-scale = Vector2(2, 2)
-
-[node name="Path2D" type="Path2D" parent="AnimatedSprite2D"]
-curve = SubResource("Curve2D_tdgf4")
 
 [connection signal="body_entered" from="Enclosure" to="Enclosure" method="_on_body_entered"]
 [connection signal="body_exited" from="Enclosure" to="Enclosure" method="_on_body_exited"]

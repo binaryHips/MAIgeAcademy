@@ -25,7 +25,7 @@ animations = [{
 "speed": 6.0
 }]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+[node name="oiseau" type="AnimatedSprite2D"]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_t6gyk")
 animation = &"vole"
