@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://dca6holc11y21"]
+
+[ext_resource type="Texture2D" uid="uid://c8pdwg2emb7kb" path="res://resources/images/oiseau_vole1.png" id="1_fgghx"]
+[ext_resource type="Texture2D" uid="uid://c6lmoeju6nfxa" path="res://resources/images/oiseau_vole2.png" id="2_ncbl3"]
+[ext_resource type="Texture2D" uid="uid://crgmoj5w5iup" path="res://resources/images/oiseau_vole3.png" id="3_ew31t"]
+[ext_resource type="Script" path="res://src/scenes/oiseau/oiseau.gd" id="4_bvt3v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t6gyk"]
+animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": ExtResource("1_fgghx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ncbl3")
+}, {
+"duration": 1.5,
+"texture": ExtResource("3_ew31t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ncbl3")
+}],
+"loop": true,
+"name": &"vole",
+"speed": 6.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_t6gyk")
+animation = &"vole"
+autoplay = "vole"
+script = ExtResource("4_bvt3v")
