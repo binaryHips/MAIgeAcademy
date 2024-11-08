@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3noy08dla50m"]
+[gd_scene load_steps=10 format=3 uid="uid://b3noy08dla50m"]
 
 [ext_resource type="Script" path="res://src/scenes/sheep/brain.gd" id="1_cb3go"]
+[ext_resource type="Script" path="res://src/scenes/sheep/sheep.gd" id="1_gom0w"]
 [ext_resource type="Texture2D" uid="uid://djvmrjhon2nd7" path="res://resources/images/mouton_fixe.png" id="2_vbpay"]
 [ext_resource type="Texture2D" uid="uid://d10nr2yyugb5h" path="res://resources/images/mouton_marche1.png" id="3_rnoor"]
 [ext_resource type="Texture2D" uid="uid://bkifpeids1juy" path="res://resources/images/mouton_marche.png" id="4_vx80i"]
@@ -14,6 +15,9 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_vbpay")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4po7o")
 }],
 "loop": true,
 "name": &"fixe",
@@ -46,6 +50,7 @@ radius = 107.019
 gravity_scale = 0.0
 freeze = true
 freeze_mode = 1
+script = ExtResource("1_gom0w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7vykp")
@@ -54,7 +59,7 @@ shape = SubResource("CircleShape2D_7vykp")
 texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_b0ld6")
-animation = &"marche"
+animation = &"fixe"
 
 [node name="Brain" type="Node" parent="."]
 script = ExtResource("1_cb3go")
