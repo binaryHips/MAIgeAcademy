@@ -28,5 +28,5 @@ func walk():
 	_animated_sprite.play("marche")
 	
 func jump():
-	#print("Le mouton saute")
+	print("Le mouton saute")
 	_animated_sprite.play("saute")

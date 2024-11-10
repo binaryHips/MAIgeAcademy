@@ -1,11 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://b3noy08dla50m"]
+[gd_scene load_steps=15 format=3 uid="uid://b3noy08dla50m"]
 
 [ext_resource type="Script" path="res://src/scenes/sheep/brain.gd" id="1_cb3go"]
 [ext_resource type="Script" path="res://src/scenes/sheep/sheep.gd" id="1_gom0w"]
 [ext_resource type="Texture2D" uid="uid://djvmrjhon2nd7" path="res://resources/images/mouton_fixe.png" id="2_vbpay"]
-[ext_resource type="Texture2D" uid="uid://d10nr2yyugb5h" path="res://resources/images/mouton_marche1.png" id="3_rnoor"]
+[ext_resource type="Texture2D" uid="uid://d3t44im1b4cde" path="res://resources/images/mouton_fixe_2.png" id="3_1u6lm"]
 [ext_resource type="Texture2D" uid="uid://bkifpeids1juy" path="res://resources/images/mouton_marche.png" id="4_vx80i"]
-[ext_resource type="Texture2D" uid="uid://c1udp8kxh24vr" path="res://resources/images/mouton_saut.png" id="5_4po7o"]
+[ext_resource type="Texture2D" uid="uid://br11aenqm3fbd" path="res://resources/images/mouton_marche_2.png" id="5_wvyo2"]
+[ext_resource type="Texture2D" uid="uid://d4ick8trtedie" path="res://resources/images/mouton_saute.png" id="6_nn8yv"]
+[ext_resource type="Texture2D" uid="uid://cdk1cuccgmkyv" path="res://resources/images/mouton_saute_2.png" id="7_w76kc"]
+[ext_resource type="Texture2D" uid="uid://bjk2fs1cq1iva" path="res://resources/images/mouton_saute_3.png" id="8_ifogv"]
+[ext_resource type="Texture2D" uid="uid://6uvf8lug0n4p" path="res://resources/images/mouton_saute_4.png" id="9_pd7ca"]
+[ext_resource type="Texture2D" uid="uid://btgmvoi0mcet1" path="res://resources/images/mouton_saute_5.png" id="10_1gtmv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7vykp"]
 radius = 22.2036
@@ -17,30 +22,42 @@ animations = [{
 "texture": ExtResource("2_vbpay")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_4po7o")
+"texture": ExtResource("3_1u6lm")
 }],
 "loop": true,
 "name": &"fixe",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_rnoor")
+"texture": ExtResource("4_vx80i")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_vx80i")
+"texture": ExtResource("5_wvyo2")
 }],
 "loop": true,
 "name": &"marche",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_4po7o")
+"texture": ExtResource("6_nn8yv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_w76kc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ifogv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_pd7ca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_1gtmv")
 }],
 "loop": true,
 "name": &"saute",
-"speed": 5.0
+"speed": 2.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b5yep"]
@@ -59,7 +76,8 @@ shape = SubResource("CircleShape2D_7vykp")
 texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_b0ld6")
-animation = &"fixe"
+animation = &"saute"
+frame_progress = 0.210333
 
 [node name="Brain" type="Node" parent="."]
 script = ExtResource("1_cb3go")

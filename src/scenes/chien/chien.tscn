@@ -80,4 +80,4 @@ shape = SubResource("CircleShape2D_sr43b")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_fcovk")
-volume_db = -48.475
+volume_db = -30.0
