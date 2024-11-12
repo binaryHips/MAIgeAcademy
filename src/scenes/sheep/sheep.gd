@@ -6,7 +6,7 @@ var prev_position = Vector2()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	prev_position = position
-	_animated_sprite.play("fixe")
+	_animated_sprite.play("fixe", randf_range(0, 1.0))
 	#pass # Replace with function body.
 
 

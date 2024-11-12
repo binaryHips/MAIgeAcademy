@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b3noy08dla50m"]
+[gd_scene load_steps=17 format=3 uid="uid://b3noy08dla50m"]
 
 [ext_resource type="Script" path="res://src/scenes/sheep/brain.gd" id="1_cb3go"]
 [ext_resource type="Script" path="res://src/scenes/sheep/sheep.gd" id="1_gom0w"]
@@ -11,6 +11,17 @@
 [ext_resource type="Texture2D" uid="uid://bjk2fs1cq1iva" path="res://resources/images/mouton_saute_3.png" id="8_ifogv"]
 [ext_resource type="Texture2D" uid="uid://6uvf8lug0n4p" path="res://resources/images/mouton_saute_4.png" id="9_pd7ca"]
 [ext_resource type="Texture2D" uid="uid://btgmvoi0mcet1" path="res://resources/images/mouton_saute_5.png" id="10_1gtmv"]
+
+[sub_resource type="Gradient" id="Gradient_gjab7"]
+colors = PackedColorArray(0, 0, 0, 0.54902, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hrcs7"]
+gradient = SubResource("Gradient_gjab7")
+width = 90
+height = 24
+fill = 1
+fill_from = Vector2(0.482906, 0.576923)
+fill_to = Vector2(0.276923, 0.553846)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7vykp"]
 radius = 22.2036
@@ -69,6 +80,13 @@ freeze = true
 freeze_mode = 1
 script = ExtResource("1_gom0w")
 
+[node name="shadow" type="Sprite2D" parent="."]
+z_index = -2
+z_as_relative = false
+texture_filter = 1
+position = Vector2(3, 16)
+texture = SubResource("GradientTexture2D_hrcs7")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7vykp")
 
@@ -76,8 +94,9 @@ shape = SubResource("CircleShape2D_7vykp")
 texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_b0ld6")
-animation = &"saute"
-frame_progress = 0.210333
+animation = &"fixe"
+frame = 1
+frame_progress = 0.735793
 
 [node name="Brain" type="Node" parent="."]
 script = ExtResource("1_cb3go")

@@ -21,6 +21,7 @@ size = Vector2(57, 911)
 [node name="Map" type="Node2D"]
 
 [node name="Enclos" type="Sprite2D" parent="."]
+z_index = -5
 texture_filter = 1
 scale = Vector2(2, 2)
 texture = ExtResource("1_hp2vv")

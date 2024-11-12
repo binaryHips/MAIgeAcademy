@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dca6holc11y21"]
+[gd_scene load_steps=8 format=3 uid="uid://dca6holc11y21"]
 
 [ext_resource type="Texture2D" uid="uid://c8pdwg2emb7kb" path="res://resources/images/oiseau_vole1.png" id="1_fgghx"]
 [ext_resource type="Texture2D" uid="uid://c6lmoeju6nfxa" path="res://resources/images/oiseau_vole2.png" id="2_ncbl3"]
@@ -25,9 +25,27 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_ue2s1"]
+colors = PackedColorArray(0, 0, 0, 0.396078, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bt2cm"]
+gradient = SubResource("Gradient_ue2s1")
+fill = 1
+fill_from = Vector2(0.482906, 0.576923)
+fill_to = Vector2(0.252137, 0.598291)
+
 [node name="oiseau" type="AnimatedSprite2D"]
+z_index = 1
 texture_filter = 1
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_t6gyk")
 animation = &"vole"
 autoplay = "vole"
+frame = 3
+frame_progress = 0.712631
 script = ExtResource("4_bvt3v")
+
+[node name="shadow" type="Sprite2D" parent="."]
+position = Vector2(-18.5, 26)
+scale = Vector2(0.308594, 0.109375)
+texture = SubResource("GradientTexture2D_bt2cm")

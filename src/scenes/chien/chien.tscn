@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c3h086n4tu8x5"]
+[gd_scene load_steps=13 format=3 uid="uid://c3h086n4tu8x5"]
 
 [ext_resource type="Script" path="res://src/scenes/chien/chien.gd" id="1_f0vgp"]
 [ext_resource type="Texture2D" uid="uid://wttefocce8u0" path="res://resources/images/chien_fixe.png" id="1_lwpa3"]
@@ -7,6 +7,17 @@
 [ext_resource type="Texture2D" uid="uid://dpubu47aoxb2s" path="res://resources/images/chien_cours2.png" id="5_opua5"]
 [ext_resource type="Script" path="res://src/scenes/chien/brain.gd" id="6_4pepw"]
 [ext_resource type="AudioStream" uid="uid://dvanecc3tjyxh" path="res://resources/sound/woof.ogg" id="7_fcovk"]
+
+[sub_resource type="Gradient" id="Gradient_bpyc2"]
+colors = PackedColorArray(0, 0, 0, 0.584314, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3r5ty"]
+gradient = SubResource("Gradient_bpyc2")
+width = 90
+height = 24
+fill = 1
+fill_from = Vector2(0.482906, 0.576923)
+fill_to = Vector2(0.236923, 0.609231)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4jolv"]
 animations = [{
@@ -54,6 +65,13 @@ freeze = true
 freeze_mode = 1
 linear_damp = 2.0
 script = ExtResource("1_f0vgp")
+
+[node name="shadow" type="Sprite2D" parent="."]
+z_index = -2
+z_as_relative = false
+texture_filter = 1
+position = Vector2(-1, 14.875)
+texture = SubResource("GradientTexture2D_3r5ty")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
