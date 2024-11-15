@@ -1,8 +1,5 @@
 extends Node
 
-
-
-
 var world_state:Dictionary = {
 	"sheep_in" = [],
 	"out_of_bounds" = [],
@@ -10,8 +7,7 @@ var world_state:Dictionary = {
 
 var main_scene:Node2D
 
-var turn_order:Array[Brain]
-
+var turn_order:Array[Brain] = []
 
 @onready var turn_timer:Timer = Timer.new()
 
@@ -23,14 +19,20 @@ signal new_round(num:int)
 signal new_turn(player_idx:int)
 
 func _ready() -> void:
-	
 	add_child(turn_timer)
 
-
 func start_game():
+	turn_order.clear() 
+	world_state["out_of_bounds"].clear()
+	world_state["sheep_in"].clear()
 	turn_timer.start()
 	turn_timer.wait_time = Settings.time_between_turns
 	turn_timer.timeout.connect(next_turn)
+	round_count = 0
+	current_turn = 0
+	# Initialize turn_order with new Brain instances or other necessary setup
+	# Example: turn_order.append(Brain.new())
+	emit_signal("game_started")
 
 var round_count:int
 var current_turn:int = 0
@@ -48,13 +50,12 @@ func next_turn():
 	
 	if round_count == Settings.length_in_rounds:
 		end()
-	
+
 func end():
 	print("FINI")
+	print("------------------------------------------------------\n")
+	print(turn_order)
 	turn_timer.stop()
 	get_tree().change_scene_to_file("res://src/scenes/end/End.tscn")
 	#get_tree().paused = true
-	
-func win():
-	game_ended.emit(0)
-	
+	emit_signal("game_ended", 0)
