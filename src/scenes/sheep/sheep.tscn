@@ -4,13 +4,16 @@
 [ext_resource type="Script" path="res://src/scenes/sheep/sheep.gd" id="1_gom0w"]
 [ext_resource type="Texture2D" uid="uid://djvmrjhon2nd7" path="res://resources/images/mouton_fixe.png" id="2_vbpay"]
 [ext_resource type="Texture2D" uid="uid://d3t44im1b4cde" path="res://resources/images/mouton_fixe_2.png" id="3_1u6lm"]
-[ext_resource type="Texture2D" uid="uid://bkifpeids1juy" path="res://resources/images/mouton_marche.png" id="4_vx80i"]
-[ext_resource type="Texture2D" uid="uid://br11aenqm3fbd" path="res://resources/images/mouton_marche_2.png" id="5_wvyo2"]
-[ext_resource type="Texture2D" uid="uid://d4ick8trtedie" path="res://resources/images/mouton_saute.png" id="6_nn8yv"]
-[ext_resource type="Texture2D" uid="uid://cdk1cuccgmkyv" path="res://resources/images/mouton_saute_2.png" id="7_w76kc"]
-[ext_resource type="Texture2D" uid="uid://bjk2fs1cq1iva" path="res://resources/images/mouton_saute_3.png" id="8_ifogv"]
-[ext_resource type="Texture2D" uid="uid://6uvf8lug0n4p" path="res://resources/images/mouton_saute_4.png" id="9_pd7ca"]
-[ext_resource type="Texture2D" uid="uid://btgmvoi0mcet1" path="res://resources/images/mouton_saute_5.png" id="10_1gtmv"]
+[ext_resource type="Texture2D" uid="uid://bkifpeids1juy" path="res://resources/images/old_mouton_marche.png" id="4_vx80i"]
+[ext_resource type="Texture2D" uid="uid://c2pf4t5x1opqw" path="res://resources/images/mouton_saute1.png" id="4_xs3tj"]
+[ext_resource type="Texture2D" uid="uid://kvrb3sp6c3db" path="res://resources/images/mouton_saute2.png" id="5_npwox"]
+[ext_resource type="Texture2D" uid="uid://br11aenqm3fbd" path="res://resources/images/old_mouton_marche_2.png" id="5_wvyo2"]
+[ext_resource type="Texture2D" uid="uid://bo0g1jhwouiam" path="res://resources/images/mouton_saute3.png" id="6_kcua4"]
+[ext_resource type="Texture2D" uid="uid://d4ick8trtedie" path="res://resources/images/mouton_marche.png" id="6_nn8yv"]
+[ext_resource type="Texture2D" uid="uid://cdk1cuccgmkyv" path="res://resources/images/mouton_marche_2.png" id="7_w76kc"]
+[ext_resource type="Texture2D" uid="uid://bjk2fs1cq1iva" path="res://resources/images/mouton_marche_3.png" id="8_ifogv"]
+[ext_resource type="Texture2D" uid="uid://6uvf8lug0n4p" path="res://resources/images/mouton_marche_4.png" id="9_pd7ca"]
+[ext_resource type="Texture2D" uid="uid://btgmvoi0mcet1" path="res://resources/images/mouton_marche_5.png" id="10_1gtmv"]
 [ext_resource type="AudioStream" uid="uid://rjjtqxhfbv1o" path="res://resources/sound/step_1.ogg" id="12_k50gs"]
 [ext_resource type="AudioStream" uid="uid://dgoi7shoih7dx" path="res://resources/sound/step_2.ogg" id="13_cvm8e"]
 [ext_resource type="AudioStream" uid="uid://dd8cg2tea1qcj" path="res://resources/sound/step_3.ogg" id="14_i3kdn"]
@@ -74,6 +77,23 @@ animations = [{
 "loop": true,
 "name": &"old_marche",
 "speed": 3.0
+}, {
+"frames": [{
+"duration": 0.3,
+"texture": ExtResource("2_vbpay")
+}, {
+"duration": 0.2,
+"texture": ExtResource("4_xs3tj")
+}, {
+"duration": 0.2,
+"texture": ExtResource("5_npwox")
+}, {
+"duration": 0.3,
+"texture": ExtResource("6_kcua4")
+}],
+"loop": true,
+"name": &"saute",
+"speed": 1.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b5yep"]
@@ -99,8 +119,8 @@ shape = SubResource("CircleShape2D_7vykp")
 texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_b0ld6")
-animation = &"marche"
-frame_progress = 0.316428
+animation = &"saute"
+frame_progress = 0.223552
 
 [node name="Brain" type="Node" parent="."]
 script = ExtResource("1_cb3go")

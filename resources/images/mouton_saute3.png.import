@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4ick8trtedie"
-path="res://.godot/imported/mouton_marche.png-a0ebda67f9ee701b70ff85396d56bda8.ctex"
+uid="uid://bo0g1jhwouiam"
+path="res://.godot/imported/mouton_saute3.png-cdf1cf171f4cb16693fd4a7dc5b220a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/images/mouton_marche.png"
-dest_files=["res://.godot/imported/mouton_marche.png-a0ebda67f9ee701b70ff85396d56bda8.ctex"]
+source_file="res://resources/images/mouton_saute3.png"
+dest_files=["res://.godot/imported/mouton_saute3.png-cdf1cf171f4cb16693fd4a7dc5b220a1.ctex"]
 
 [params]
 

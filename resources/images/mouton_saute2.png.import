@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4ick8trtedie"
-path="res://.godot/imported/mouton_saute.png-d602a9d66b99b5bf791922487493b03c.ctex"
+uid="uid://kvrb3sp6c3db"
+path="res://.godot/imported/mouton_saute2.png-000bb5ab72555fe611f86afbf614b024.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/images/mouton_saute.png"
-dest_files=["res://.godot/imported/mouton_saute.png-d602a9d66b99b5bf791922487493b03c.ctex"]
+source_file="res://resources/images/mouton_saute2.png"
+dest_files=["res://.godot/imported/mouton_saute2.png-000bb5ab72555fe611f86afbf614b024.ctex"]
 
 [params]
 
