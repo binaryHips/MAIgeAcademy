@@ -78,7 +78,6 @@ func _act(percept):
 			
 		elif count_return <= 0:
 			override_state("runaway")
-			body.jump()
 			return
 		
 		count_return -= 1
@@ -86,7 +85,6 @@ func _act(percept):
 	elif has_state("idle"):
 		if not percept["dog_seen"] and not percept["is_inside"]:
 			override_state("runaway")
-			body.jump()
 		
 		body.wait()
 		execute_action("idle_walk")
