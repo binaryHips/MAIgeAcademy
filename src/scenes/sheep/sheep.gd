@@ -26,7 +26,17 @@ func wait():
 func walk():
 	#print("Le mouton marche")
 	_animated_sprite.play("marche")
+	randomStepSound().play()
 	
 func jump():
 	print("Le mouton saute")
 	_animated_sprite.play("saute")
+
+func randomStepSound():
+	var audio_step_1 = $Step1
+	var audio_step_2 = $Step2
+	var audio_step_3 = $Step3
+	var audio_step_4 = $Step4
+	var tab_audio = [audio_step_1, audio_step_2, audio_step_3, audio_step_4]
+	var i = randi()%4
+	return tab_audio[i]

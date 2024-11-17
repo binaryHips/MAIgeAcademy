@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b3noy08dla50m"]
+[gd_scene load_steps=21 format=3 uid="uid://b3noy08dla50m"]
 
 [ext_resource type="Script" path="res://src/scenes/sheep/brain.gd" id="1_cb3go"]
 [ext_resource type="Script" path="res://src/scenes/sheep/sheep.gd" id="1_gom0w"]
@@ -11,6 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://bjk2fs1cq1iva" path="res://resources/images/mouton_saute_3.png" id="8_ifogv"]
 [ext_resource type="Texture2D" uid="uid://6uvf8lug0n4p" path="res://resources/images/mouton_saute_4.png" id="9_pd7ca"]
 [ext_resource type="Texture2D" uid="uid://btgmvoi0mcet1" path="res://resources/images/mouton_saute_5.png" id="10_1gtmv"]
+[ext_resource type="AudioStream" uid="uid://rjjtqxhfbv1o" path="res://resources/sound/step_1.ogg" id="12_k50gs"]
+[ext_resource type="AudioStream" uid="uid://dgoi7shoih7dx" path="res://resources/sound/step_2.ogg" id="13_cvm8e"]
+[ext_resource type="AudioStream" uid="uid://dd8cg2tea1qcj" path="res://resources/sound/step_3.ogg" id="14_i3kdn"]
+[ext_resource type="AudioStream" uid="uid://cvwtaoq78ylj4" path="res://resources/sound/step_4.ogg" id="15_goukn"]
 
 [sub_resource type="Gradient" id="Gradient_gjab7"]
 colors = PackedColorArray(0, 0, 0, 0.54902, 0, 0, 0, 0)
@@ -106,3 +110,19 @@ script = ExtResource("1_cb3go")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="view"]
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_b5yep")
+
+[node name="Step1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_k50gs")
+volume_db = -15.0
+
+[node name="Step2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_cvm8e")
+volume_db = -15.0
+
+[node name="Step3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_i3kdn")
+volume_db = -15.0
+
+[node name="Step4" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_goukn")
+volume_db = -15.0
