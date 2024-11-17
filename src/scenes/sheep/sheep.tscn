@@ -40,6 +40,26 @@ animations = [{
 "speed": 1.0
 }, {
 "frames": [{
+"duration": 0.1,
+"texture": ExtResource("6_nn8yv")
+}, {
+"duration": 0.1,
+"texture": ExtResource("7_w76kc")
+}, {
+"duration": 0.1,
+"texture": ExtResource("8_ifogv")
+}, {
+"duration": 0.1,
+"texture": ExtResource("9_pd7ca")
+}, {
+"duration": 0.1,
+"texture": ExtResource("10_1gtmv")
+}],
+"loop": true,
+"name": &"marche",
+"speed": 1.0
+}, {
+"frames": [{
 "duration": 1.0,
 "texture": ExtResource("4_vx80i")
 }, {
@@ -47,28 +67,8 @@ animations = [{
 "texture": ExtResource("5_wvyo2")
 }],
 "loop": true,
-"name": &"marche",
+"name": &"old_marche",
 "speed": 3.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("6_nn8yv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_w76kc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_ifogv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_pd7ca")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_1gtmv")
-}],
-"loop": true,
-"name": &"saute",
-"speed": 2.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b5yep"]
@@ -94,9 +94,8 @@ shape = SubResource("CircleShape2D_7vykp")
 texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_b0ld6")
-animation = &"fixe"
-frame = 1
-frame_progress = 0.735793
+animation = &"marche"
+frame_progress = 0.316428
 
 [node name="Brain" type="Node" parent="."]
 script = ExtResource("1_cb3go")
