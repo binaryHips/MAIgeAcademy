@@ -27,6 +27,7 @@ func walk():
 	#print("Le mouton marche")
 	_animated_sprite.play("marche")
 	randomStepSound().play()
+	randomBelement()
 	
 func jump():
 	print("Le mouton saute")
@@ -40,3 +41,11 @@ func randomStepSound():
 	var tab_audio = [audio_step_1, audio_step_2, audio_step_3, audio_step_4]
 	var i = randi()%4
 	return tab_audio[i]
+	
+func randomBelement():
+	var bele = $Belement
+	var i = randi()%10
+	var pitch = randf_range(0.90, 1.15)
+	if i == 0:
+		bele.pitch_scale = pitch
+		bele.play()

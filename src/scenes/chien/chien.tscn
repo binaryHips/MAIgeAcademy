@@ -102,7 +102,7 @@ shape = SubResource("CircleShape2D_sr43b")
 
 [node name="Ouaf" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_fcovk")
-volume_db = -17.661
+volume_db = -12.373
 
 [node name="Step1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_lsdn6")

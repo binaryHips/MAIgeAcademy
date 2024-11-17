@@ -18,6 +18,8 @@ func _ready() -> void:
 	coeffs.append(randf_range(-0.00001, 0.00001)) # deg 3
 	print(coeffs)
 	scale.x = sens * 2;
+	var pitch = randf_range(0.90, 1.15)
+	bruitCorbeau.pitch_scale = pitch
 	bruitCorbeau.play()
 	pass # Replace with function body.
 

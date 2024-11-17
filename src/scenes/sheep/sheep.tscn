@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b3noy08dla50m"]
+[gd_scene load_steps=22 format=3 uid="uid://b3noy08dla50m"]
 
 [ext_resource type="Script" path="res://src/scenes/sheep/brain.gd" id="1_cb3go"]
 [ext_resource type="Script" path="res://src/scenes/sheep/sheep.gd" id="1_gom0w"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://dgoi7shoih7dx" path="res://resources/sound/step_2.ogg" id="13_cvm8e"]
 [ext_resource type="AudioStream" uid="uid://dd8cg2tea1qcj" path="res://resources/sound/step_3.ogg" id="14_i3kdn"]
 [ext_resource type="AudioStream" uid="uid://cvwtaoq78ylj4" path="res://resources/sound/step_4.ogg" id="15_goukn"]
+[ext_resource type="AudioStream" uid="uid://b0bevm7ftsob7" path="res://resources/sound/mouton.ogg" id="16_h1cij"]
 
 [sub_resource type="Gradient" id="Gradient_gjab7"]
 colors = PackedColorArray(0, 0, 0, 0.54902, 0, 0, 0, 0)
@@ -125,3 +126,7 @@ volume_db = -15.0
 [node name="Step4" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_goukn")
 volume_db = -15.0
+
+[node name="Belement" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_h1cij")
+volume_db = -10.576
