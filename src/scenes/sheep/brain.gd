@@ -5,6 +5,7 @@ extends Brain
 var dir_view:Vector2
 
 var count_return:int = 0
+var out:bool = false
 
 func _ready():
 	_register()
@@ -86,13 +87,25 @@ func _act(percept):
 		if not percept["dog_seen"] and not percept["is_inside"]:
 			override_state("runaway")
 		
-		body.wait()
+		#body.wait()
 		execute_action("idle_walk")
 
 func move():
 	print(move_target)
 	if move_target:
-		body.walk()
+		if body in Gamemaster.world_state["sheep_in"]:
+			if out:
+				#print("il est dedans...")
+				out = false
+			body.walk()
+		else:
+			if not out:
+				#print("il sort de l'enclos")
+				out = true
+				body.jump()
+			else:
+				#print("il est dehors !!")
+				body.walk()
 		var tween = get_tree().create_tween()
 		tween.tween_property(body,
 		"global_position",
