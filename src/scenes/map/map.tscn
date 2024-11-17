@@ -1,8 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnbyvqieew8wu"]
+[gd_scene load_steps=11 format=3 uid="uid://bnbyvqieew8wu"]
 
 [ext_resource type="Texture2D" uid="uid://difvyndmfhtpb" path="res://resources/images/Enclos.png" id="1_hp2vv"]
 [ext_resource type="Script" path="res://src/scenes/map/enclosure_area.gd" id="2_owcem"]
 [ext_resource type="Script" path="res://src/scenes/map/border.gd" id="3_sefc4"]
+[ext_resource type="AudioStream" uid="uid://bh7xsab3sue6e" path="res://resources/sound/foret.ogg" id="4_swghe"]
+[ext_resource type="Script" path="res://src/scenes/map/audio_stream_player_2d.gd" id="5_bpja8"]
+[ext_resource type="AudioStream" uid="uid://db58hcqalg1gx" path="res://resources/sound/grillons.ogg" id="6_48fea"]
+[ext_resource type="Script" path="res://src/scenes/map/grillons.gd" id="7_kyeds"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_csnad"]
 radius = 124.0
@@ -64,6 +68,18 @@ shape = SubResource("RectangleShape2D_2oxvk")
 position = Vector2(-467, 5)
 shape = SubResource("RectangleShape2D_2oxvk")
 
+[node name="foret" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_swghe")
+volume_db = -19.39
+script = ExtResource("5_bpja8")
+
+[node name="grillons" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_48fea")
+volume_db = -23.797
+script = ExtResource("7_kyeds")
+
 [connection signal="body_entered" from="Enclosure" to="Enclosure" method="_on_body_entered"]
 [connection signal="body_exited" from="Enclosure" to="Enclosure" method="_on_body_exited"]
 [connection signal="body_entered" from="Border" to="Border" method="_on_body_entered"]
+[connection signal="finished" from="foret" to="foret" method="_on_finished"]
+[connection signal="finished" from="grillons" to="grillons" method="_on_finished"]

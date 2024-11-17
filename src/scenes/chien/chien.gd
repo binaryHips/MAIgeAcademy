@@ -27,6 +27,10 @@ func _process(delta: float) -> void:
 		_animated_sprite.scale.x = 2
 	#_animated_sprite.play("court")
 	prev_position = position
+	
+	var anim_speed = Settings.base_time_between_turns / Settings.time_between_turns
+	_animated_sprite.speed_scale = anim_speed
+	
 	#var ax = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	#apply_central_force(ax* speed)
 	#pass

@@ -21,6 +21,7 @@ func _ready() -> void:
 	var pitch = randf_range(0.90, 1.15)
 	bruitCorbeau.pitch_scale = pitch
 	bruitCorbeau.play()
+	
 	pass # Replace with function body.
 
 
@@ -39,6 +40,10 @@ func _process(delta: float) -> void:
 	
 	var fac = min(1.0, 1.0 / Settings.length_in_rounds * Gamemaster.round_count + 0.0001)
 	print(fac)
+	
+	var anim_speed = Settings.base_time_between_turns / Settings.time_between_turns
+	speed_scale = anim_speed
+	
 	$shadow.global_position.x = global_position.x + lerp(-0.5, 0.5, fac) * 70 #because scaling on x
 
 	if abs(position.x) >= 1000: queue_free()

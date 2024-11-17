@@ -18,6 +18,10 @@ func _process(delta: float) -> void:
 		_animated_sprite.scale.x = 2
 		
 	prev_position = position
+	
+	var anim_speed = Settings.base_time_between_turns / Settings.time_between_turns
+	_animated_sprite.speed_scale = anim_speed
+	
 	#pass
 
 func wait():

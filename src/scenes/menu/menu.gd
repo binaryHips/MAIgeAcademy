@@ -151,3 +151,10 @@ func _on_sheep_speed_value_changed(value: float) -> void:
 func _on_dog_speed_value_changed(value: float) -> void:
 	Settings.dog_speed = value
 	$MarginContainer2/VBoxContainer/DogText.text = "Dog speed : " + str(value)
+
+
+func _on_margin_container_mouse_entered() -> void:
+	$sonMenu.play()
+
+func _on_margin_container_2_mouse_entered() -> void:
+	$sonMenu.play()
