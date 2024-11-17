@@ -2,6 +2,7 @@ extends AnimatedSprite2D
 
 var coeffs = []
 var sens = 1
+@onready var bruitCorbeau = $bruitCorbeau
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,6 +18,7 @@ func _ready() -> void:
 	coeffs.append(randf_range(-0.00001, 0.00001)) # deg 3
 	print(coeffs)
 	scale.x = sens * 2;
+	bruitCorbeau.play()
 	pass # Replace with function body.
 
 
