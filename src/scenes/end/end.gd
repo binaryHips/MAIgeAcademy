@@ -5,7 +5,7 @@ var numSheep
 var sheepDead
 var sheepLeft
 
-const SHEEP = preload("res://src/scenes/sheep/sheep.tscn")
+const SHEEP = preload("res://resources/images/mouton_saut.png")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -21,8 +21,9 @@ func _ready() -> void:
 	$MarginContainer/VBoxContainer/RemainingSheepText.text = "Sheep Remaining : " + str(sheepLeft) + " / " + str(numSheep)
 	
 	for k in sheepLeft:
-		var sheep := SHEEP.instantiate()
-		sheep.scale = sheep.scale/1.5
+		var sheep := Sprite2D.new()
+		sheep.texture = SHEEP
+		sheep.scale = sheep.scale*1.5
 		$Enclos.add_child(sheep)
 		sheep.position = Vector2i(
 			randi_range(-65, 65),
@@ -32,13 +33,7 @@ func _ready() -> void:
 func celebrate() :
 	#var tween = get_tree().create_tween()
 	for sprite in $Enclos.get_children():
-		var pos = sprite.position
-		var jumpTo = pos + Vector2(0,-300)
-		#tween.tween_property(sprite , "position" , jumpTo, 0.1)
-		#tween.chain().tween_property(sprite, "position", pos, 0.1)
-		sprite.position = jumpTo
-		wait(0.5)
-		sprite.position = pos
+		sprite.position.y += sin( Time.get_ticks_msec()/100 + sprite.position.x *40000)
 
 
 func wait(seconds:float) -> void:
