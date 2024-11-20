@@ -1,10 +1,20 @@
 extends Brain
 
 # Called when the node enters the scene tree for the first time.
+var current_target:Brain
 func _ready() -> void:
 	_register()
 	speed = Settings.dog_speed
 	add_state("patrol")
+	add_action("walk_and_bark" , 
+		func():
+			move_target = current_target.body.global_position+current_target.move_target.limit_length(current_target.speed) * 1.6
+			if body.global_position.distance_to(move_target) < current_target.speed+10:
+				body.bark()
+				send_event(current_target,{"type": "bark", "from" : body.global_position})
+				current_target.add_state("just_barked_on")
+				override_state("patrol")
+	)
 
 func _register():
 	body.set_meta("brain", self)
@@ -49,7 +59,6 @@ func _see():
 	#print("Percept : ",percept)
 	return percept
 
-
 func _act(percept):
 	#print("Etat chien : ",states)
 
@@ -60,20 +69,35 @@ func _act(percept):
 			override_state("bark")
 			
 			
-	if has_state("bark"):
-		for e in percept["sheep"]:
-			if e in Gamemaster.world_state["sheep_in"]:
-				override_state("patrol")
+	elif has_state("bark"):
+		
+		#first target 
+		if is_instance_valid(current_target):
+
+			if (
+				not current_target.has_state("just_barked_on")
+				and current_target.has_state("runaway")
+			):
+				execute_action("walk_and_bark")
+				return
 			else:
-				var sheep_brain = e.get_meta("brain")
-				if sheep_brain.has_state("runaway"):
-					move_target = e.global_position+sheep_brain.move_target.limit_length(sheep_brain.speed) * 1.6
-					if body.global_position.distance_to(move_target) < sheep_brain.speed+10:
-						body.bark()
-						send_event(sheep_brain,{"type": "bark", "from" : body.global_position})
-						override_state("patrol")
-			
-	if has_state("idle"):
+				current_target = null
+		
+		for e in percept["sheep"]:
+			var sheep_brain:Brain = e.get_meta("brain")
+			if (
+				not e in Gamemaster.world_state["sheep_in"]
+				and not sheep_brain.has_state("just_barked_on")
+				and sheep_brain.has_state("runaway")
+			):
+				current_target = sheep_brain
+				execute_action("walk_and_bark")
+				return
+			else:
+				override_state("patrol")
+	
+	
+	elif has_state("idle"):
 		if not percept["sheep_seen"] and not percept["is_inside"]:
 			override_state("patrol")
 		

@@ -78,12 +78,11 @@ func add_event(event:Dictionary):
 	event_queue.append(event)
 
 static func kill(agent:Brain):
-	Gamemaster.turn_order.erase(agent)
-	agent.queue_free()
+	agent.die()
 	
 func die():
 	#Gamemaster.turn_order.erase(self)
-	Gamemaster.turn_order.filter(
+	Gamemaster.turn_order = Gamemaster.turn_order.filter(
 		func (a) : return not (a == self)
 		)
 	body.queue_free()

@@ -76,12 +76,12 @@ func _act(percept):
 			override_state("idle")
 			execute_action("idle_walk")
 			return
-			
+		
 		elif count_return <= 0:
 			override_state("runaway")
 			execute_action("escape_run") #??
 			return
-		
+		#print("COUNT RETURN ", count_return)
 		count_return -= 1
 		
 	elif has_state("idle"):
