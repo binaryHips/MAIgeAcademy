@@ -34,7 +34,7 @@ func walk():
 	randomBelement()
 	
 func jump():
-	print("Le mouton saute")
+	#print("Le mouton saute")
 	_animated_sprite.play("saute")
 
 func randomStepSound():

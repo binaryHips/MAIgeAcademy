@@ -29,6 +29,6 @@ func _act(percept):
 		var target = percept.cibles[0]
 		parent.velocity = (target.position - parent.position).normalized() * mvSpeed
 	else:
-		print(physics_delta)
+		#print(physics_delta)
 		
 		parent.velocity = parent.velocity.move_toward(Vector2.ZERO, physics_delta * 5)

@@ -14,7 +14,7 @@ func _ready() -> void:
 	print("---------------------------------------------\n")
 	sheepDead = Gamemaster.world_state["out_of_bounds"].size()
 	sheepLeft = numSheep - sheepDead
-	print(Gamemaster.world_state["out_of_bounds"])
+	print("Out of bounds : " + str(Gamemaster.world_state["out_of_bounds"]))
 	print("Sheep : " + str(numSheep))
 	print("dead :(  : " + str(sheepDead))
 	print("alive :D : " + str(sheepLeft))

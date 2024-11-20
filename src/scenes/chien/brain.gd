@@ -14,7 +14,7 @@ func _register():
 			func ():
 				for i in range(Gamemaster.turn_order.size()-1, 0, -1):
 					Gamemaster.turn_order.insert(i, self)
-					print("TO", Gamemaster.turn_order)
+					#print("TO", Gamemaster.turn_order)
 				Gamemaster.turn_order.append(self)
 		).call_deferred()
 	else:
@@ -46,12 +46,12 @@ func _see():
 			#percept["sheep"]["sheep_seen"] = true
 			#percept["sheep"] = element
 	
-	print("Percept : ",percept)
+	#print("Percept : ",percept)
 	return percept
 
 
 func _act(percept):
-	print("Etat chien : ",states)
+	#print("Etat chien : ",states)
 
 	if has_state("patrol"):
 		body.patrol()

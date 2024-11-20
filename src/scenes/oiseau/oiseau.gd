@@ -16,7 +16,7 @@ func _ready() -> void:
 	coeffs.append(randf_range(-0.001, 0.001)) # deg 2
 	
 	coeffs.append(randf_range(-0.00001, 0.00001)) # deg 3
-	print(coeffs)
+	#print(coeffs)
 	scale.x = sens * 2;
 	var pitch = randf_range(0.90, 1.15)
 	bruitCorbeau.pitch_scale = pitch
@@ -27,7 +27,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(global_position)
+	#print(global_position)
 	#const h = 0.001
 	const speed = 60;
 	#var diff = abs(f(global_position.x+h)-f(global_position.x)/h)
@@ -39,7 +39,7 @@ func _process(delta: float) -> void:
 	
 	
 	var fac = min(1.0, 1.0 / Settings.length_in_rounds * Gamemaster.round_count + 0.0001)
-	print(fac)
+	#print(fac)
 	
 	var anim_speed = Settings.base_time_between_turns / Settings.time_between_turns
 	speed_scale = anim_speed

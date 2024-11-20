@@ -23,7 +23,14 @@ func _ready() -> void:
 
 func start_game():
 	turn_order.clear() 
+	
+	for obj in world_state["out_of_bounds"]:
+		if is_instance_valid(obj):
+			obj.queue_free()
+			
 	world_state["out_of_bounds"].clear()
+	print("----------------------------------")
+	print("At the start of the Game : " + str(world_state["out_of_bounds"]))
 	world_state["sheep_in"].clear()
 	turn_timer.start()
 	turn_timer.wait_time = Settings.time_between_turns
@@ -52,9 +59,9 @@ func next_turn():
 		end()
 
 func end():
-	print("FINI")
-	print("------------------------------------------------------\n")
-	print(turn_order)
+	#print("FINI")
+	#print("------------------------------------------------------\n")
+	#print("turn order : " + str(turn_order))
 	turn_timer.stop()
 	get_tree().change_scene_to_file("res://src/scenes/end/End.tscn")
 	#get_tree().paused = true

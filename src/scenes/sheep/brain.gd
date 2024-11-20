@@ -58,7 +58,7 @@ func _see():
 
 
 func _act(percept):
-	print(states)
+	#print(states)
 	if has_state("runaway"):
 		#body.walk()
 		if percept["is_inside"]:
@@ -91,7 +91,7 @@ func _act(percept):
 		execute_action("idle_walk")
 
 func move():
-	print(move_target)
+	#print(move_target)
 	if move_target:
 		if body in Gamemaster.world_state["sheep_in"]:
 			if out:

@@ -36,7 +36,7 @@ func _act(percept):
 	pass
 
 func move():
-	print(move_target)
+	#print(move_target)
 	if move_target:
 		
 		var tween = get_tree().create_tween()
