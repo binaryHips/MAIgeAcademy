@@ -82,7 +82,7 @@ static func kill(agent:Brain):
 	agent.queue_free()
 	
 func die():
-	Gamemaster.turn_order.erase(self)
+	#Gamemaster.turn_order.erase(self)
 	Gamemaster.turn_order.filter(
 		func (a) : return not (a == self)
 		)

@@ -79,6 +79,7 @@ func _act(percept):
 			
 		elif count_return <= 0:
 			override_state("runaway")
+			execute_action("escape_run") #??
 			return
 		
 		count_return -= 1
@@ -86,32 +87,35 @@ func _act(percept):
 	elif has_state("idle"):
 		if not percept["dog_seen"] and not percept["is_inside"]:
 			override_state("runaway")
-		
-		#body.wait()
-		execute_action("idle_walk")
+			execute_action("escape_run")
+		else:
+			execute_action("idle_walk")
 
 func move():
 	#print(move_target)
 	if move_target:
+		var TRANS:int = Tween.TRANS_SINE
 		if body in Gamemaster.world_state["sheep_in"]:
-			if out:
-				#print("il est dedans...")
-				out = false
+			out = false
 			body.walk()
 		else:
 			if not out:
 				#print("il sort de l'enclos")
 				out = true
 				body.jump()
+				TRANS = Tween.TRANS_CIRC
 			else:
 				#print("il est dehors !!")
 				body.walk()
+		
+		body.get_node("AnimatedSprite2D")
 		var tween = get_tree().create_tween()
 		tween.tween_property(body,
 		"global_position",
 		body.global_position.move_toward(move_target, speed),
 		Settings.time_between_turns
-		).set_trans(Tween.TRANS_SINE)
+		).set_trans(TRANS)
 		tween.play()
-		await tween.finished
+		
+		await body.get_node("AnimatedSprite2D").animation_finished
 		body.wait()

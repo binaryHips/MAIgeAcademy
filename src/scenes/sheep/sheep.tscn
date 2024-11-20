@@ -63,7 +63,7 @@ animations = [{
 "duration": 0.1,
 "texture": ExtResource("10_1gtmv")
 }],
-"loop": true,
+"loop": false,
 "name": &"marche",
 "speed": 1.0
 }, {
@@ -74,26 +74,26 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_wvyo2")
 }],
-"loop": true,
+"loop": false,
 "name": &"old_marche",
 "speed": 3.0
 }, {
 "frames": [{
-"duration": 0.3,
-"texture": ExtResource("2_vbpay")
-}, {
-"duration": 0.2,
+"duration": 0.8,
 "texture": ExtResource("4_xs3tj")
 }, {
-"duration": 0.2,
+"duration": 0.8,
 "texture": ExtResource("5_npwox")
 }, {
-"duration": 0.3,
+"duration": 1.2,
 "texture": ExtResource("6_kcua4")
+}, {
+"duration": 1.2,
+"texture": ExtResource("2_vbpay")
 }],
-"loop": true,
+"loop": false,
 "name": &"saute",
-"speed": 1.0
+"speed": 4.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b5yep"]
@@ -120,7 +120,6 @@ texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_b0ld6")
 animation = &"saute"
-frame_progress = 0.255992
 
 [node name="Brain" type="Node" parent="."]
 script = ExtResource("1_cb3go")
