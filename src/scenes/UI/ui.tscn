@@ -65,6 +65,33 @@ mouse_filter = 1
 bbcode_enabled = true
 text = "0.0"
 
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 2
+anchor_left = 0.52
+anchor_top = 0.545
+anchor_right = 0.976
+anchor_bottom = 0.797
+offset_left = -0.0400085
+offset_top = -0.0350037
+offset_right = 0.0479889
+offset_bottom = -0.0310059
+mouse_filter = 1
+text = "Finish "
+
+[node name="Button2" type="Button" parent="Panel"]
+layout_mode = 2
+anchor_left = 0.024
+anchor_top = 0.545
+anchor_right = 0.48
+anchor_bottom = 0.797
+offset_left = -0.0480001
+offset_top = -0.0350037
+offset_right = 0.0399971
+offset_bottom = -0.0310059
+mouse_filter = 1
+text = "useles"
+
+[connection signal="mouse_entered" from="Panel" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Panel" to="." method="_on_mouse_exited"]
 [connection signal="value_changed" from="Panel/VBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="Panel/Button" to="." method="_on_finished_presse"]
