@@ -33,7 +33,7 @@ func _ready() -> void:
 func celebrate() :
 	#var tween = get_tree().create_tween()
 	for sprite in $Enclos.get_children():
-		sprite.position.y += sin( Time.get_ticks_msec()/100 + sprite.position.x *40000)
+		sprite.position.y += sin( Time.get_ticks_msec()/100 + sprite.position.x *33000) * 0.05
 
 
 func wait(seconds:float) -> void:

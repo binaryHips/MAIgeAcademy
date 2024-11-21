@@ -28,7 +28,7 @@ func _register():
 				Gamemaster.turn_order.append(self)
 		).call_deferred()
 	else:
-		Gamemaster.turn_order.append(self)
+		Gamemaster.turn_order.append.call_deferred(self)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
