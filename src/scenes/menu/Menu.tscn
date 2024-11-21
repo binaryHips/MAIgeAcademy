@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://vqro77kagm5m"]
+[gd_scene load_steps=23 format=3 uid="uid://vqro77kagm5m"]
 
 [ext_resource type="Script" path="res://src/scenes/menu/menu.gd" id="1_6s0fk"]
 [ext_resource type="Texture2D" uid="uid://wttefocce8u0" path="res://resources/images/chien_fixe.png" id="2_fsttc"]
@@ -59,50 +59,67 @@ fill = 1
 fill_from = Vector2(0.482906, 0.576923)
 fill_to = Vector2(0.381538, 0.576923)
 
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_hg3n8"]
-frames = 2
-frame_0/texture = ExtResource("7_pmtq3")
-frame_0/duration = 0.4
-frame_1/texture = ExtResource("8_qakhv")
-frame_1/duration = 0.6
+[sub_resource type="SpriteFrames" id="SpriteFrames_mlvfm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_qakhv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_pmtq3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2fuue"]
-load_path = "res://.godot/imported/mouton_fixe.png-b55392061113725b81001d6611246b48.ctex"
+[sub_resource type="SpriteFrames" id="SpriteFrames_movrn"]
+animations = [{
+"frames": [{
+"duration": 0.9,
+"texture": ExtResource("8_qakhv")
+}, {
+"duration": 0.7,
+"texture": ExtResource("7_pmtq3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4c47g"]
-load_path = "res://.godot/imported/mouton_fixe_2.png-61d7340f51deffa2ca00b9086f575338.ctex"
+[sub_resource type="SpriteFrames" id="SpriteFrames_tim4j"]
+animations = [{
+"frames": [{
+"duration": 0.8,
+"texture": ExtResource("8_qakhv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_pmtq3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_r0lsd"]
-frames = 2
-speed_scale = 0.8
-frame_0/texture = SubResource("CompressedTexture2D_2fuue")
-frame_0/duration = 0.4
-frame_1/texture = SubResource("CompressedTexture2D_4c47g")
-frame_1/duration = 0.5
-
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_rrljo"]
-frames = 4
-frame_0/texture = ExtResource("7_rgpcx")
-frame_0/duration = 0.1
-frame_1/texture = ExtResource("8_hpg25")
-frame_1/duration = 0.1
-frame_2/texture = ExtResource("9_x760c")
-frame_2/duration = 0.1
-frame_3/texture = ExtResource("10_xyheh")
-frame_3/duration = 0.1
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pl4tt"]
-load_path = "res://.godot/imported/mouton_fixe.png-b55392061113725b81001d6611246b48.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2hts0"]
-load_path = "res://.godot/imported/mouton_fixe_2.png-61d7340f51deffa2ca00b9086f575338.ctex"
-
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_xr5bo"]
-frames = 2
-frame_0/texture = SubResource("CompressedTexture2D_pl4tt")
-frame_0/duration = 0.4
-frame_1/texture = SubResource("CompressedTexture2D_2hts0")
-frame_1/duration = 0.4
+[sub_resource type="SpriteFrames" id="SpriteFrames_juexk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_rgpcx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hpg25")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_x760c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_xyheh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mn8wv"]
 shader = ExtResource("2_wivfl")
@@ -139,43 +156,56 @@ texture_filter = 1
 position = Vector2(1.02862, 7.02907)
 texture = SubResource("GradientTexture2D_r5s81")
 
-[node name="MoutonFixe" type="Sprite2D" parent="Enclos"]
+[node name="moutonfix" type="AnimatedSprite2D" parent="Enclos"]
 position = Vector2(-13.7763, -66.6895)
-scale = Vector2(-1, 1)
-texture = SubResource("AnimatedTexture_hg3n8")
+rotation = 3.14159
+scale = Vector2(1, -1)
+sprite_frames = SubResource("SpriteFrames_mlvfm")
+autoplay = "default"
 
-[node name="shadow" type="Sprite2D" parent="Enclos/MoutonFixe"]
+[node name="shadow" type="Sprite2D" parent="Enclos/moutonfix"]
 texture_filter = 1
 position = Vector2(1.94493, 6.00032)
+scale = Vector2(1, 1)
 texture = SubResource("GradientTexture2D_r5s81")
 
-[node name="MoutonFixe2" type="Sprite2D" parent="Enclos"]
-z_as_relative = false
-position = Vector2(29.3355, -27.9445)
-scale = Vector2(-1, 1)
-texture = SubResource("AnimatedTexture_r0lsd")
+[node name="moutonfix2" type="AnimatedSprite2D" parent="Enclos"]
+position = Vector2(20.4214, -29.1445)
+rotation = 3.14159
+scale = Vector2(1, -1)
+sprite_frames = SubResource("SpriteFrames_movrn")
+autoplay = "default"
 
-[node name="shadow" type="Sprite2D" parent="Enclos/MoutonFixe2"]
+[node name="shadow" type="Sprite2D" parent="Enclos/moutonfix2"]
 texture_filter = 1
-position = Vector2(2.10698, 6.34326)
+position = Vector2(1.94493, 6.00032)
+scale = Vector2(1, 1)
 texture = SubResource("GradientTexture2D_r5s81")
 
-[node name="MoutonFixe3" type="Sprite2D" parent="Enclos"]
-position = Vector2(37.6013, -64.4608)
-texture = SubResource("AnimatedTexture_rrljo")
+[node name="moutonfix3" type="AnimatedSprite2D" parent="Enclos"]
+position = Vector2(-31.6045, -30.6875)
+rotation = 3.14159
+scale = Vector2(-1, -1)
+sprite_frames = SubResource("SpriteFrames_tim4j")
+autoplay = "default"
 
-[node name="shadow" type="Sprite2D" parent="Enclos/MoutonFixe3"]
+[node name="shadow" type="Sprite2D" parent="Enclos/moutonfix3"]
 texture_filter = 1
-position = Vector2(2.59319, 6.17176)
+position = Vector2(1.94493, 6.00032)
+scale = Vector2(1, 1)
 texture = SubResource("GradientTexture2D_r5s81")
 
-[node name="MoutonFixe4" type="Sprite2D" parent="Enclos"]
-position = Vector2(-20.4214, -26.9158)
-texture = SubResource("AnimatedTexture_xr5bo")
+[node name="moutonfix4" type="AnimatedSprite2D" parent="Enclos"]
+position = Vector2(40.3566, -61.8892)
+rotation = 3.14159
+scale = Vector2(-1, -1)
+sprite_frames = SubResource("SpriteFrames_juexk")
+autoplay = "default"
 
-[node name="shadow2" type="Sprite2D" parent="Enclos/MoutonFixe4"]
+[node name="shadow" type="Sprite2D" parent="Enclos/moutonfix4"]
 texture_filter = 1
-position = Vector2(2.26905, 6.51465)
+position = Vector2(1.94493, 6.00032)
+scale = Vector2(1, 1)
 texture = SubResource("GradientTexture2D_r5s81")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
