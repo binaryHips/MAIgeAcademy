@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://vqro77kagm5m"]
+[gd_scene load_steps=27 format=3 uid="uid://vqro77kagm5m"]
 
 [ext_resource type="Script" path="res://src/scenes/menu/menu.gd" id="1_6s0fk"]
 [ext_resource type="Texture2D" uid="uid://wttefocce8u0" path="res://resources/images/chien_fixe.png" id="2_fsttc"]
@@ -7,7 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://difvyndmfhtpb" path="res://resources/images/Enclos.png" id="3_skap5"]
 [ext_resource type="Texture2D" uid="uid://r6eipbpvslqq" path="res://resources/images/chien_cours.png" id="4_u3gfn"]
 [ext_resource type="Texture2D" uid="uid://dpubu47aoxb2s" path="res://resources/images/chien_cours2.png" id="5_reg57"]
+[ext_resource type="Texture2D" uid="uid://djvmrjhon2nd7" path="res://resources/images/mouton_fixe.png" id="7_pmtq3"]
+[ext_resource type="Texture2D" uid="uid://w3twv5chy2kv" path="res://resources/images/music_mouton_1.png" id="7_rgpcx"]
+[ext_resource type="Texture2D" uid="uid://bqgou34bdnltd" path="res://resources/images/music_mouton_2.png" id="8_hpg25"]
 [ext_resource type="AudioStream" uid="uid://ct3316m7nqfio" path="res://resources/sound/menu.ogg" id="8_igefu"]
+[ext_resource type="Texture2D" uid="uid://d3t44im1b4cde" path="res://resources/images/mouton_fixe_2.png" id="8_qakhv"]
+[ext_resource type="Texture2D" uid="uid://dnk8xnafh8qnh" path="res://resources/images/music_mouton_3.png" id="9_x760c"]
+[ext_resource type="Texture2D" uid="uid://d0qw70u6m1jb7" path="res://resources/images/music_mouton_4.png" id="10_xyheh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_io443"]
 animations = [{
@@ -53,18 +59,12 @@ fill = 1
 fill_from = Vector2(0.482906, 0.576923)
 fill_to = Vector2(0.381538, 0.576923)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gonw0"]
-load_path = "res://.godot/imported/mouton_fixe_casque.png-2ada5afe6aee20e8109d3db330bd2bb8.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_b2sku"]
-load_path = "res://.godot/imported/mouton_fixe_casque_2.png-1e32d7070dbbf4974f7e2a09f3bc789d.ctex"
-
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_hg3n8"]
 frames = 2
-frame_0/texture = SubResource("CompressedTexture2D_gonw0")
-frame_0/duration = 0.15
-frame_1/texture = SubResource("CompressedTexture2D_b2sku")
-frame_1/duration = 0.2
+frame_0/texture = ExtResource("7_pmtq3")
+frame_0/duration = 0.4
+frame_1/texture = ExtResource("8_qakhv")
+frame_1/duration = 0.6
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2fuue"]
 load_path = "res://.godot/imported/mouton_fixe.png-b55392061113725b81001d6611246b48.ctex"
@@ -80,19 +80,16 @@ frame_0/duration = 0.4
 frame_1/texture = SubResource("CompressedTexture2D_4c47g")
 frame_1/duration = 0.5
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a333g"]
-load_path = "res://.godot/imported/mouton_fixe.png-b55392061113725b81001d6611246b48.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ll3xv"]
-load_path = "res://.godot/imported/mouton_fixe_2.png-61d7340f51deffa2ca00b9086f575338.ctex"
-
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_rrljo"]
-frames = 2
-speed_scale = 1.1
-frame_0/texture = SubResource("CompressedTexture2D_a333g")
-frame_0/duration = 0.4
-frame_1/texture = SubResource("CompressedTexture2D_ll3xv")
-frame_1/duration = 0.4
+frames = 4
+frame_0/texture = ExtResource("7_rgpcx")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("8_hpg25")
+frame_1/duration = 0.1
+frame_2/texture = ExtResource("9_x760c")
+frame_2/duration = 0.1
+frame_3/texture = ExtResource("10_xyheh")
+frame_3/duration = 0.1
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pl4tt"]
 load_path = "res://.godot/imported/mouton_fixe.png-b55392061113725b81001d6611246b48.ctex"
