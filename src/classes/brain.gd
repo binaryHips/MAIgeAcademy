@@ -18,10 +18,12 @@ var event_queue:Array[Dictionary]
 
 var actions = {}
 
-
-func _register():
+func _ready(): # DONT OVERRIDE IT, USE _setup()
 	body.set_meta("brain", self)
-	Gamemaster.turn_order.append(self)
+
+func _setup():
+	pass
+
 
 func run():
 	parse_events()

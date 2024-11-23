@@ -10,41 +10,12 @@ func _on_quit_pressed() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	var newpos_x := sin(Time.get_ticks_msec() / 100000.0) * 800
-	#$doggo.global_position.x -= ($Enclos.position.x - newpos_x)
-	$Enclos.position.x = newpos_x
+	pass
 
 
-func doggo():
-	
-	$Enclos/doggo/Timer.wait_time = randf_range(1.0, 1.5)
-	
-	var v := get_global_mouse_position()
-	
-	if abs(v.x - $Enclos/doggo.global_position.x) < 100: return
-	
-	
-	$Enclos/doggo.play("court")
-	v.y = clampf(v.y, 250, 600)
-	
-	
-	$Enclos/doggo.scale.x = -abs($Enclos/doggo.scale.x) if v.x < $Enclos/doggo.global_position.x else abs($Enclos/doggo.scale.x)
-	var tween:Tween = get_tree().create_tween()
-	tween.tween_property(
-		$Enclos/doggo,
-		"global_position",
-		v + Vector2(
-			 -abs($Enclos/doggo.scale.x * 15) if v.x > $Enclos/doggo.global_position.x else abs($Enclos/doggo.scale.x * 15),
-			30
-		),
-		0.8
-	).set_ease(Tween.EASE_IN_OUT)
-	tween.tween_callback($Enclos/doggo.play.bind("aboie"))
-	tween.play()
 
 
 func swap_to_advanced():
-	$Enclos/doggo/Timer.stop()
 	var tween:Tween = get_tree().create_tween()
 	
 	tween.tween_property(
@@ -136,7 +107,7 @@ func change_blur(v:float):
 
 
 func _on_timer_timeout() -> void:
-	doggo()
+	pass
 
 
 func _on_doggo_plays_toggled(toggled_on: bool) -> void:
