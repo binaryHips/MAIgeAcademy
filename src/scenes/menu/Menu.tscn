@@ -1,19 +1,19 @@
 [gd_scene load_steps=23 format=3 uid="uid://vqro77kagm5m"]
 
 [ext_resource type="Script" path="res://src/scenes/menu/menu.gd" id="1_6s0fk"]
-[ext_resource type="Texture2D" uid="uid://wttefocce8u0" path="res://resources/images/chien_fixe.png" id="2_fsttc"]
+[ext_resource type="Texture2D" uid="uid://wttefocce8u0" path="res://resources/images/chien/chien_fixe.png" id="2_fsttc"]
 [ext_resource type="Shader" path="res://resources/shaders/blur.gdshader" id="2_wivfl"]
-[ext_resource type="Texture2D" uid="uid://b0mlokg7skn1d" path="res://resources/images/chien_aboie.png" id="3_5dj14"]
+[ext_resource type="Texture2D" uid="uid://b0mlokg7skn1d" path="res://resources/images/chien/chien_aboie.png" id="3_5dj14"]
 [ext_resource type="Texture2D" uid="uid://difvyndmfhtpb" path="res://resources/images/Enclos.png" id="3_skap5"]
-[ext_resource type="Texture2D" uid="uid://r6eipbpvslqq" path="res://resources/images/chien_cours.png" id="4_u3gfn"]
-[ext_resource type="Texture2D" uid="uid://dpubu47aoxb2s" path="res://resources/images/chien_cours2.png" id="5_reg57"]
-[ext_resource type="Texture2D" uid="uid://djvmrjhon2nd7" path="res://resources/images/mouton_fixe.png" id="7_pmtq3"]
-[ext_resource type="Texture2D" uid="uid://w3twv5chy2kv" path="res://resources/images/music_mouton_1.png" id="7_rgpcx"]
-[ext_resource type="Texture2D" uid="uid://bqgou34bdnltd" path="res://resources/images/music_mouton_2.png" id="8_hpg25"]
+[ext_resource type="Texture2D" uid="uid://r6eipbpvslqq" path="res://resources/images/chien/chien_cours.png" id="4_u3gfn"]
+[ext_resource type="Texture2D" uid="uid://dpubu47aoxb2s" path="res://resources/images/chien/chien_cours2.png" id="5_reg57"]
+[ext_resource type="Texture2D" uid="uid://djvmrjhon2nd7" path="res://resources/images/mouton/mouton_fixe.png" id="7_pmtq3"]
+[ext_resource type="Texture2D" uid="uid://w3twv5chy2kv" path="res://resources/images/mouton/music_mouton_1.png" id="7_rgpcx"]
+[ext_resource type="Texture2D" uid="uid://bqgou34bdnltd" path="res://resources/images/mouton/music_mouton_2.png" id="8_hpg25"]
 [ext_resource type="AudioStream" uid="uid://ct3316m7nqfio" path="res://resources/sound/menu.ogg" id="8_igefu"]
-[ext_resource type="Texture2D" uid="uid://d3t44im1b4cde" path="res://resources/images/mouton_fixe_2.png" id="8_qakhv"]
-[ext_resource type="Texture2D" uid="uid://dnk8xnafh8qnh" path="res://resources/images/music_mouton_3.png" id="9_x760c"]
-[ext_resource type="Texture2D" uid="uid://d0qw70u6m1jb7" path="res://resources/images/music_mouton_4.png" id="10_xyheh"]
+[ext_resource type="Texture2D" uid="uid://d3t44im1b4cde" path="res://resources/images/mouton/mouton_fixe_2.png" id="8_qakhv"]
+[ext_resource type="Texture2D" uid="uid://dnk8xnafh8qnh" path="res://resources/images/mouton/music_mouton_3.png" id="9_x760c"]
+[ext_resource type="Texture2D" uid="uid://d0qw70u6m1jb7" path="res://resources/images/mouton/music_mouton_4.png" id="10_xyheh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_io443"]
 animations = [{
@@ -166,7 +166,6 @@ autoplay = "default"
 [node name="shadow" type="Sprite2D" parent="Enclos/moutonfix"]
 texture_filter = 1
 position = Vector2(1.94493, 6.00032)
-scale = Vector2(1, 1)
 texture = SubResource("GradientTexture2D_r5s81")
 
 [node name="moutonfix2" type="AnimatedSprite2D" parent="Enclos"]
@@ -179,7 +178,6 @@ autoplay = "default"
 [node name="shadow" type="Sprite2D" parent="Enclos/moutonfix2"]
 texture_filter = 1
 position = Vector2(1.94493, 6.00032)
-scale = Vector2(1, 1)
 texture = SubResource("GradientTexture2D_r5s81")
 
 [node name="moutonfix3" type="AnimatedSprite2D" parent="Enclos"]
@@ -192,7 +190,6 @@ autoplay = "default"
 [node name="shadow" type="Sprite2D" parent="Enclos/moutonfix3"]
 texture_filter = 1
 position = Vector2(1.94493, 6.00032)
-scale = Vector2(1, 1)
 texture = SubResource("GradientTexture2D_r5s81")
 
 [node name="moutonfix4" type="AnimatedSprite2D" parent="Enclos"]
@@ -205,7 +202,6 @@ autoplay = "default"
 [node name="shadow" type="Sprite2D" parent="Enclos/moutonfix4"]
 texture_filter = 1
 position = Vector2(1.94493, 6.00032)
-scale = Vector2(1, 1)
 texture = SubResource("GradientTexture2D_r5s81")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

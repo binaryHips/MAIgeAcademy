@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://dca6holc11y21"]
 
-[ext_resource type="Texture2D" uid="uid://c8pdwg2emb7kb" path="res://resources/images/oiseau_vole1.png" id="1_fgghx"]
-[ext_resource type="Texture2D" uid="uid://c6lmoeju6nfxa" path="res://resources/images/oiseau_vole2.png" id="2_ncbl3"]
-[ext_resource type="Texture2D" uid="uid://crgmoj5w5iup" path="res://resources/images/oiseau_vole3.png" id="3_ew31t"]
+[ext_resource type="Texture2D" uid="uid://c8pdwg2emb7kb" path="res://resources/images/oiseau/oiseau_vole1.png" id="1_fgghx"]
+[ext_resource type="Texture2D" uid="uid://c6lmoeju6nfxa" path="res://resources/images/oiseau/oiseau_vole2.png" id="2_ncbl3"]
+[ext_resource type="Texture2D" uid="uid://crgmoj5w5iup" path="res://resources/images/oiseau/oiseau_vole3.png" id="3_ew31t"]
 [ext_resource type="Script" path="res://src/scenes/oiseau/oiseau.gd" id="4_bvt3v"]
 [ext_resource type="AudioStream" uid="uid://46wm72j72nsn" path="res://resources/sound/corbeau.ogg" id="5_snocb"]
 
