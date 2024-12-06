@@ -7,16 +7,9 @@ class_name Level
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
-	setup_agents()
-	
+	pass
 
-func setup_agents():
-	Gamemaster.agents.clear()
-	for a in agents:
-		Gamemaster.agents.append(
-			a.get_meta("brain")
-		)
+
 
 
 
