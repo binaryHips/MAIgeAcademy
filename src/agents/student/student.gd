@@ -10,7 +10,7 @@ func _ready() -> void:
 	_animated_sprite.texture = random_sprite 
 	prev_position = position
 	_animated_sprite.play("default")
-	pass # Replace with function body.
+	#pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

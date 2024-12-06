@@ -107,13 +107,14 @@ radius = 12.0
 height = 34.0
 
 [node name="Teacher" type="RigidBody2D"]
+gravity_scale = 0.0
 script = ExtResource("1_sf280")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_lpi3t")
 animation = &"polymorph"
-frame_progress = 0.82843
+frame_progress = 0.194461
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
