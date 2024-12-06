@@ -22,13 +22,27 @@ Settings="*res://src/autoloads/settings.gd"
 
 [display]
 
-window/size/viewport_width=450
-window/size/viewport_height=450
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
+
+[file_customization]
+
+folder_colors={
+"res://resources/images/": "teal",
+"res://resources/shaders/": "red",
+"res://resources/sound/": "pink",
+"res://src/agents/": "orange",
+"res://src/autoloads/": "purple",
+"res://src/classes/": "purple",
+"res://src/exemples/": "purple",
+"res://src/levels/": "orange",
+"res://src/scenes/": "orange"
+}
 
 [global_group]
 
-sheep=""
+candy=""
 
 [rendering]
 
