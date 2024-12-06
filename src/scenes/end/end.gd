@@ -5,7 +5,7 @@ var numSheep
 var sheepDead
 var sheepLeft
 
-const SHEEP = preload("res://resources/images/mouton_saut.png")
+const SHEEP = preload("res://resources/images/mouton/mouton_saut.png")
 
 
 # Called when the node enters the scene tree for the first time.
