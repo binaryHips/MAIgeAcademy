@@ -1,26 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://bnbyvqieew8wu"]
+[gd_scene load_steps=2 format=3 uid="uid://bnbyvqieew8wu"]
 
 [ext_resource type="Texture2D" uid="uid://b68vfpgd525qb" path="res://resources/images/coursMagie.png" id="1_xpjgn"]
-[ext_resource type="Script" path="res://src/scenes/map/enclosure_area.gd" id="2_owcem"]
-[ext_resource type="Script" path="res://src/scenes/map/border.gd" id="3_sefc4"]
-[ext_resource type="AudioStream" uid="uid://bh7xsab3sue6e" path="res://resources/sound/foret.ogg" id="4_swghe"]
-[ext_resource type="Script" path="res://src/scenes/map/audio_stream_player_2d.gd" id="5_bpja8"]
-[ext_resource type="AudioStream" uid="uid://db58hcqalg1gx" path="res://resources/sound/grillons.ogg" id="6_48fea"]
-[ext_resource type="Script" path="res://src/scenes/map/grillons.gd" id="7_kyeds"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_csnad"]
-radius = 124.0
-height = 338.0
-
-[sub_resource type="Curve2D" id="Curve2D_c0myq"]
-bake_interval = 1.0
-_data = {
-"points": PackedVector2Array(95.2389, -0.594603, -95.2389, 0.594603, 6, -293, 118.191, -112.119, -118.191, 112.119, -289, -194, -132.464, -98.6325, 132.464, 98.6325, -228, 259, -83.2498, 48.1937, 83.2498, -48.1937, 239, 268, 0, 0, 0, 0, 335, 2, 104.573, 55.4365, -104.573, -55.4365, 248, -250, 0, 0, 0, 0, 6, -293)
-}
-point_count = 7
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2oxvk"]
-size = Vector2(57, 911)
 
 [node name="Map" type="Node2D"]
 
@@ -33,53 +13,4 @@ texture = ExtResource("1_xpjgn")
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(0, 2)
 offset = Vector2(0, -1.61)
-zoom = Vector2(0.45, 0.45)
-
-[node name="Enclosure" type="Area2D" parent="."]
-position = Vector2(-11, 15)
-rotation = 1.5708
-script = ExtResource("2_owcem")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enclosure"]
-scale = Vector2(0.8, 0.8)
-shape = SubResource("CapsuleShape2D_csnad")
-
-[node name="Path2D" type="Path2D" parent="."]
-curve = SubResource("Curve2D_c0myq")
-
-[node name="Border" type="Area2D" parent="."]
-script = ExtResource("3_sefc4")
-
-[node name="DownWall" type="CollisionShape2D" parent="Border"]
-position = Vector2(-3, 428)
-rotation = 1.5708
-shape = SubResource("RectangleShape2D_2oxvk")
-
-[node name="UpWall" type="CollisionShape2D" parent="Border"]
-position = Vector2(16, -403)
-rotation = 1.5708
-shape = SubResource("RectangleShape2D_2oxvk")
-
-[node name="RightWall" type="CollisionShape2D" parent="Border"]
-position = Vector2(457, 6)
-shape = SubResource("RectangleShape2D_2oxvk")
-
-[node name="LeftWall" type="CollisionShape2D" parent="Border"]
-position = Vector2(-467, 5)
-shape = SubResource("RectangleShape2D_2oxvk")
-
-[node name="foret" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_swghe")
-volume_db = -19.39
-script = ExtResource("5_bpja8")
-
-[node name="grillons" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_48fea")
-volume_db = -23.797
-script = ExtResource("7_kyeds")
-
-[connection signal="body_entered" from="Enclosure" to="Enclosure" method="_on_body_entered"]
-[connection signal="body_exited" from="Enclosure" to="Enclosure" method="_on_body_exited"]
-[connection signal="body_entered" from="Border" to="Border" method="_on_body_entered"]
-[connection signal="finished" from="foret" to="foret" method="_on_finished"]
-[connection signal="finished" from="grillons" to="grillons" method="_on_finished"]
+zoom = Vector2(1.08, 1.08)

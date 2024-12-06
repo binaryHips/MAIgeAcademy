@@ -1,8 +1,7 @@
 extends Node
 
 var world_state:Dictionary = {
-	"sheep_in" = [],
-	"out_of_bounds" = [],
+	
 }
 
 var main_scene:Node2D
@@ -23,15 +22,10 @@ func _ready() -> void:
 	start_game()
 
 func start_game():
-	agents.clear() 
-	
-	for obj in world_state["out_of_bounds"]:
-		if is_instance_valid(obj):
-			obj.queue_free()
-			
-	world_state["out_of_bounds"].clear()
+	agents.clear()
+	agents.assign(get_tree().get_nodes_in_group("agents"))
 	print("----------------------------------")
-	print("At the start of the Game : " + str(world_state["out_of_bounds"]))
+	print("At the start of the Game : ")
 	turn_timer.start()
 	turn_timer.wait_time = 0.01#Settings.time_between_turns
 	turn_timer.timeout.connect(next_turn)
