@@ -2,6 +2,9 @@ extends Brain
 
 @export var strategy:Strategy
 
+var attention_span:float = 1.0;
+
+
 var base_pos:Vector2
 
 # Called when the node enters the scene tree for the first time.

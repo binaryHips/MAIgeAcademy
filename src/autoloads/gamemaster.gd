@@ -25,7 +25,7 @@ func start_game():
 	agents.clear()
 	agents.assign(get_tree().get_nodes_in_group("agents"))
 	print("----------------------------------")
-	print("At the start of the Game : " + str(world_state["out_of_bounds"]))
+	print("At the start of the Game : ")
 	turn_timer.start()
 	turn_timer.wait_time = 0.01#Settings.time_between_turns
 	turn_timer.timeout.connect(next_turn)

@@ -1,5 +1,5 @@
 extends Resource
-class_name Strategy
+class_name StudentStrategy
 
 func _decideGoal(brain:Brain, percept:Dictionary):
 	push_error("_decideGoal in strategy not implemented")
