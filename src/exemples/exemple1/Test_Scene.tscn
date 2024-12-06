@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7k2qaagjqa1e"]
+[gd_scene load_steps=7 format=3 uid="uid://b7k2qaagjqa1e"]
 
+[ext_resource type="Script" path="res://src/classes/Level.gd" id="1_auujx"]
 [ext_resource type="Script" path="res://src/exemples/exemple1/agent1brain.gd" id="1_smrfd"]
 [ext_resource type="Script" path="res://src/exemples/exemple1/agentPBrain.gd" id="2_0jftb"]
 
@@ -10,8 +11,10 @@ radius = 54.3701
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5sn2v"]
 
-[node name="TestScene" type="Node2D"]
+[node name="TestScene" type="Node2D" node_paths=PackedStringArray("agents")]
 position = Vector2(315, 240)
+script = ExtResource("1_auujx")
+agents = [NodePath("Agent1"), NodePath("AgentP")]
 
 [node name="Agent1" type="CharacterBody2D" parent="."]
 motion_mode = 1
@@ -20,6 +23,7 @@ motion_mode = 1
 shape = SubResource("CircleShape2D_r2br2")
 
 [node name="Polygon2D" type="Polygon2D" parent="Agent1"]
+color = Color(0.096977, 0.640687, 5.77569e-07, 1)
 polygon = PackedVector2Array(-7, -7, -1, -10, 4, -8, 8, -4, 9, 1, 6, 7, 0, 9, -7, 8, -9, 0)
 
 [node name="Brain" type="Node" parent="Agent1"]
@@ -39,6 +43,7 @@ motion_mode = 1
 shape = SubResource("CapsuleShape2D_5sn2v")
 
 [node name="Polygon2D" type="Polygon2D" parent="AgentP"]
+color = Color(0.80795, 0, 0.194015, 1)
 polygon = PackedVector2Array(9, -7, 10, 5, 7, 12, 0, 14.5, -7, 12.5, -10, 6.5, -10, -8, -5.5, -14, -0.5, -15, 5.5, -13.5)
 
 [node name="Brain" type="Node" parent="AgentP"]

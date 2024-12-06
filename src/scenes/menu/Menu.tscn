@@ -1,125 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://vqro77kagm5m"]
+[gd_scene load_steps=5 format=3 uid="uid://vqro77kagm5m"]
 
 [ext_resource type="Script" path="res://src/scenes/menu/menu.gd" id="1_6s0fk"]
-[ext_resource type="Texture2D" uid="uid://wttefocce8u0" path="res://resources/images/chien/chien_fixe.png" id="2_fsttc"]
-[ext_resource type="Texture2D" uid="uid://b68vfpgd525qb" path="res://resources/images/coursMagie.png" id="2_lx1en"]
 [ext_resource type="Shader" path="res://resources/shaders/blur.gdshader" id="2_wivfl"]
-[ext_resource type="Texture2D" uid="uid://b0mlokg7skn1d" path="res://resources/images/chien/chien_aboie.png" id="3_5dj14"]
-[ext_resource type="Texture2D" uid="uid://r6eipbpvslqq" path="res://resources/images/chien/chien_cours.png" id="4_u3gfn"]
-[ext_resource type="Texture2D" uid="uid://dpubu47aoxb2s" path="res://resources/images/chien/chien_cours2.png" id="5_reg57"]
-[ext_resource type="Texture2D" uid="uid://djvmrjhon2nd7" path="res://resources/images/mouton/mouton_fixe.png" id="7_pmtq3"]
-[ext_resource type="Texture2D" uid="uid://w3twv5chy2kv" path="res://resources/images/mouton/music_mouton_1.png" id="7_rgpcx"]
-[ext_resource type="Texture2D" uid="uid://bqgou34bdnltd" path="res://resources/images/mouton/music_mouton_2.png" id="8_hpg25"]
 [ext_resource type="AudioStream" uid="uid://ct3316m7nqfio" path="res://resources/sound/menu.ogg" id="8_igefu"]
-[ext_resource type="Texture2D" uid="uid://d3t44im1b4cde" path="res://resources/images/mouton/mouton_fixe_2.png" id="8_qakhv"]
-[ext_resource type="Texture2D" uid="uid://dnk8xnafh8qnh" path="res://resources/images/mouton/music_mouton_3.png" id="9_x760c"]
-[ext_resource type="Texture2D" uid="uid://d0qw70u6m1jb7" path="res://resources/images/mouton/music_mouton_4.png" id="10_xyheh"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_io443"]
-animations = [{
-"frames": [{
-"duration": 3.0,
-"texture": ExtResource("2_fsttc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_5dj14")
-}],
-"loop": true,
-"name": &"aboie",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.5,
-"texture": ExtResource("4_u3gfn")
-}, {
-"duration": 1.5,
-"texture": ExtResource("5_reg57")
-}],
-"loop": true,
-"name": &"court",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_fsttc")
-}],
-"loop": true,
-"name": &"fixe",
-"speed": 5.0
-}]
-
-[sub_resource type="Gradient" id="Gradient_3k0pm"]
-colors = PackedColorArray(0, 0, 0, 0.584314, 0, 0, 0, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_r5s81"]
-gradient = SubResource("Gradient_3k0pm")
-width = 90
-height = 24
-fill = 1
-fill_from = Vector2(0.482906, 0.576923)
-fill_to = Vector2(0.381538, 0.576923)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_mlvfm"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("8_qakhv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_pmtq3")
-}],
-"loop": true,
-"name": &"default",
-"speed": 2.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_movrn"]
-animations = [{
-"frames": [{
-"duration": 0.9,
-"texture": ExtResource("8_qakhv")
-}, {
-"duration": 0.7,
-"texture": ExtResource("7_pmtq3")
-}],
-"loop": true,
-"name": &"default",
-"speed": 2.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_tim4j"]
-animations = [{
-"frames": [{
-"duration": 0.8,
-"texture": ExtResource("8_qakhv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_pmtq3")
-}],
-"loop": true,
-"name": &"default",
-"speed": 2.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_juexk"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_rgpcx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_hpg25")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_x760c")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_xyheh")
-}],
-"loop": true,
-"name": &"default",
-"speed": 8.0
-}]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mn8wv"]
 shader = ExtResource("2_wivfl")
@@ -133,76 +16,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6s0fk")
-
-[node name="Enclos" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(119, 1301)
-scale = Vector2(6.17, 5.833)
-texture = ExtResource("2_lx1en")
-
-[node name="doggo" type="AnimatedSprite2D" parent="Enclos"]
-texture_filter = 1
-position = Vector2(-41.9773, -130.979)
-scale = Vector2(0.945381, 1)
-sprite_frames = SubResource("SpriteFrames_io443")
-animation = &"court"
-
-[node name="Timer" type="Timer" parent="Enclos/doggo"]
-wait_time = 0.4
-autostart = true
-
-[node name="shadow" type="Sprite2D" parent="Enclos/doggo"]
-texture_filter = 1
-position = Vector2(1.02862, 7.02907)
-texture = SubResource("GradientTexture2D_r5s81")
-
-[node name="moutonfix" type="AnimatedSprite2D" parent="Enclos"]
-position = Vector2(-13.7763, -66.6895)
-rotation = 3.14159
-scale = Vector2(1, -1)
-sprite_frames = SubResource("SpriteFrames_mlvfm")
-autoplay = "default"
-
-[node name="shadow" type="Sprite2D" parent="Enclos/moutonfix"]
-texture_filter = 1
-position = Vector2(1.94493, 6.00032)
-texture = SubResource("GradientTexture2D_r5s81")
-
-[node name="moutonfix2" type="AnimatedSprite2D" parent="Enclos"]
-position = Vector2(20.4214, -29.1445)
-rotation = 3.14159
-scale = Vector2(1, -1)
-sprite_frames = SubResource("SpriteFrames_movrn")
-autoplay = "default"
-
-[node name="shadow" type="Sprite2D" parent="Enclos/moutonfix2"]
-texture_filter = 1
-position = Vector2(1.94493, 6.00032)
-texture = SubResource("GradientTexture2D_r5s81")
-
-[node name="moutonfix3" type="AnimatedSprite2D" parent="Enclos"]
-position = Vector2(-31.6045, -30.6875)
-rotation = 3.14159
-scale = Vector2(-1, -1)
-sprite_frames = SubResource("SpriteFrames_tim4j")
-autoplay = "default"
-
-[node name="shadow" type="Sprite2D" parent="Enclos/moutonfix3"]
-texture_filter = 1
-position = Vector2(1.94493, 6.00032)
-texture = SubResource("GradientTexture2D_r5s81")
-
-[node name="moutonfix4" type="AnimatedSprite2D" parent="Enclos"]
-position = Vector2(40.3566, -61.8892)
-rotation = 3.14159
-scale = Vector2(-1, -1)
-sprite_frames = SubResource("SpriteFrames_juexk")
-autoplay = "default"
-
-[node name="shadow" type="Sprite2D" parent="Enclos/moutonfix4"]
-texture_filter = 1
-position = Vector2(1.94493, 6.00032)
-texture = SubResource("GradientTexture2D_r5s81")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -324,7 +137,6 @@ mouse_filter = 2
 [node name="sonMenu" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_igefu")
 
-[connection signal="timeout" from="Enclos/doggo/Timer" to="." method="_on_timer_timeout"]
 [connection signal="mouse_entered" from="MarginContainer" to="." method="_on_margin_container_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
