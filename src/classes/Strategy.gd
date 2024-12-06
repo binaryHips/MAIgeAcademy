@@ -15,15 +15,20 @@ func _decideGoal(brain:Brain, percept:Dictionary): #percept contient positionPla
 					"time_remaining": -1,
 					"goal_check": func(percept:Dictionary) :
 						if(!is_instance_valid(candy)):
-							var b
+							return true
 						var dist = brain.body.global_position.distance_to(candy.global_position)
 						if(dist <= 1.0):
-							Gamemaster.world_state["candies"].erase()
 							candy.queue_free()
+							return true
+						return false
 				}
-		
+				brain.override_goal(dico)
+		#"goToCandy":
+			
 			
 	push_error("_decideGoal in strategy not implemented")
 	
 func _act(brain:Brain, percept:Dictionary):
+	if(brain.has_state("idle")):
+		
 	push_error("_act in strategy not implemented")
