@@ -1,0 +1,121 @@
+[gd_scene load_steps=22 format=3 uid="uid://f8uneibou5ua"]
+
+[ext_resource type="Script" path="res://src/agents/Teacher/teacher.gd" id="1_sf280"]
+[ext_resource type="Texture2D" uid="uid://cpgdueixhy760" path="res://resources/images/prof/mage1.png" id="2_bdjb2"]
+[ext_resource type="Texture2D" uid="uid://1lyf2l16lthh" path="res://resources/images/prof/mage2.png" id="3_mbpqh"]
+[ext_resource type="Texture2D" uid="uid://djijvjqlta6gh" path="res://resources/images/prof/glace1.png" id="4_y0rel"]
+[ext_resource type="Texture2D" uid="uid://mqaohndh1urq" path="res://resources/images/prof/glace2.png" id="5_kxuup"]
+[ext_resource type="Texture2D" uid="uid://dx3r2yii0txq5" path="res://resources/images/prof/glace3.png" id="6_dkw8p"]
+[ext_resource type="Texture2D" uid="uid://ba4ko7ral7q4c" path="res://resources/images/prof/glace4.png" id="7_ul61o"]
+[ext_resource type="Texture2D" uid="uid://cdmlw47sdqjkl" path="res://resources/images/prof/transform1.png" id="8_7srq7"]
+[ext_resource type="Texture2D" uid="uid://dy16xaqdblypo" path="res://resources/images/prof/transform2.png" id="9_4bqb0"]
+[ext_resource type="Texture2D" uid="uid://b7h3occah1m7j" path="res://resources/images/prof/transform3.png" id="10_uo42s"]
+[ext_resource type="Texture2D" uid="uid://cj4a6tu304e3e" path="res://resources/images/prof/transform4.png" id="11_ijv30"]
+[ext_resource type="Texture2D" uid="uid://deykytxhs2uxq" path="res://resources/images/prof/tele_spell1.png" id="12_h0b4t"]
+[ext_resource type="Texture2D" uid="uid://b1kxrx77h0cyu" path="res://resources/images/prof/tele_spell2.png" id="13_gvnc4"]
+[ext_resource type="Texture2D" uid="uid://cy5sgu8nnqk8s" path="res://resources/images/prof/tele_spell3.png" id="14_dhirk"]
+[ext_resource type="Texture2D" uid="uid://cdxikdvn0ili5" path="res://resources/images/prof/tele_spell4.png" id="15_tcxk7"]
+[ext_resource type="Texture2D" uid="uid://dp1fxvweq7k5n" path="res://resources/images/prof/magie_marche1.png" id="16_b3cgm"]
+[ext_resource type="Texture2D" uid="uid://cp8l6vdrijg7w" path="res://resources/images/prof/magie_marche2.png" id="17_xgq6c"]
+[ext_resource type="Texture2D" uid="uid://dgsr26v60i3m7" path="res://resources/images/prof/magie_marche3.png" id="18_08k1u"]
+[ext_resource type="Texture2D" uid="uid://dbe3k0hma1g01" path="res://resources/images/prof/magie_marche4.png" id="19_tifqk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lpi3t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bdjb2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mbpqh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_y0rel")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kxuup")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dkw8p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ul61o")
+}],
+"loop": true,
+"name": &"freeze",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_7srq7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_4bqb0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_uo42s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ijv30")
+}],
+"loop": true,
+"name": &"polymorph",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_h0b4t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_gvnc4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_dhirk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_tcxk7")
+}],
+"loop": true,
+"name": &"telekinesis",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_b3cgm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_xgq6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_08k1u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_tifqk")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 4.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vspp1"]
+radius = 12.0
+height = 34.0
+
+[node name="Teacher" type="RigidBody2D"]
+script = ExtResource("1_sf280")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_lpi3t")
+animation = &"polymorph"
+frame_progress = 0.82843
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(1, 0)
+shape = SubResource("CapsuleShape2D_vspp1")
