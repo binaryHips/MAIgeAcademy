@@ -1,3 +1,18 @@
-[gd_scene format=3 uid="uid://co3wnuymrjye6"]
+[gd_scene load_steps=3 format=3 uid="uid://c8r2w1llsibxh"]
 
-[node name="Student" type="Node2D"]
+[ext_resource type="SpriteFrames" uid="uid://8l4tkibhsa2x" path="res://resources/images/eleve/studentAframes.tres" id="1_bv7of"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y8tjl"]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = ExtResource("1_bv7of")
+frame_progress = 0.719682
+
+[node name="Student" type="Node2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("CapsuleShape2D_y8tjl")
