@@ -73,8 +73,8 @@ func add_state(state:String):
 func add_goal(goal:Dictionary):
 	goals.append(goal)
 
-func add_goal_prio(goal:Dictionary):
-	goals.push_front(goal)
+func override_goal(goal:Dictionary):
+	goals = [goal]
 
 func override_state(state:String):
 	states = [state]
