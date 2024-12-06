@@ -1,0 +1,11 @@
+[gd_resource type="AnimatedTexture" load_steps=3 format=3 uid="uid://bkj7wlaapun51"]
+
+[ext_resource type="Texture2D" uid="uid://bev0vout7rvg4" path="res://resources/images/bonbon/bonbon3.png" id="1_8sjes"]
+[ext_resource type="Texture2D" uid="uid://c82cehqrucgb1" path="res://resources/images/bonbon/bonbon3-2.png" id="2_y3okc"]
+
+[resource]
+frames = 2
+speed_scale = 2.0
+frame_0/texture = ExtResource("1_8sjes")
+frame_1/texture = ExtResource("2_y3okc")
+frame_1/duration = 1.0
