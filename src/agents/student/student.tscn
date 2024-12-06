@@ -5,11 +5,12 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y8tjl"]
 
 [node name="Student" type="RigidBody2D"]
+gravity_scale = 0.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = ExtResource("1_bv7of")
-frame_progress = 0.409318
+frame_progress = 0.868116
 
 [node name="Student" type="Node2D" parent="."]
 
