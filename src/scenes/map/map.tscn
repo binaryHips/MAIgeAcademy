@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://bnbyvqieew8wu"]
 
-[ext_resource type="Texture2D" uid="uid://difvyndmfhtpb" path="res://resources/images/Enclos.png" id="1_hp2vv"]
+[ext_resource type="Texture2D" uid="uid://b68vfpgd525qb" path="res://resources/images/coursMagie.png" id="1_xpjgn"]
 [ext_resource type="Script" path="res://src/scenes/map/enclosure_area.gd" id="2_owcem"]
 [ext_resource type="Script" path="res://src/scenes/map/border.gd" id="3_sefc4"]
 [ext_resource type="AudioStream" uid="uid://bh7xsab3sue6e" path="res://resources/sound/foret.ogg" id="4_swghe"]
@@ -28,12 +28,12 @@ size = Vector2(57, 911)
 z_index = -5
 texture_filter = 1
 scale = Vector2(2, 2)
-texture = ExtResource("1_hp2vv")
+texture = ExtResource("1_xpjgn")
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(0, 2)
 offset = Vector2(0, -1.61)
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.45, 0.45)
 
 [node name="Enclosure" type="Area2D" parent="."]
 position = Vector2(-11, 15)

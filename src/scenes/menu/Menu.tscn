@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://src/scenes/menu/menu.gd" id="1_6s0fk"]
 [ext_resource type="Texture2D" uid="uid://wttefocce8u0" path="res://resources/images/chien/chien_fixe.png" id="2_fsttc"]
+[ext_resource type="Texture2D" uid="uid://b68vfpgd525qb" path="res://resources/images/coursMagie.png" id="2_lx1en"]
 [ext_resource type="Shader" path="res://resources/shaders/blur.gdshader" id="2_wivfl"]
 [ext_resource type="Texture2D" uid="uid://b0mlokg7skn1d" path="res://resources/images/chien/chien_aboie.png" id="3_5dj14"]
-[ext_resource type="Texture2D" uid="uid://difvyndmfhtpb" path="res://resources/images/Enclos.png" id="3_skap5"]
 [ext_resource type="Texture2D" uid="uid://r6eipbpvslqq" path="res://resources/images/chien/chien_cours.png" id="4_u3gfn"]
 [ext_resource type="Texture2D" uid="uid://dpubu47aoxb2s" path="res://resources/images/chien/chien_cours2.png" id="5_reg57"]
 [ext_resource type="Texture2D" uid="uid://djvmrjhon2nd7" path="res://resources/images/mouton/mouton_fixe.png" id="7_pmtq3"]
@@ -138,7 +138,7 @@ script = ExtResource("1_6s0fk")
 texture_filter = 1
 position = Vector2(119, 1301)
 scale = Vector2(6.17, 5.833)
-texture = ExtResource("3_skap5")
+texture = ExtResource("2_lx1en")
 
 [node name="doggo" type="AnimatedSprite2D" parent="Enclos"]
 texture_filter = 1
