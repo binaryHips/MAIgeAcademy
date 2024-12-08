@@ -1,11 +1,16 @@
-[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://8l4tkibhsa2x"]
+[gd_resource type="SpriteFrames" load_steps=12 format=3 uid="uid://8l4tkibhsa2x"]
 
 [ext_resource type="Texture2D" uid="uid://dak18fxmeg61q" path="res://resources/images/eleve/studentA1.png" id="1_3xhvb"]
 [ext_resource type="Texture2D" uid="uid://b2uc6hpfntxmk" path="res://resources/images/eleve/studentA2.png" id="2_aviwd"]
+[ext_resource type="Texture2D" uid="uid://cmv7mfei16d2" path="res://resources/images/eleve/StudentAgel.png" id="3_o1x85"]
 [ext_resource type="Texture2D" uid="uid://c6qgxln1ksxvl" path="res://resources/images/eleve/studentA_marche1.png" id="3_qwabg"]
 [ext_resource type="Texture2D" uid="uid://lsgddbk0o0vh" path="res://resources/images/eleve/studentA_marche2.png" id="4_8gyyf"]
+[ext_resource type="Texture2D" uid="uid://dswqhtpyu3ras" path="res://resources/images/eleve/studentAteleport-1.png" id="4_hgvgb"]
 [ext_resource type="Texture2D" uid="uid://dyc5anamw8pm" path="res://resources/images/eleve/studentA_marche3.png" id="5_8ryjo"]
+[ext_resource type="Texture2D" uid="uid://c704rkqxeo2rw" path="res://resources/images/eleve/studentAteleport-2.png" id="5_24jg2"]
 [ext_resource type="Texture2D" uid="uid://5yps021xpjxy" path="res://resources/images/eleve/studentA_marche4.png" id="6_l21qs"]
+[ext_resource type="Texture2D" uid="uid://b0y2rddjsiagb" path="res://resources/images/eleve/studentAteleport-3.png" id="6_teq4s"]
+[ext_resource type="Texture2D" uid="uid://dfmohts0horfx" path="res://resources/images/eleve/studentAteleport-4.png" id="7_y5sen"]
 
 [resource]
 animations = [{
@@ -19,6 +24,31 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_o1x85")
+}],
+"loop": true,
+"name": &"freeze",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_hgvgb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_24jg2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_teq4s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_y5sen")
+}],
+"loop": true,
+"name": &"teleport",
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,

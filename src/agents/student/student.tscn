@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c8r2w1llsibxh"]
 
-[ext_resource type="SpriteFrames" uid="uid://8l4tkibhsa2x" path="res://resources/images/eleve/studentAframes.tres" id="1_bv7of"]
+[ext_resource type="SpriteFrames" uid="uid://bkrrwisme854t" path="res://resources/images/eleve/studentBframes.tres" id="1_haavo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y8tjl"]
 
@@ -9,8 +9,8 @@ gravity_scale = 0.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-sprite_frames = ExtResource("1_bv7of")
-frame_progress = 0.868116
+sprite_frames = ExtResource("1_haavo")
+frame_progress = 0.0522241
 
 [node name="Student" type="Node2D" parent="."]
 
