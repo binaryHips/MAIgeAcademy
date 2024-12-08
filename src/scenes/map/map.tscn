@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bnbyvqieew8wu"]
 
-[ext_resource type="Texture2D" uid="uid://b68vfpgd525qb" path="res://resources/images/coursMagie.png" id="1_xpjgn"]
+[ext_resource type="Texture2D" uid="uid://eviyb15n221x" path="res://resources/images/courMagie.png" id="1_obbpf"]
 
 [node name="Map" type="Node2D"]
 
@@ -8,7 +8,7 @@
 z_index = -5
 texture_filter = 1
 scale = Vector2(2, 2)
-texture = ExtResource("1_xpjgn")
+texture = ExtResource("1_obbpf")
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(0, 2)
