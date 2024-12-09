@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://f8uneibou5ua"]
+[gd_scene load_steps=24 format=3 uid="uid://f8uneibou5ua"]
 
 [ext_resource type="Script" path="res://src/agents/Teacher/teacher.gd" id="1_sf280"]
 [ext_resource type="Texture2D" uid="uid://cpgdueixhy760" path="res://resources/images/prof/mage1.png" id="2_bdjb2"]
@@ -106,6 +106,12 @@ animations = [{
 radius = 12.0
 height = 34.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_32ueq"]
+radius = 138.13
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qwv05"]
+radius = 73.171
+
 [node name="Teacher" type="RigidBody2D"]
 gravity_scale = 0.0
 script = ExtResource("1_sf280")
@@ -116,7 +122,12 @@ sprite_frames = SubResource("SpriteFrames_lpi3t")
 animation = &"polymorph"
 frame_progress = 0.194461
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
+[node name="Contact" type="CollisionShape2D" parent="."]
 position = Vector2(1, 0)
 shape = SubResource("CapsuleShape2D_vspp1")
+
+[node name="Vision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_32ueq")
+
+[node name="Range" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qwv05")
