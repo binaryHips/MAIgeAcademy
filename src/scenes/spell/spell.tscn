@@ -58,9 +58,10 @@ script = ExtResource("1_d7bb3")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_k13gq")
-animation = &"transform"
-frame_progress = 0.970879
+animation = &"freeze"
+frame_progress = 0.857561
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_hq67s")

@@ -12,5 +12,6 @@ func useSpell(target:Brain , caster:Brain):
 		caster.body.get_node("AnimatedSprite2D").play("freeze")
 		caster.addMana(-1*manaCost)
 		target.freeze() 
+		#target.body.freeze()
 	else:
 		printerr("Logic error : Spell cast out of range")

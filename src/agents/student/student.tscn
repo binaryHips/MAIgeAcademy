@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c8r2w1llsibxh"]
 
-[ext_resource type="SpriteFrames" uid="uid://bkrrwisme854t" path="res://resources/images/eleve/studentBframes.tres" id="1_haavo"]
+[ext_resource type="SpriteFrames" uid="uid://8l4tkibhsa2x" path="res://resources/images/eleve/studentAframes.tres" id="1_v02kr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y8tjl"]
 
@@ -12,14 +12,17 @@ gravity_scale = 0.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-sprite_frames = ExtResource("1_haavo")
-frame_progress = 0.0522241
+sprite_frames = ExtResource("1_v02kr")
+animation = &"teleport"
+frame_progress = 0.217177
 
 [node name="Student" type="Node2D" parent="."]
 
 [node name="Contact" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(1, 0)
 shape = SubResource("CapsuleShape2D_y8tjl")
 
 [node name="Vision" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_o0wa0")

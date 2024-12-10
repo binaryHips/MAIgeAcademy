@@ -37,3 +37,7 @@ func _parse_event(event:Dictionary):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func freeze():
+	body.freeze()
+	# actions quand il est freeze
