@@ -30,7 +30,8 @@ func setScene(scene):
 func useSpell(target:Brain , caster:Brain):
 	pass
 
-func spawnScene(target:Node2D):
+func spawnScene(target:Node2D,caster:Node2D):
 	var scene = spellScene.instantiate()
 	scene.target_position = target.position
 	target.get_tree().get_root().add_child(scene)
+	scene.global_position = caster.global_position

@@ -121,7 +121,7 @@ script = ExtResource("23_kubvy")
 script = ExtResource("24_4oxau")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_32ueq"]
-radius = 138.13
+radius = 356.43
 
 [node name="Teacher" type="RigidBody2D"]
 gravity_scale = 0.0

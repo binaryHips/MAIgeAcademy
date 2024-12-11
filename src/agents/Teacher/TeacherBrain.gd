@@ -6,8 +6,6 @@ var base_pos:Vector2
 
 @export var spells:Array[SpellResource]
 
-@onready var contact:Area2D = get_node("../Contact")
-
 # Called when the node enters the scene tree for the first time.
 func _setup() -> void:
 	#_register()
@@ -44,14 +42,15 @@ func _process(delta: float) -> void:
 func _see():
 	var percept = {"student": []}
 	for element in $"../Area2D".get_overlapping_bodies():
-		percept["student"].push_back(element)
+		if element.get_meta("brain").attention_span == 0:
+			percept["student"].push_back(element)
 	return percept
 	
 func _act(percept):
 	if has_state("teach"):
 		body.wait()
 		# Faudrait détecter si les élèves écoutent ou vont chercher des bonbons
-		if !percept["student"].is_empty() and current_target.has_state("distracted"):
+		if !percept["student"].is_empty():
 			override_state("cast")
 		execute_action("walk_and_teach")
 	

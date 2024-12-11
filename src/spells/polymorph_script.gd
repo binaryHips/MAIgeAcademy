@@ -8,11 +8,12 @@ func _init():
 	spellScene = preload("res://src/scenes/spell/transformSpell/transform.tscn")
 
 func useSpell(target:Brain , caster:Brain):
-	#var distance = caster.body.position.distance_to(target.body.position)
+	#var distance = caster.body.position.distance_to(target.body.positionban )
 	#if(distance <= spellRange):
+	
 	caster.body.get_node("AnimatedSprite2D").play("polymorph")
 	caster.addMana(-1*manaCost)
-	target.override_state("polymorphed") 
+	
 		#target.override_goal("polymorphed")
 	#else:
 		#printerr("Logic error : Spell cast out of range")
