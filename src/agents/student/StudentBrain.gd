@@ -1,6 +1,6 @@
 extends Brain
 
-@export var strategy:StudentStrategy
+@export var strategy:StudentStrategy = StudentStrategy.new()
 
 var ATTENTION_SPAN_DECREASE:float = 0.1
 var attention_span:float = 1.0;
@@ -11,7 +11,14 @@ var base_pos:Vector2
 func _setup():
 	base_pos = body.global_position
 	ATTENTION_SPAN_DECREASE = randf_range(0.1, 0.2)
-	
+	override_state("idle")
+	var dico = {
+			"name": "idle",
+			"move_target": base_pos,
+			"time_remaining": -1,
+			"goal_check": true
+		}
+	override_goal(dico)
 
 func _see():
 	var percept = {
@@ -35,6 +42,11 @@ func _see():
 			)
 	)
 	return percept
+	
+func _act(percept:Dictionary):
+	strategy._act(self, percept)
+	print(states[0])
+	print(goals[0]["move_target"])
 
 func _parse_event(event:Dictionary):
 	strategy._parse(event)
