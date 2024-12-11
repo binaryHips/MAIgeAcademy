@@ -15,9 +15,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if(prev_position.x>position.x):
-		_animated_sprite.scale.x = -2
-	if(prev_position.x<position.x):
 		_animated_sprite.scale.x = 2
+	if(prev_position.x<position.x):
+		_animated_sprite.scale.x = -2
 	prev_position = position
 	
 	$ProgressBar.value = get_meta("brain").attention_span
