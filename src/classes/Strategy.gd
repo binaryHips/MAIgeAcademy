@@ -3,22 +3,23 @@ class_name StudentStrategy
 
 func decideGoToCandy(brain:Brain, percept:Dictionary):
 	brain.override_state("goToCandy")
-	for i in range(percept["candies_by_distance"].size()):
-		var candy = percept["candies_by_distance"][i]
-		var dico = {
-			"name": "goToCandy",
-			"move_target": candy,
-			"time_remaining": -1,
-			"goal_check": func(percept:Dictionary) :
-				if(!is_instance_valid(candy)):
-					return true
-				var dist = brain.body.global_position.distance_to(candy.global_position)
-				if(dist <= 1.0):
-					candy.queue_free()
-					return true
-				return false
-		}
-		brain.add_goal(dico)
+	
+	var candy = percept["candies_by_distance"][0]
+	var dico = {
+		"name": "goToCandy",
+		"move_target": candy.global_position,
+		"time_remaining": -1,
+		"goal_check": func(percept:Dictionary) :
+			if(!is_instance_valid(candy)):
+				return true
+			var dist = brain.body.global_position.distance_to(candy.global_position)
+			if(dist <= 1.0):
+				candy.queue_free()
+				return true
+			return false
+	}
+	brain.override_goal(dico)
+	
 func decideGoBackToPlace(brain:Brain, percept:Dictionary):
 	brain.override_state("goBackToPlace")
 	var dico = {
@@ -39,7 +40,7 @@ func decideIdle(brain:Brain, percept:Dictionary):
 		brain.override_state("idle")
 		var dico = {
 			"name": "idle",
-			"move_target": null,
+			"move_target": brain.base_pos,
 			"time_remaining": -1,
 			"goal_check": true
 		}
@@ -59,7 +60,5 @@ func _decideGoal(brain:Brain, percept:Dictionary): #percept contient positionPla
 			decideIdle(brain, percept)
 	
 func _act(brain:Brain, percept:Dictionary):
-	if(brain.has_state("goToCandy")):
-		var brain_goal = brain.goals.filter(func(dico):dico["name"] == "goToCandy")
-		#fonction pour bouger vers le bonbon
-	
+	_decideGoal(brain, percept)
+	brain.move_target = brain.goals[0]["move_target"]
