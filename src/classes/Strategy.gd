@@ -2,7 +2,7 @@ extends Resource
 class_name StudentStrategy
 
 func decideGoToCandy(brain:Brain, percept:Dictionary):
-	if percept.size() != 0:
+	if percept["candies_by_distance"].size() != 0:
 		brain.override_state("goToCandy")
 		
 		var candy = percept["candies_by_distance"][0]
@@ -14,7 +14,9 @@ func decideGoToCandy(brain:Brain, percept:Dictionary):
 				if(!is_instance_valid(candy)):
 					return true
 				var dist = brain.body.global_position.distance_to(candy.global_position)
-				if(dist <= 1.0):
+				print(dist)
+				if(dist <= 15.0):
+					print("CANDY EATEN")
 					candy.queue_free()
 					return true
 				return false
@@ -52,6 +54,8 @@ func _decideGoal(brain:Brain, percept:Dictionary): #percept contient positionPla
 		"idle" :
 			if (brain.attention_span <= 0):
 				decideGoToCandy(brain, percept)
+			else:
+				decideIdle(brain, percept)
 				
 		"goToCandy":
 			if(percept["candies_by_distance"].size() == 0):
@@ -62,4 +66,8 @@ func _decideGoal(brain:Brain, percept:Dictionary): #percept contient positionPla
 	
 func _act(brain:Brain, percept:Dictionary):
 	_decideGoal(brain, percept)
+	if brain.goals[0]["goal_check"] is Callable:
+		if brain.goals[0]["goal_check"].call(percept):
+			brain.override_state("idle")
+		
 	brain.move_target = brain.goals[0]["move_target"]

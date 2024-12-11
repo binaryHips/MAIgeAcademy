@@ -10,7 +10,6 @@ var base_pos:Vector2
 func _setup() -> void:
 	#_register()
 	base_pos = body.global_position
-	speed = Settings.teacher_speed
 	
 	Gamemaster.world_state["teacher"] = self
 	

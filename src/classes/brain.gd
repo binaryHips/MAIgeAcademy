@@ -11,8 +11,6 @@ var goals:Array[Dictionary]
 ## Event system
 var event_queue:Array[Dictionary]
 
-@export var speed:float #distance by turn
-
 @export var states:Array[String]
 
 @onready var body:PhysicsBody2D = get_parent()
@@ -32,7 +30,7 @@ func run():
 	parse_events()
 	_act(_see())
 
-func physics_process():
+func _physics_process(delta:float):
 	move()
 
 func _see():
@@ -42,13 +40,12 @@ func _act(percept):
 	pass
 
 func move():
-	#print(move_target)
 	if move_target:
-		
 		#var tween = get_tree().create_tween()
 		#tween.tween_property(body,
 		#"global_position",
-		body.global_position = body.global_position.move_toward(move_target, speed*get_physics_process_delta_time())
+		
+		body.global_position = body.global_position.move_toward(move_target, Settings.student_speed*get_physics_process_delta_time())
 		#Settings.time_between_turns
 		#).set_trans(Tween.TRANS_SINE)
 		#tween.play()

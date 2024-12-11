@@ -45,8 +45,6 @@ func _see():
 	
 func _act(percept:Dictionary):
 	strategy._act(self, percept)
-	print(states[0])
-	print(goals[0]["move_target"])
 
 func _parse_event(event:Dictionary):
 	strategy._parse(event)
