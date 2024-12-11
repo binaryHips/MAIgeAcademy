@@ -1,7 +1,7 @@
 extends Node
 
 var world_state:Dictionary = {
-	
+	"candies": []
 }
 
 var main_scene:Node2D

@@ -11,6 +11,9 @@ func _setup() -> void:
 	#_register()
 	base_pos = body.global_position
 	speed = Settings.teacher_speed
+	
+	Gamemaster.world_state["teacher"] = self
+	
 	add_state("teach")
 	add_action("walk_and_cast_spell",
 		func():
@@ -42,7 +45,7 @@ func _process(delta: float) -> void:
 func _see():
 	var percept = {"student": []}
 	for element in $"../Area2D".get_overlapping_bodies():
-		if element.get_meta("brain").attention_span == 0:
+		if element.is_in_group("student") && element.get_meta("brain").attention_span == 0:
 			percept["student"].push_back(element)
 	return percept
 	
@@ -55,7 +58,17 @@ func _act(percept):
 		execute_action("walk_and_teach")
 	
 	elif has_state("cast"):
-		#go to current target
+		for e in percept["student"]:
+			var student_brain:Brain = e.get_meta("brain")
+			if (
+				not student_brain.has_state("comeback")
+				and student_brain.has_state("distracted")
+			):
+				var current_distance = current_target.body.global_position.distance_to(body.global_position)
+				var new_distance = student_brain.body.global_position.distance_to(body.global_position)
+				if current_target == null && current_distance > new_distance :
+					current_target = student_brain
+				
 		if is_instance_valid(current_target):
 			if (
 				not current_target.has_state("comeback")
@@ -66,16 +79,9 @@ func _act(percept):
 				execute_action("walk_and_cast_spell")
 			else:
 				current_target = null
-		#check if there IS a target
-		for e in percept["student"]:
-			var student_brain:Brain = e.get_meta("brain")
-			if (
-				not student_brain.has_state("comeback")
-				and student_brain.has_state("distracted")
-			):
-				current_target = student_brain
-			else:
-				override_state("teach")
+		
+			#else:
+				#override_state("teach")
 	pass
 
 func addMana(mana:int):

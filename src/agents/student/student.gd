@@ -6,8 +6,7 @@ var prev_position = Vector2()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var random_sprite =  randi() % student_sprites.size()
-	_animated_sprite.texture = random_sprite 
+	_animated_sprite.sprite_frames = student_sprites.pick_random()
 	prev_position = position
 	_animated_sprite.play("default")
 	#pass # Replace with function body.
@@ -20,6 +19,8 @@ func _process(delta: float) -> void:
 	if(prev_position.x<position.x):
 		_animated_sprite.scale.x = 2
 	prev_position = position
+	
+	$ProgressBar.value = get_meta("brain").attention_span
 
 func wait():
 	_animated_sprite.play("default")

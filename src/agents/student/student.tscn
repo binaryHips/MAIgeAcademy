@@ -1,14 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8r2w1llsibxh"]
+[gd_scene load_steps=7 format=3 uid="uid://c8r2w1llsibxh"]
 
+[ext_resource type="Script" path="res://src/agents/student/student.gd" id="1_j41ic"]
 [ext_resource type="SpriteFrames" uid="uid://8l4tkibhsa2x" path="res://resources/images/eleve/studentAframes.tres" id="1_v02kr"]
+[ext_resource type="Script" path="res://src/agents/student/StudentBrain.gd" id="2_wgrkg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y8tjl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o0wa0"]
 radius = 92.0054
 
-[node name="Student" type="RigidBody2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ynk74"]
+bg_color = Color(0.730742, 0, 0.0941446, 1)
+
+[node name="Student" type="RigidBody2D" groups=["student"]]
 gravity_scale = 0.0
+script = ExtResource("1_j41ic")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -28,3 +34,17 @@ shape = SubResource("CapsuleShape2D_y8tjl")
 visible = false
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_o0wa0")
+
+[node name="brain" type="Node" parent="."]
+script = ExtResource("2_wgrkg")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -33.0
+offset_top = -39.0
+offset_right = 33.0
+offset_bottom = -34.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_ynk74")
+max_value = 1.0
+step = 0.001
+value = 1.0
+show_percentage = false
