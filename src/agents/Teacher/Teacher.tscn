@@ -118,19 +118,21 @@ script = ExtResource("1_sf280")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_lpi3t")
-animation = &"telekinesis"
-frame_progress = 0.883677
 
 [node name="Contact" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(1, 0)
+scale = Vector2(2, 2)
 shape = SubResource("CapsuleShape2D_vspp1")
 
 [node name="Vision" type="CollisionShape2D" parent="."]
 visible = false
+scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_32ueq")
 
 [node name="Range" type="CollisionShape2D" parent="."]
 visible = false
+scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_qwv05")

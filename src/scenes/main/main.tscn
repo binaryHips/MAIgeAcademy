@@ -29,19 +29,6 @@ sky_colors = SubResource("Gradient_5j847")
 
 [node name="Map" parent="." instance=ExtResource("1_lwrs2")]
 
-[node name="Chien" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-position = Vector2(315, 272)
-script = null
-
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_6mngh")
 offset_left = -584.0
