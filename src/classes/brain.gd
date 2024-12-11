@@ -44,13 +44,14 @@ func move():
 	#print(move_target)
 	if move_target:
 		
-		var tween = get_tree().create_tween()
-		tween.tween_property(body,
-		"global_position",
-		body.global_position.move_toward(move_target, speed),
-		Settings.time_between_turns
-		).set_trans(Tween.TRANS_SINE)
-		tween.play()
+		#var tween = get_tree().create_tween()
+		#tween.tween_property(body,
+		#"global_position",
+		body.global_position = body.global_position.move_toward(move_target, speed*get_process_delta_time())
+		#Settings.time_between_turns
+		#).set_trans(Tween.TRANS_SINE)
+		#tween.play()
+		#return deplacement
 
 func parse_events():
 	while !event_queue.is_empty():

@@ -45,7 +45,7 @@ func _process(delta: float) -> void:
 func _see():
 	var percept = {"student": []}
 	for element in $"../Area2D".get_overlapping_bodies():
-		if element.is_in_group("student") && element.get_meta("brain").attention_span == 0:
+		if element.is_in_group("student") && element.get_meta("brain").has_state("goToCandy"):
 			percept["student"].push_back(element)
 	return percept
 	
@@ -61,8 +61,8 @@ func _act(percept):
 		for e in percept["student"]:
 			var student_brain:Brain = e.get_meta("brain")
 			if (
-				not student_brain.has_state("comeback")
-				and student_brain.has_state("distracted")
+				not student_brain.has_state("goBackToPlace")
+				and student_brain.has_state("goToCandy")
 			):
 				var current_distance = current_target.body.global_position.distance_to(body.global_position)
 				var new_distance = student_brain.body.global_position.distance_to(body.global_position)
@@ -71,8 +71,8 @@ func _act(percept):
 				
 		if is_instance_valid(current_target):
 			if (
-				not current_target.has_state("comeback")
-				and current_target.has_state("distracted")
+				not current_target.has_state("goBackToPlace")
+				and current_target.has_state("goToCandy")
 			):
 				if current_spell == null:
 					current_spell = spells.pick_random() 
