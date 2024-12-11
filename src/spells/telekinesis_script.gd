@@ -11,6 +11,6 @@ func useSpell(target:Brain , caster:Brain):
 	if(distance <= spellRange):
 		caster.body.get_node("AnimatedSprite2D").play("telekinesis")
 		caster.addMana(-1*manaCost)
-		target.polymorph() 
+		target.override_state("teleporting") 
 	else:
 		printerr("Logic error : Spell cast out of range")

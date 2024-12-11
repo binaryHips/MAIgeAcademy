@@ -11,6 +11,7 @@ func useSpell(target:Brain , caster:Brain):
 	if(distance <= spellRange):
 		caster.body.get_node("AnimatedSprite2D").play("polymorph")
 		caster.addMana(-1*manaCost)
-		target.polymorph() 
+		target.override_state("polymorphed") 
+		#target.override_goal("polymorphed")
 	else:
 		printerr("Logic error : Spell cast out of range")
