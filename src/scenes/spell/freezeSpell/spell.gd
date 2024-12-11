@@ -17,9 +17,3 @@ func orientation():
 	var direction = target_position - global_position
 	var angle = direction.angle() - PI/2
 	rotation = angle
-
-func freeze():
-	_animated_sprite.play("freeze")
-	
-func polymorph():
-	_animated_sprite.play("transform")

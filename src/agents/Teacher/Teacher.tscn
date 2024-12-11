@@ -146,7 +146,3 @@ spells = Array[ExtResource("21_f37n3")]([SubResource("Resource_m8wm1"), SubResou
 [node name="Vision" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_32ueq")
-
-[node name="Range" type="CollisionShape2D" parent="."]
-visible = false
-shape = SubResource("CircleShape2D_qwv05")

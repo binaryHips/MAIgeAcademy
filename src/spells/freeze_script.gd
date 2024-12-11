@@ -5,8 +5,7 @@ func _init():
 	spellRange = 80
 	manaCost = 35
 	spellDuration = 4
-	#spellScene = 
-	
+	spellScene = preload("res://src/scenes/spell/freezeSpell/freeze.tscn")
 
 func useSpell(target:Brain , caster:Brain):
 	#var distance = caster.body.position.distance_to(target.body.position)

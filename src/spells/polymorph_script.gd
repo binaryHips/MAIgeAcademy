@@ -5,7 +5,7 @@ func _init():
 	spellRange = 100
 	manaCost = 30
 	spellDuration = 6
-	
+	spellScene = preload("res://src/scenes/spell/transformSpell/transform.tscn")
 
 func useSpell(target:Brain , caster:Brain):
 	#var distance = caster.body.position.distance_to(target.body.position)
