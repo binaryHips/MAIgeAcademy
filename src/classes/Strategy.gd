@@ -14,7 +14,6 @@ func decideGoToCandy(brain:Brain, percept:Dictionary):
 				if(!is_instance_valid(candy)):
 					return true
 				var dist = brain.body.global_position.distance_to(candy.global_position)
-				print(dist)
 				if(dist <= 15.0):
 					print("CANDY EATEN")
 					candy.queue_free()
@@ -69,5 +68,5 @@ func _act(brain:Brain, percept:Dictionary):
 	if brain.goals[0]["goal_check"] is Callable:
 		if brain.goals[0]["goal_check"].call(percept):
 			brain.override_state("idle")
-		
-	brain.move_target = brain.goals[0]["move_target"]
+		else:
+			brain.move_target = brain.goals[0]["move_target"]

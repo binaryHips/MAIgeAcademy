@@ -13,7 +13,7 @@ height = 82.0
 
 [node name="Level0" type="Node2D" node_paths=PackedStringArray("agents")]
 script = ExtResource("1_gq4fo")
-agents = [NodePath("Student1")]
+agents = [NodePath("Student1"), NodePath("Student2")]
 
 [node name="cour" type="Sprite2D" parent="."]
 z_index = -5
@@ -71,6 +71,10 @@ texture = ExtResource("4_n277r")
 
 [node name="Student1" parent="." instance=ExtResource("5_pnami")]
 position = Vector2(244, -107)
+lock_rotation = true
+
+[node name="Student2" parent="." instance=ExtResource("5_pnami")]
+position = Vector2(-39, -107)
 lock_rotation = true
 
 [node name="Teacher" parent="." instance=ExtResource("6_ga4n2")]
