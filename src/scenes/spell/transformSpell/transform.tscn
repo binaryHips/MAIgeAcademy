@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://dccvw86mhv68x"]
+
+[ext_resource type="Script" path="res://src/scenes/spell/transformSpell/spell.gd" id="1_qc4bo"]
+[ext_resource type="Texture2D" uid="uid://jumn4tvgfr3l" path="res://resources/images/spell/transform-1.png" id="2_j2qfq"]
+[ext_resource type="Texture2D" uid="uid://crgm406xhkm1k" path="res://resources/images/spell/transform-2.png" id="3_bygk5"]
+[ext_resource type="Texture2D" uid="uid://dmxfprkbif02t" path="res://resources/images/spell/transform-3.png" id="4_7h2ru"]
+[ext_resource type="Texture2D" uid="uid://b7kfvfgamv10c" path="res://resources/images/spell/transform-4.png" id="5_64odm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k13gq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_j2qfq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bygk5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7h2ru")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_64odm")
+}],
+"loop": true,
+"name": &"transform",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hq67s"]
+radius = 5.0
+height = 26.0
+
+[node name="Transform" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_qc4bo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_k13gq")
+animation = &"transform"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_hq67s")

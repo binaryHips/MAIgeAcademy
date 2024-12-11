@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://f8uneibou5ua"]
+[gd_scene load_steps=31 format=3 uid="uid://f8uneibou5ua"]
 
 [ext_resource type="Script" path="res://src/agents/Teacher/teacher.gd" id="1_sf280"]
 [ext_resource type="Texture2D" uid="uid://cpgdueixhy760" path="res://resources/images/prof/mage1.png" id="2_bdjb2"]
@@ -19,6 +19,11 @@
 [ext_resource type="Texture2D" uid="uid://cp8l6vdrijg7w" path="res://resources/images/prof/magie_marche2.png" id="17_xgq6c"]
 [ext_resource type="Texture2D" uid="uid://dgsr26v60i3m7" path="res://resources/images/prof/magie_marche3.png" id="18_08k1u"]
 [ext_resource type="Texture2D" uid="uid://dbe3k0hma1g01" path="res://resources/images/prof/magie_marche4.png" id="19_tifqk"]
+[ext_resource type="Script" path="res://src/agents/Teacher/TeacherBrain.gd" id="20_wt72u"]
+[ext_resource type="Script" path="res://src/classes/spells.gd" id="21_f37n3"]
+[ext_resource type="Script" path="res://src/spells/freeze_script.gd" id="22_sppbi"]
+[ext_resource type="Script" path="res://src/spells/polymorph_script.gd" id="23_kubvy"]
+[ext_resource type="Script" path="res://src/spells/telekinesis_script.gd" id="24_4oxau"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lpi3t"]
 animations = [{
@@ -106,11 +111,17 @@ animations = [{
 radius = 12.0
 height = 34.0
 
+[sub_resource type="Resource" id="Resource_m8wm1"]
+script = ExtResource("22_sppbi")
+
+[sub_resource type="Resource" id="Resource_78g5q"]
+script = ExtResource("23_kubvy")
+
+[sub_resource type="Resource" id="Resource_g3h2j"]
+script = ExtResource("24_4oxau")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_32ueq"]
 radius = 138.13
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_qwv05"]
-radius = 73.171
 
 [node name="Teacher" type="RigidBody2D"]
 gravity_scale = 0.0
@@ -123,14 +134,14 @@ animation = &"telekinesis"
 frame_progress = 0.883677
 
 [node name="Contact" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(1, 0)
 shape = SubResource("CapsuleShape2D_vspp1")
 
-[node name="Vision" type="CollisionShape2D" parent="."]
-visible = false
-shape = SubResource("CircleShape2D_32ueq")
+[node name="Brain" type="Node" parent="."]
+script = ExtResource("20_wt72u")
+spells = Array[ExtResource("21_f37n3")]([SubResource("Resource_m8wm1"), SubResource("Resource_78g5q"), SubResource("Resource_g3h2j")])
 
-[node name="Range" type="CollisionShape2D" parent="."]
-visible = false
-shape = SubResource("CircleShape2D_qwv05")
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Vision" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_32ueq")
