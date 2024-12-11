@@ -104,12 +104,12 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 4.0
+"speed": 8.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vspp1"]
-radius = 12.0
-height = 34.0
+radius = 8.5
+height = 31.0
 
 [sub_resource type="Resource" id="Resource_m8wm1"]
 script = ExtResource("22_sppbi")
@@ -121,7 +121,7 @@ script = ExtResource("23_kubvy")
 script = ExtResource("24_4oxau")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_32ueq"]
-radius = 356.43
+radius = 466.5
 
 [node name="Teacher" type="RigidBody2D"]
 gravity_scale = 0.0
@@ -131,11 +131,10 @@ script = ExtResource("1_sf280")
 texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_lpi3t")
-animation = &"walk"
-frame_progress = 0.842077
+animation = &"freeze"
+frame_progress = 0.230302
 
 [node name="Contact" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(1, 0)
 scale = Vector2(2, 2)
 shape = SubResource("CapsuleShape2D_vspp1")

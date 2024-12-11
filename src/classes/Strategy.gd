@@ -52,21 +52,27 @@ func _decideGoal(brain:Brain, percept:Dictionary): #percept contient positionPla
 	match brain.states[0]:
 		"idle" :
 			if (brain.attention_span <= 0):
+				#brain.body.walk()
 				decideGoToCandy(brain, percept)
 			else:
+				
 				decideIdle(brain, percept)
 				
 		"goToCandy":
 			if(percept["candies_by_distance"].size() == 0):
+				
 				decideGoBackToPlace(brain, percept)
 				
 		"goBackToPlace":
+			#brain.body.walk()
 			decideIdle(brain, percept)
 	
 func _act(brain:Brain, percept:Dictionary):
 	_decideGoal(brain, percept)
 	if brain.goals[0]["goal_check"] is Callable:
 		if brain.goals[0]["goal_check"].call(percept):
+			brain.body.wait()
 			brain.override_state("idle")
 		else:
+			brain.body.walk()
 			brain.move_target = brain.goals[0]["move_target"]

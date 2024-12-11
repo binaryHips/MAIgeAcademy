@@ -13,6 +13,7 @@ func useSpell(target:Brain , caster:Brain):
 	
 	caster.body.get_node("AnimatedSprite2D").play("freeze")
 	caster.addMana(-1*manaCost)
+	caster.body.freeze() # joue l'animation du sort de glace
 	#target.override_state("frozen") 
 	#else:
 		#printerr("Logic error : Spell cast out of range")

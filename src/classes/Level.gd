@@ -10,7 +10,7 @@ var spawn_count
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	t = Timer.new()
-	t.wait_time = 5
+	t.wait_time = 4
 	t.timeout.connect(les_bonbons)
 	add_child(t)
 	t.start()
@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 
 
 func les_bonbons():
-	spawn_count = randf_range(0,4)
+	spawn_count = randf_range(1,4)
 	for i in range(spawn_count):
 		random_spawn_candy()
 

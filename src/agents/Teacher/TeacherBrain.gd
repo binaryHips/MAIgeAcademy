@@ -18,17 +18,19 @@ func _setup() -> void:
 		func():
 			move_target = current_target.body.global_position
 			var distance = body.global_position.distance_to(current_target.body.global_position)
-			
+			body.walk()
 			if distance <= current_spell.getRange():
 				current_spell.useSpell(current_target,self)
 				current_spell = null
 	)
 	add_action("walk_and_teach",
 		func():
+			body.walk()
 			move_target = base_pos
 			var distance = body.global_position.distance_to(base_pos)
 			
 			if distance <= 20 :
+				body.default()
 				pass
 	)
 
@@ -50,7 +52,7 @@ func _see():
 	
 func _act(percept):
 	if has_state("teach"):
-		body.wait()
+		body.default()
 		# Faudrait détecter si les élèves écoutent ou vont chercher des bonbons
 		if !percept["student"].is_empty():
 			override_state("cast")

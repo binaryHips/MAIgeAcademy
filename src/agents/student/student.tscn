@@ -5,6 +5,8 @@
 [ext_resource type="Script" path="res://src/agents/student/StudentBrain.gd" id="2_wgrkg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y8tjl"]
+radius = 6.0
+height = 24.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o0wa0"]
 radius = 92.0054
@@ -13,6 +15,7 @@ radius = 92.0054
 bg_color = Color(0.730742, 0, 0.0941446, 1)
 
 [node name="Student" type="RigidBody2D" groups=["student"]]
+collision_mask = 2
 gravity_scale = 0.0
 script = ExtResource("1_j41ic")
 
@@ -20,6 +23,7 @@ script = ExtResource("1_j41ic")
 texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("1_v02kr")
+animation = &"walk"
 
 [node name="Student" type="Node2D" parent="."]
 

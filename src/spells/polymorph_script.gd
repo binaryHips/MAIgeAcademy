@@ -13,7 +13,7 @@ func useSpell(target:Brain , caster:Brain):
 	
 	caster.body.get_node("AnimatedSprite2D").play("polymorph")
 	caster.addMana(-1*manaCost)
-	
+	caster.body.polymorph() # joue l'animation du sort de transformation
 		#target.override_goal("polymorphed")
 	#else:
 		#printerr("Logic error : Spell cast out of range")
