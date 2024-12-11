@@ -13,7 +13,7 @@ height = 82.0
 
 [node name="Level0" type="Node2D" node_paths=PackedStringArray("agents")]
 script = ExtResource("1_gq4fo")
-agents = [NodePath("Student1"), NodePath("Teacher")]
+agents = [NodePath("Student1")]
 
 [node name="cour" type="Sprite2D" parent="."]
 z_index = -5

@@ -2,23 +2,24 @@ extends Resource
 class_name StudentStrategy
 
 func decideGoToCandy(brain:Brain, percept:Dictionary):
-	brain.override_state("goToCandy")
-	
-	var candy = percept["candies_by_distance"][0]
-	var dico = {
-		"name": "goToCandy",
-		"move_target": candy.global_position,
-		"time_remaining": -1,
-		"goal_check": func(percept:Dictionary) :
-			if(!is_instance_valid(candy)):
-				return true
-			var dist = brain.body.global_position.distance_to(candy.global_position)
-			if(dist <= 1.0):
-				candy.queue_free()
-				return true
-			return false
-	}
-	brain.override_goal(dico)
+	if percept.size() != 0:
+		brain.override_state("goToCandy")
+		
+		var candy = percept["candies_by_distance"][0]
+		var dico = {
+			"name": "goToCandy",
+			"move_target": candy.global_position,
+			"time_remaining": -1,
+			"goal_check": func(percept:Dictionary) :
+				if(!is_instance_valid(candy)):
+					return true
+				var dist = brain.body.global_position.distance_to(candy.global_position)
+				if(dist <= 1.0):
+					candy.queue_free()
+					return true
+				return false
+		}
+		brain.override_goal(dico)
 	
 func decideGoBackToPlace(brain:Brain, percept:Dictionary):
 	brain.override_state("goBackToPlace")
