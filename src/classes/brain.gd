@@ -31,8 +31,9 @@ func _setup():
 func run():
 	parse_events()
 	_act(_see())
+
+func physics_process():
 	move()
-	
 
 func _see():
 	pass
@@ -47,7 +48,7 @@ func move():
 		#var tween = get_tree().create_tween()
 		#tween.tween_property(body,
 		#"global_position",
-		body.global_position = body.global_position.move_toward(move_target, speed*get_process_delta_time())
+		body.global_position = body.global_position.move_toward(move_target, speed*get_physics_process_delta_time())
 		#Settings.time_between_turns
 		#).set_trans(Tween.TRANS_SINE)
 		#tween.play()
