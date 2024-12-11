@@ -1,4 +1,5 @@
 extends SpellResource
+class_name TelekinesisSpellResource
 
 func _init():
 	spellRange = 5

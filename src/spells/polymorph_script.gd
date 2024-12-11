@@ -1,4 +1,5 @@
 extends SpellResource
+class_name PolymorphSpellResource
 
 func _init():
 	spellRange = 100
