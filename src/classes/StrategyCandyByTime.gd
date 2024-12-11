@@ -1,12 +1,10 @@
-extends Resource
-class_name StudentStrategy
+extends StudentStrategy
+class_name StudentCandyByTime
 
-
-
-func _decideGoal(brain:Brain, percept:Dictionary): #percept contient positionPlace + bonbonsAProximite
+func _decideGoal(brain:Brain, percept:Dictionary):
 	match brain.states[0]:
 		"idle" :
-			if (brain.attention_span <= 0):
+			if (brain.attention_span <= 0): #peut-être remplacer ça par un timer/wait
 				brain.override_state("goToCandy")
 				for i in range(percept["candies_by_distance"].size()):
 					var candy = percept["candies_by_distance"][i]
@@ -49,9 +47,8 @@ func _decideGoal(brain:Brain, percept:Dictionary): #percept contient positionPla
 					"goal_check": true
 				}
 				brain.override_goal(dico)
-	
+			
 func _act(brain:Brain, percept:Dictionary):
 	if(brain.has_state("goToCandy")):
 		var brain_goal = brain.goals.filter(func(dico):dico["name"] == "goToCandy")
 		#fonction pour bouger vers le bonbon
-	

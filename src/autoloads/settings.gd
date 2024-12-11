@@ -9,6 +9,7 @@ var length_in_rounds:int = 50
 
 var n_sheep:int = 5
 
+var teacher_speed:float = 100.0
 var dog_speed:float = 100.0
 var sheep_speed:float = 40.0
 

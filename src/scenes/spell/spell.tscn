@@ -1,0 +1,67 @@
+[gd_scene load_steps=12 format=3 uid="uid://bnr2r0yybdhpi"]
+
+[ext_resource type="Script" path="res://src/scenes/spell/spell.gd" id="1_d7bb3"]
+[ext_resource type="Texture2D" uid="uid://cs3726r6vmfbp" path="res://resources/images/spell/freeze1.png" id="1_x28qc"]
+[ext_resource type="Texture2D" uid="uid://kemnljh2ul00" path="res://resources/images/spell/freeze2.png" id="2_uk6fg"]
+[ext_resource type="Texture2D" uid="uid://ca785algcd6tu" path="res://resources/images/spell/freeze3.png" id="3_g5x75"]
+[ext_resource type="Texture2D" uid="uid://dchbtvaygecjw" path="res://resources/images/spell/freeze4.png" id="4_ikoge"]
+[ext_resource type="Texture2D" uid="uid://jumn4tvgfr3l" path="res://resources/images/spell/transform-1.png" id="5_f4nau"]
+[ext_resource type="Texture2D" uid="uid://crgm406xhkm1k" path="res://resources/images/spell/transform-2.png" id="6_56vh5"]
+[ext_resource type="Texture2D" uid="uid://dmxfprkbif02t" path="res://resources/images/spell/transform-3.png" id="7_wvax2"]
+[ext_resource type="Texture2D" uid="uid://b7kfvfgamv10c" path="res://resources/images/spell/transform-4.png" id="8_xddxg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k13gq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_x28qc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_uk6fg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_g5x75")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ikoge")
+}],
+"loop": true,
+"name": &"freeze",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_f4nau")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_56vh5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wvax2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_xddxg")
+}],
+"loop": true,
+"name": &"transform",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hq67s"]
+radius = 5.0
+height = 26.0
+
+[node name="Spell" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_d7bb3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_k13gq")
+animation = &"freeze"
+frame_progress = 0.857561
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_hq67s")

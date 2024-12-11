@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://crnpbul23uwag"]
+[gd_scene load_steps=9 format=3 uid="uid://crnpbul23uwag"]
 
 [ext_resource type="Script" path="res://src/scenes/main/main.gd" id="1_733e2"]
 [ext_resource type="PackedScene" uid="uid://bnbyvqieew8wu" path="res://src/scenes/map/map.tscn" id="1_lwrs2"]
-[ext_resource type="PackedScene" uid="uid://c3h086n4tu8x5" path="res://src/scenes/chien/chien.tscn" id="3_7kmae"]
 [ext_resource type="Shader" path="res://resources/shaders/tint.gdshader" id="4_babmt"]
 [ext_resource type="PackedScene" uid="uid://b64eogwqgw02t" path="res://src/scenes/UI/ui.tscn" id="6_giq1u"]
 
@@ -30,8 +29,18 @@ sky_colors = SubResource("Gradient_5j847")
 
 [node name="Map" parent="." instance=ExtResource("1_lwrs2")]
 
-[node name="Chien" parent="." instance=ExtResource("3_7kmae")]
+[node name="Chien" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 position = Vector2(315, 272)
+script = null
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_6mngh")

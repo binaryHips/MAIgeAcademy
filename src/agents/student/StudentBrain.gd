@@ -4,7 +4,6 @@ extends Brain
 
 var attention_span:float = 1.0;
 
-
 var base_pos:Vector2
 
 # Called when the node enters the scene tree for the first time.
@@ -38,3 +37,7 @@ func _parse_event(event:Dictionary):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func freeze():
+	body.freeze()
+	# actions quand il est freeze
