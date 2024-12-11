@@ -38,7 +38,7 @@ func random_spawn_candy():
 	var random_candy = candy_scene.instantiate()
 	var random_sprite =  randi() % candy_sprites.size()
 	random_candy.get_node("Sprite2D").texture = candy_sprites[random_sprite]
-	var random_x = randf_range(0,450)
-	var random_y = randf_range(0,450)
+	var random_x = randf_range(-450,450)
+	var random_y = randf_range(-450,450)
 	random_candy.position = Vector2(random_x,random_y)
 	add_child(random_candy)
