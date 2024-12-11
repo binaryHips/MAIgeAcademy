@@ -1,4 +1,5 @@
 extends SpellResource
+class_name FreezeSpellResource
 
 func _init():
 	spellRange = 80
