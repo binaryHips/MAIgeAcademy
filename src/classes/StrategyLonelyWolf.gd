@@ -1,5 +1,5 @@
 extends StudentStrategy
-class_name StudentLonelyWolf
+class_name LonelyWolfStrategy
 
 func _decideGoal(brain:Brain, percept:Dictionary):
 	match brain.states[0]:
@@ -9,7 +9,10 @@ func _decideGoal(brain:Brain, percept:Dictionary):
 			if(studentsSearchingCandies.size() >= percept["students_by_distance"].size()/2): 
 				super.decideGoToCandy(brain, percept)
 		"goToCandy":
-			if percept["candies_by_distance"].size == 0:
+			if percept["candies_by_distance"].size() == 0:
 				super.decideGoBackToPlace(brain, percept)
 		"goBackToSpace":
 			super.decideIdle(brain, percept)
+
+func get_class_name():
+	return "LonelyWolfStrategy"

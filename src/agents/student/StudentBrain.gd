@@ -1,6 +1,7 @@
 extends Brain
 
-@export var strategy:StudentStrategy = StudentStrategy.new()
+@export var strategy:StudentStrategy = [StudentStrategy, CandyByTimeStrategy, LonelyWolfStrategy].pick_random().new()
+
 
 var ATTENTION_SPAN_DECREASE:float = 0.1
 var attention_span:float = 1.0;
@@ -9,6 +10,7 @@ var base_pos:Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _setup():
+	
 	base_pos = body.global_position
 	ATTENTION_SPAN_DECREASE = randf_range(0.1, 0.2)
 	override_state("idle")
@@ -45,6 +47,7 @@ func _see():
 	
 func _act(percept:Dictionary):
 	strategy._act(self, percept)
+	print(strategy.get_class_name(), " : ", states)
 
 func _parse_event(event:Dictionary):
 	strategy._parse(event)
