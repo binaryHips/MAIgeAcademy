@@ -10,7 +10,7 @@ func decideGoToCandy(brain:Brain, percept:Dictionary):
 			"name": "goToCandy",
 			"move_target": candy.global_position,
 			"time_remaining": -1,
-			"goal_check": func(percept:Dictionary) :
+			"goal_check": func(brain:Brain, percept:Dictionary) :
 				if(!is_instance_valid(candy)):
 					return true
 				var dist = brain.body.global_position.distance_to(candy.global_position)
@@ -28,7 +28,7 @@ func decideGoBackToPlace(brain:Brain, percept:Dictionary):
 		"name": "goBackToPlace",
 		"move_target": brain.base_pos,
 		"time_remaining": -1,
-		"goal_check": func(percept:Dictionary) :
+		"goal_check": func(brain:Brain, percept:Dictionary) :
 			var dist = brain.body.global_position.distance_to(brain.base_pos)
 			if(dist <= 1.0):
 				return true
@@ -44,14 +44,14 @@ func decideIdle(brain:Brain, percept:Dictionary):
 			"name": "idle",
 			"move_target": brain.base_pos,
 			"time_remaining": -1,
-			"goal_check": true
+			"goal_check": null
 		}
 		brain.override_goal(dico)
 
 func _decideGoal(brain:Brain, percept:Dictionary): #percept contient positionPlace + bonbonsAProximite
 	match brain.states[0]:
 		"idle" :
-			if (brain.attention_span <= 0):
+			if (brain.attention_span <= 0) or percept["candies_by_distance"].is_empty():
 				#brain.body.walk()
 				decideGoToCandy(brain, percept)
 			else:
@@ -62,6 +62,8 @@ func _decideGoal(brain:Brain, percept:Dictionary): #percept contient positionPla
 			if(percept["candies_by_distance"].size() == 0):
 				
 				decideGoBackToPlace(brain, percept)
+			else:
+				decideGoToCandy(brain, percept)
 				
 		"goBackToPlace":
 			#brain.body.walk()
@@ -70,7 +72,7 @@ func _decideGoal(brain:Brain, percept:Dictionary): #percept contient positionPla
 func _act(brain:Brain, percept:Dictionary):
 	_decideGoal(brain, percept)
 	if brain.goals[0]["goal_check"] is Callable:
-		if brain.goals[0]["goal_check"].call(percept):
+		if brain.goals[0]["goal_check"].call(brain, percept):
 			brain.body.wait()
 			brain.override_state("idle")
 		else:
