@@ -39,6 +39,7 @@ func setName(new_name):
 
 func spawnScene(target:Node2D,caster:Node2D):
 	var scene = spellScene.instantiate()
-	scene.target_position = target.position
+	scene.target = target
+	#scene.target_position = target.position
 	target.get_tree().get_root().add_child(scene)
 	scene.global_position = caster.global_position

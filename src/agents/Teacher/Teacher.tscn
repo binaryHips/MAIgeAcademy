@@ -53,7 +53,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"freeze",
-"speed": 4.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -70,7 +70,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"polymorph",
-"speed": 4.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -87,7 +87,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"telekinesis",
-"speed": 4.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -132,8 +132,7 @@ script = ExtResource("1_sf280")
 texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_lpi3t")
-animation = &"freeze"
-frame_progress = 0.534687
+animation = &"telekinesis"
 
 [node name="Contact" type="CollisionShape2D" parent="."]
 position = Vector2(1, 0)
@@ -149,3 +148,13 @@ spells = Array[ExtResource("21_f37n3")]([SubResource("Resource_m8wm1"), SubResou
 [node name="Vision" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_32ueq")
+
+[node name="freeze_timer" type="Timer" parent="."]
+
+[node name="transform_timer" type="Timer" parent="."]
+
+[node name="tele_timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="freeze_timer" to="." method="_on_freeze_timer_timeout"]
+[connection signal="timeout" from="transform_timer" to="." method="_on_transform_timer_timeout"]
+[connection signal="timeout" from="tele_timer" to="." method="_on_tele_timer_timeout"]

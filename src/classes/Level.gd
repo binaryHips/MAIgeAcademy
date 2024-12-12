@@ -20,7 +20,7 @@ func _ready() -> void:
 func setup_agents():
 	Gamemaster.agents.clear()
 	for a in agents:
-		print(a)
+		#print(a)
 		Gamemaster.agents.append(
 			a.get_meta("brain")
 		)

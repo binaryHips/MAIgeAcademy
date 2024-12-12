@@ -22,7 +22,7 @@ func _setup():
 		}
 	override_goal(dico)
 	if strategy.get_class_name() == "CandyByTimeStrategy":
-		print("début du timer")
+		#print("début du timer")
 		add_child(timer)
 		timer.start(10.0)
 
