@@ -78,3 +78,6 @@ func _act(brain:Brain, percept:Dictionary):
 		else:
 			brain.body.walk()
 			brain.move_target = brain.goals[0]["move_target"]
+			
+func get_class_name():
+	return "StudentStrategy"
