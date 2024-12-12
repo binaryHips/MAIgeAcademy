@@ -22,9 +22,10 @@ Settings="*res://src/autoloads/settings.gd"
 
 [display]
 
-window/size/viewport_width=1080
-window/size/viewport_height=1080
+window/size/viewport_width=860
+window/size/viewport_height=860
 window/stretch/mode="canvas_items"
+window/stretch/scale=0.8
 
 [file_customization]
 

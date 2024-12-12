@@ -6,9 +6,10 @@ var spellRange = 50
 var manaCost = 5
 var spellDuration = 0
 var spellScene : PackedScene
+var name : String
 
 func getRange():
-	return range
+	return spellRange
 func setRange(range):
 	spellRange = range
 
@@ -29,6 +30,12 @@ func setScene(scene):
 
 func useSpell(target:Brain , caster:Brain):
 	pass
+
+func getName():
+	return name
+	
+func setName(new_name):
+	name = new_name
 
 func spawnScene(target:Node2D,caster:Node2D):
 	var scene = spellScene.instantiate()
