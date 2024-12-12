@@ -124,6 +124,7 @@ script = ExtResource("24_4oxau")
 radius = 466.5
 
 [node name="Teacher" type="RigidBody2D"]
+collision_mask = 2
 gravity_scale = 0.0
 script = ExtResource("1_sf280")
 
@@ -132,7 +133,7 @@ texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_lpi3t")
 animation = &"freeze"
-frame_progress = 0.230302
+frame_progress = 0.534687
 
 [node name="Contact" type="CollisionShape2D" parent="."]
 position = Vector2(1, 0)
@@ -146,6 +147,5 @@ spells = Array[ExtResource("21_f37n3")]([SubResource("Resource_m8wm1"), SubResou
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="Vision" type="CollisionShape2D" parent="Area2D"]
-visible = false
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_32ueq")
