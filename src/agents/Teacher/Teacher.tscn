@@ -132,6 +132,8 @@ script = ExtResource("1_sf280")
 texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_lpi3t")
+animation = &"freeze"
+frame_progress = 0.534687
 
 [node name="Contact" type="CollisionShape2D" parent="."]
 position = Vector2(1, 0)
