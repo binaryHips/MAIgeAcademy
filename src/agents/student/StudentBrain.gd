@@ -5,7 +5,7 @@ extends Brain
 
 var ATTENTION_SPAN_DECREASE:float = 0.1
 var attention_span:float = 1.0;
-
+var timer = Timer.new()
 var base_pos:Vector2
 
 # Called when the node enters the scene tree for the first time.
@@ -21,6 +21,10 @@ func _setup():
 			"goal_check": true
 		}
 	override_goal(dico)
+	if strategy.get_class_name() == "CandyByTimeStrategy":
+		print("début du timer")
+		add_child(timer)
+		timer.start(10.0)
 
 func _see():
 	var percept = {
@@ -46,6 +50,7 @@ func _see():
 	return percept
 	
 func _act(percept:Dictionary):
+	print(timer.time_left)
 	strategy._act(self, percept)
 	print(strategy.get_class_name(), " : ", states)
 

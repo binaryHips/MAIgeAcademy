@@ -35,7 +35,6 @@ shape = SubResource("CapsuleShape2D_y8tjl")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="Vision" type="CollisionShape2D" parent="Area2D"]
-visible = false
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_o0wa0")
 
