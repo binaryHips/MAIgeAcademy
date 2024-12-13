@@ -17,6 +17,10 @@ func decideGoToCandy(brain:Brain, percept:Dictionary):
 				if(dist <= 15.0):
 					print("CANDY EATEN")
 					candy.queue_free()
+					if(!Stats.candy_per_student[brain.get_parent().name]):
+						Stats.candy_per_student[brain.get_parent().name] = 1
+					Stats.candy_per_student[brain.get_parent().name] += 1
+					print("Candy : " + str(Stats.candy_per_student))
 					return true
 				return false
 		}

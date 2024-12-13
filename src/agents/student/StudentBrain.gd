@@ -49,9 +49,9 @@ func _see():
 	return percept
 	
 func _act(percept:Dictionary):
-	print(timer.time_left)
+	#print(timer.time_left)
 	strategy._act(self, percept)
-	print(strategy.get_class_name(), " : ", states)
+	#print(strategy.get_class_name(), " : ", states)
 
 func _parse_event(event:Dictionary):
 	strategy._parse(event)

@@ -41,16 +41,21 @@ func freeze(temps):
 	is_frozen = true
 	_animated_sprite.play("freeze")
 	freeze_timer.start(temps)
+	Stats.spells_used["Freeze"] += 1
 	
 func polymorph(temps):
 	is_transformed = true
 	_animated_sprite.play("polymorph")
 	transform_timer.start(temps)
+	Stats.spells_used["Polymorph"] += 1
+
 
 func telekinesis(temps):
 	is_tele = true
 	_animated_sprite.play("telekinesis")
 	tele_timer.start(temps)
+	Stats.spells_used["Telekinesis"] += 1
+
 
 func _on_freeze_timer_timeout() -> void:
 	is_frozen = false
