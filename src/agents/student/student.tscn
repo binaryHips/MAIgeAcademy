@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8r2w1llsibxh"]
+[gd_scene load_steps=7 format=3 uid="uid://c8r2w1llsibxh"]
 
 [ext_resource type="Script" path="res://src/agents/student/student.gd" id="1_j41ic"]
 [ext_resource type="SpriteFrames" uid="uid://8l4tkibhsa2x" path="res://resources/images/eleve/studentAframes.tres" id="1_v02kr"]
 [ext_resource type="Script" path="res://src/agents/student/StudentBrain.gd" id="2_wgrkg"]
-[ext_resource type="Script" path="res://src/agents/student/debug_show.gd" id="4_xa3mg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y8tjl"]
 radius = 6.0

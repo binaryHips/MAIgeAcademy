@@ -15,7 +15,6 @@ func decideGoToCandy(brain:Brain, percept:Dictionary):
 					return true
 				var dist = brain.body.global_position.distance_to(candy.global_position)
 				if(dist <= 15.0):
-					print("CANDY EATEN")
 					candy.queue_free()
 					#add to candy_by_student
 					var student_name = str(brain.get_parent().name)
@@ -28,7 +27,6 @@ func decideGoToCandy(brain:Brain, percept:Dictionary):
 					if strat not in Stats.candy_per_strategy:
 						Stats.candy_per_strategy[strat] = 0
 					Stats.candy_per_strategy[strat] += 1
-					print(str(Stats.candy_per_strategy))
 					
 					return true
 				return false

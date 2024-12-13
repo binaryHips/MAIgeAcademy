@@ -46,7 +46,7 @@ func _setup() -> void:
 func _process(delta: float) -> void:
 	#body.global_position += body.global_position.direction_to(Vector2(250,0)) * speed
 	pass
-	print(states)
+	#print(states)
 
 #func _setup():
 	#body.set_meta("brain",self)

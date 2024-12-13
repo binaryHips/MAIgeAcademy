@@ -8,11 +8,20 @@ var attention_span:float = 1.0;
 var timer = Timer.new()
 var base_pos:Vector2
 
+var is_frozen:bool = false
+var freeze_duration:float = 2.0
+var freeze_timer:Timer = Timer.new()
+
 # Called when the node enters the scene tree for the first time.
 func _setup():
 	
 	base_pos = body.global_position
 	ATTENTION_SPAN_DECREASE = randf_range(0.1, 0.2)
+
+	#connect freeze_timer to on_freeze_timer_timeout
+	add_child(freeze_timer)
+	freeze_timer.connect("timeout", Callable(self, "_on_freeze_timer_timeout"))
+	
 	override_state("idle")
 	var dico = {
 			"name": "idle",
@@ -50,6 +59,8 @@ func _see():
 	
 func _act(percept:Dictionary):
 	#print(timer.time_left)
+	if(has_state("frozen")):
+		freeze()
 	strategy._act(self, percept)
 	#print(strategy.get_class_name(), " : ", states)
 
@@ -58,10 +69,21 @@ func _parse_event(event:Dictionary):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	attention_span = max(0.0, attention_span - delta * ATTENTION_SPAN_DECREASE)
+	if is_frozen:
+		move_target = body.global_position
 	
 func freeze():
-	body.freeze()
+	if !is_frozen:
+		is_frozen = true
+		body.freeze()
+		move_target = body.global_position
+		freeze_timer.start(freeze_duration)
 	# actions quand il est freeze
+
+func _on_freeze_timer_timeout():
+	print("unfreeze")
+	is_frozen = false
+	body.unfreeze()
 	
 func getStrategy():
 	return str(strategy)
