@@ -23,7 +23,6 @@ script = ExtResource("1_j41ic")
 texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("1_v02kr")
-animation = &"walk"
 
 [node name="Student" type="Node2D" parent="."]
 
@@ -51,3 +50,5 @@ max_value = 1.0
 step = 0.001
 value = 1.0
 show_percentage = false
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
