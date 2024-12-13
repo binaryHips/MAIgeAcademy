@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cimj4tf81s8c7"]
+[gd_scene load_steps=7 format=3 uid="uid://cimj4tf81s8c7"]
 
 [ext_resource type="Script" path="res://src/classes/Level.gd" id="1_gq4fo"]
 [ext_resource type="Texture2D" uid="uid://b68vfpgd525qb" path="res://resources/images/coursMagie.png" id="3_8j138"]
 [ext_resource type="Texture2D" uid="uid://xa0go06auxmj" path="res://resources/images/obstacles/table.png" id="3_qjb2j"]
-[ext_resource type="Texture2D" uid="uid://b8i33op4i3ubw" path="res://resources/images/obstacles/banc.png" id="4_n277r"]
-[ext_resource type="PackedScene" uid="uid://c8r2w1llsibxh" path="res://src/agents/student/student.tscn" id="5_pnami"]
 [ext_resource type="PackedScene" uid="uid://f8uneibou5ua" path="res://src/agents/Teacher/Teacher.tscn" id="6_ga4n2"]
+[ext_resource type="PackedScene" uid="uid://dhdhjqe0paqwp" path="res://src/scenes/bench/bench.tscn" id="7_l2f0y"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0upxx"]
 radius = 19.0
@@ -13,7 +12,7 @@ height = 81.0
 
 [node name="Level0" type="Node2D" node_paths=PackedStringArray("agents")]
 script = ExtResource("1_gq4fo")
-agents = [NodePath("Student1"), NodePath("Student2"), NodePath("Teacher")]
+agents = [NodePath("Teacher")]
 
 [node name="cour" type="Sprite2D" parent="."]
 z_index = -5
@@ -55,32 +54,46 @@ texture = ExtResource("3_qjb2j")
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_0upxx")
 
-[node name="Banc1" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(241, -82)
-scale = Vector2(2, 2)
-texture = ExtResource("4_n277r")
-
-[node name="Banc2" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(-295, -100)
-scale = Vector2(2, 2)
-texture = ExtResource("4_n277r")
-
-[node name="Banc3" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(-27, -98)
-scale = Vector2(2, 2)
-texture = ExtResource("4_n277r")
-
-[node name="Student1" parent="." instance=ExtResource("5_pnami")]
-position = Vector2(244, -107)
-lock_rotation = true
-
-[node name="Student2" parent="." instance=ExtResource("5_pnami")]
-position = Vector2(-39, -107)
-lock_rotation = true
-
 [node name="Teacher" parent="." instance=ExtResource("6_ga4n2")]
-position = Vector2(387, -34)
+z_index = 1
+position = Vector2(130, 116)
 lock_rotation = true
+
+[node name="Bench1" parent="." instance=ExtResource("7_l2f0y")]
+position = Vector2(414, 167)
+
+[node name="Bench2" parent="." instance=ExtResource("7_l2f0y")]
+position = Vector2(399, -152)
+
+[node name="Bench3" parent="." instance=ExtResource("7_l2f0y")]
+position = Vector2(-31, -87)
+
+[node name="Bench4" parent="." instance=ExtResource("7_l2f0y")]
+position = Vector2(255, -77)
+
+[node name="Bench5" parent="." instance=ExtResource("7_l2f0y")]
+position = Vector2(-383, -281)
+
+[node name="Bench6" parent="." instance=ExtResource("7_l2f0y")]
+position = Vector2(-385, -151)
+
+[node name="Bench7" parent="." instance=ExtResource("7_l2f0y")]
+position = Vector2(-387, -30)
+
+[node name="Bench8" parent="." instance=ExtResource("7_l2f0y")]
+position = Vector2(-339, 293)
+
+[node name="Bench9" parent="." instance=ExtResource("7_l2f0y")]
+position = Vector2(-48, 242)
+
+[node name="Bench10" parent="." instance=ExtResource("7_l2f0y")]
+position = Vector2(-387, 96)
+
+[node name="Bench11" parent="." instance=ExtResource("7_l2f0y")]
+position = Vector2(-75, 326)
+
+[node name="Bench12" parent="." instance=ExtResource("7_l2f0y")]
+position = Vector2(414, 284)
+
+[node name="Bench13" parent="." instance=ExtResource("7_l2f0y")]
+position = Vector2(400, -284)
