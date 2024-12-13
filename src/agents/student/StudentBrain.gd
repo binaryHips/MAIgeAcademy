@@ -1,6 +1,6 @@
 extends Brain
 
-@export var strategy:StudentStrategy = [StudentStrategy, CandyByTimeStrategy, LoneWolfStrategy].pick_random().new()
+@export var strategy:StudentStrategy = [StudentStrategy, CandyByTimeStrategy, LoneWolfStrategy, EscapeTeacherStrategy].pick_random().new()
 
 
 var ATTENTION_SPAN_DECREASE:float = 0.1
@@ -25,6 +25,7 @@ func _setup():
 		#print("début du timer")
 		add_child(timer)
 		timer.start(10.0)
+	get_parent().custom_debug_msg = strategy.get_class_name()
 
 func _see():
 	var percept = {
