@@ -139,7 +139,7 @@ position = Vector2(1, 0)
 scale = Vector2(2, 2)
 shape = SubResource("CapsuleShape2D_vspp1")
 
-[node name="Brain" type="Node" parent="."]
+[node name="brain" type="Node" parent="."]
 script = ExtResource("20_wt72u")
 spells = Array[ExtResource("21_f37n3")]([SubResource("Resource_m8wm1"), SubResource("Resource_78g5q"), SubResource("Resource_g3h2j")])
 
@@ -149,12 +149,4 @@ spells = Array[ExtResource("21_f37n3")]([SubResource("Resource_m8wm1"), SubResou
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_32ueq")
 
-[node name="freeze_timer" type="Timer" parent="."]
-
-[node name="transform_timer" type="Timer" parent="."]
-
-[node name="tele_timer" type="Timer" parent="."]
-
-[connection signal="timeout" from="freeze_timer" to="." method="_on_freeze_timer_timeout"]
-[connection signal="timeout" from="transform_timer" to="." method="_on_transform_timer_timeout"]
-[connection signal="timeout" from="tele_timer" to="." method="_on_tele_timer_timeout"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

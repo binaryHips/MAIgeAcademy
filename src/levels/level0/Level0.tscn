@@ -75,11 +75,9 @@ texture = ExtResource("4_n277r")
 
 [node name="Student1" parent="." instance=ExtResource("5_pnami")]
 position = Vector2(244, -107)
-lock_rotation = true
 
 [node name="Student2" parent="." instance=ExtResource("5_pnami")]
 position = Vector2(-39, -107)
-lock_rotation = true
 
 [node name="Teacher" parent="." instance=ExtResource("6_ga4n2")]
 position = Vector2(387, -34)
