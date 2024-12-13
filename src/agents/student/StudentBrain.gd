@@ -12,6 +12,12 @@ var is_frozen:bool = false
 var freeze_duration:float = 2.0
 var freeze_timer:Timer = Timer.new()
 
+var is_polymorphed:bool = false
+var polymorph_duration:float = 5.0
+var polymorph_timer:Timer = Timer.new()
+
+var previous_state:String = "goToCandy"
+
 # Called when the node enters the scene tree for the first time.
 func _setup():
 	
@@ -21,6 +27,10 @@ func _setup():
 	#connect freeze_timer to on_freeze_timer_timeout
 	add_child(freeze_timer)
 	freeze_timer.connect("timeout", Callable(self, "_on_freeze_timer_timeout"))
+
+	#connect polymorph_timer to on_polymorph_timer_timeout
+	add_child(polymorph_timer)
+	polymorph_timer.connect("timeout", Callable(self, "_on_polymorph_timer_timeout"))
 	
 	override_state("idle")
 	var dico = {
@@ -62,20 +72,32 @@ func _act(percept:Dictionary):
 	#print(timer.time_left)
 	if(has_state("frozen")):
 		freeze()
+		return
+	if(has_state("polymorphed")):
+		polymorph()	
+		return
 	strategy._act(self, percept)
 	#print(strategy.get_class_name(), " : ", states)
 
 func _parse_event(event:Dictionary):
 	strategy._parse(event)
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	attention_span = max(0.0, attention_span - delta * ATTENTION_SPAN_DECREASE)
 	if is_frozen:
 		move_target = body.global_position
+	if is_polymorphed:
+		move_target = base_pos
 	
 func freeze():
 	if !is_frozen:
+
+		print("freeze")
+
 		is_frozen = true
+		is_polymorphed = false
+
 		body.freeze()
 		move_target = body.global_position
 		freeze_timer.start(freeze_duration)
@@ -84,6 +106,33 @@ func freeze():
 func _on_freeze_timer_timeout():
 	print("unfreeze")
 	is_frozen = false
+	
+	#remove_state("frozen") #but did not work
+	override_state(previous_state)
+
+	body.unfreeze()
+
+func polymorph():
+	if !is_polymorphed:
+
+		print("polymorph")
+
+		is_polymorphed = true
+		is_frozen = false
+
+		body.polymorph()
+		move_target = base_pos
+		polymorph_timer.start(polymorph_duration)
+	# actions quand il est polymorph
+
+func _on_polymorph_timer_timeout():
+	print("unpolymorph")
+	is_polymorphed = false
+
+	#remove_state("polymorphed") # :(
+	override_state(previous_state)
+
+	#body.unpolymorph() maybe later but for now unfreeze does the same thing
 	body.unfreeze()
 	
 func getStrategy():

@@ -40,7 +40,6 @@ func freeze():
 	_animated_sprite.play("freeze")
 
 func unfreeze():
-	print("word is bond")
 	_animated_sprite.play("walk")
 	
 func teleport():
@@ -48,6 +47,7 @@ func teleport():
 
 func polymorph():
 	_animated_sprite.play("polymorph")
+
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	walk()
