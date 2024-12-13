@@ -32,12 +32,18 @@ func walk():
 	
 func freeze(temps):
 	_animated_sprite.play("freeze")
+	freeze_timer.start(temps)
+	Stats.spells_used["Freeze"] += 1
 	
 func polymorph(temps):
 	_animated_sprite.play("polymorph")
+	Stats.spells_used["Polymorph"] += 1
+
 
 func telekinesis(temps):
 	_animated_sprite.play("telekinesis")
+
+	Stats.spells_used["Telekinesis"] += 1
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:

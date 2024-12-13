@@ -94,7 +94,7 @@ func _act(percept):
 			):
 				if current_spell == null:
 					current_spell = spells.pick_random() 
-					print(current_spell.getName())
+					#print(current_spell.getName())
 				execute_action("walk_and_cast_spell")
 			else:
 				current_target = null

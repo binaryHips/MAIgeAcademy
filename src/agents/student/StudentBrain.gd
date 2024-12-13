@@ -1,6 +1,6 @@
 extends Brain
 
-@export var strategy:StudentStrategy = [StudentStrategy, CandyByTimeStrategy, LonelyWolfStrategy].pick_random().new()
+@export var strategy:StudentStrategy = [StudentStrategy, CandyByTimeStrategy, LoneWolfStrategy].pick_random().new()
 
 
 var ATTENTION_SPAN_DECREASE:float = 0.1
@@ -30,8 +30,7 @@ func _see():
 	var percept = {
 		"distance_to_teacher": 99999.0,
 		"position_of_teacher": Vector2(0, 0),
-		"candies_by_distance": [],
-		"students_by_distance": []
+		"candies_by_distance": []
 	}
 	
 	percept["distance_to_teacher"] = body.global_position.distance_to(Gamemaster.world_state["teacher"].body.global_position)
@@ -50,9 +49,9 @@ func _see():
 	return percept
 	
 func _act(percept:Dictionary):
-	print(timer.time_left)
+	#print(timer.time_left)
 	strategy._act(self, percept)
-	print(strategy.get_class_name(), " : ", states)
+	#print(strategy.get_class_name(), " : ", states)
 
 func _parse_event(event:Dictionary):
 	strategy._parse(event)
@@ -63,3 +62,6 @@ func _process(delta: float) -> void:
 func freeze():
 	body.freeze()
 	# actions quand il est freeze
+	
+func getStrategy():
+	return str(strategy)
