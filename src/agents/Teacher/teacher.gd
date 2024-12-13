@@ -32,7 +32,6 @@ func walk():
 	
 func freeze(temps):
 	_animated_sprite.play("freeze")
-	freeze_timer.start(temps)
 	Stats.spells_used["Freeze"] += 1
 	
 func polymorph(temps):
