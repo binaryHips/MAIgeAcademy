@@ -9,13 +9,15 @@ var candy_sprites:Array[Texture2D] = [preload("res://resources/images/bonbon/bon
 var t:Timer
 var spawn_count
 
+var number_of_students:int = 10
 var position_benches:Array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for bench in get_tree().get_nodes_in_group("benches"): position_benches.push_back(bench.global_position)
 	
-	for i in range(10):
+	for i in range(min(10, position_benches.size())):
+		
 		random_spawn_student_on_bench()
 	
 	t = Timer.new()

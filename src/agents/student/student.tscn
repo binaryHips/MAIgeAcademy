@@ -25,7 +25,7 @@ script = ExtResource("1_j41ic")
 texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("1_v02kr")
-animation = &"walk"
+animation = &"teleport"
 
 [node name="Student" type="Node2D" parent="."]
 

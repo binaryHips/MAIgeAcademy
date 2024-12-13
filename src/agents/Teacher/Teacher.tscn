@@ -52,7 +52,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("7_ul61o")
 }],
-"loop": true,
+"loop": false,
 "name": &"freeze",
 "speed": 2.0
 }, {
@@ -69,7 +69,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("11_ijv30")
 }],
-"loop": true,
+"loop": false,
 "name": &"polymorph",
 "speed": 2.0
 }, {
@@ -86,7 +86,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("15_tcxk7")
 }],
-"loop": true,
+"loop": false,
 "name": &"telekinesis",
 "speed": 2.0
 }, {
