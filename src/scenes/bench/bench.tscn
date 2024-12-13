@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhdhjqe0paqwp"]
+
+[ext_resource type="Script" path="res://src/scenes/bench/bench.gd" id="1_dac4l"]
+[ext_resource type="Texture2D" uid="uid://b8i33op4i3ubw" path="res://resources/images/obstacles/banc.png" id="2_5qihw"]
+
+[node name="Bench" type="Node2D" groups=["benches"]]
+script = ExtResource("1_dac4l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1.13687e-13, 11)
+scale = Vector2(2.14706, 2.14706)
+texture = ExtResource("2_5qihw")
