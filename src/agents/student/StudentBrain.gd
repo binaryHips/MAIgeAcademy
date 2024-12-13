@@ -30,8 +30,7 @@ func _see():
 	var percept = {
 		"distance_to_teacher": 99999.0,
 		"position_of_teacher": Vector2(0, 0),
-		"candies_by_distance": [],
-		"students_by_distance": []
+		"candies_by_distance": []
 	}
 	
 	percept["distance_to_teacher"] = body.global_position.distance_to(Gamemaster.world_state["teacher"].body.global_position)
