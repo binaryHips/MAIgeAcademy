@@ -63,3 +63,6 @@ func _process(delta: float) -> void:
 func freeze():
 	body.freeze()
 	# actions quand il est freeze
+	
+func getStrategy():
+	return str(strategy)
