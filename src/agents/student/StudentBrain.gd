@@ -1,6 +1,6 @@
 extends Brain
 
-@export var strategy:StudentStrategy = [StudentStrategy, CandyByTimeStrategy, LonelyWolfStrategy].pick_random().new()
+@export var strategy:StudentStrategy = [StudentStrategy, CandyByTimeStrategy, LoneWolfStrategy].pick_random().new()
 
 
 var ATTENTION_SPAN_DECREASE:float = 0.1
