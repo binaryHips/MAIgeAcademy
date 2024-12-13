@@ -1,5 +1,5 @@
 extends StudentStrategy
-class_name LonelyWolfStrategy
+class_name LoneWolfStrategy
 
 func _decideGoal(brain:Brain, percept:Dictionary):
 	match brain.states[0]:
@@ -15,4 +15,4 @@ func _decideGoal(brain:Brain, percept:Dictionary):
 			super.decideIdle(brain, percept)
 
 func get_class_name():
-	return "LonelyWolfStrategy"
+	return "LoneWolfStrategy"
