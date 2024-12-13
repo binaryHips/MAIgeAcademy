@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Gamemaster="*res://src/autoloads/gamemaster.gd"
 Settings="*res://src/autoloads/settings.gd"
+Stats="*res://src/autoloads/stats.gd"
 
 [display]
 
