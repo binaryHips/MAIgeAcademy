@@ -58,7 +58,7 @@ show_percentage = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -74.0
-offset_top = -111.0
+offset_top = -116.0
 offset_right = 74.0
 offset_bottom = -35.0
 script = ExtResource("4_xa3mg")
@@ -72,16 +72,18 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="state" type="RichTextLabel" parent="debugShow/VBoxContainer"]
-custom_minimum_size = Vector2(0, 25)
+custom_minimum_size = Vector2(0, 23)
 layout_mode = 2
-text = "State: "
-
-[node name="goal" type="RichTextLabel" parent="debugShow/VBoxContainer"]
-custom_minimum_size = Vector2(0, 25)
-layout_mode = 2
-text = "Goal:"
+text = "state: "
 
 [node name="target_pos" type="RichTextLabel" parent="debugShow/VBoxContainer"]
-custom_minimum_size = Vector2(0, 25)
+custom_minimum_size = Vector2(0, 23)
 layout_mode = 2
 text = "Target:"
+
+[node name="custom_msg" type="RichTextLabel" parent="debugShow/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
+text = "[color=orange]"

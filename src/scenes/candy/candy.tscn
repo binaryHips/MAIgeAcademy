@@ -5,9 +5,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_cbq3w"]
 radius = 8.0
 
-[node name="Candy" type="RigidBody2D" groups=["candy"]]
+[node name="Candy" type="Area2D" groups=["candy"]]
 collision_mask = 2
-gravity_scale = 0.0
 script = ExtResource("1_wfwa7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -10,5 +10,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if visible:
 		$VBoxContainer/state.text = "state: " + brain.states[0]
-		#$VBoxContainer/goal.text = "goal: " + brain.goals[0]["name"]
+		$VBoxContainer/custom_msg.text = get_parent().custom_debug_msg
 		$VBoxContainer/target_pos.text = "target: " + str(brain.move_target)

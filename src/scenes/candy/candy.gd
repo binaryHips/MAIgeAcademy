@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,4 +10,4 @@ func _process(delta: float) -> void:
 	pass
 
 func _exit_tree() -> void:
-	(Gamemaster.world_state["candies"] as Array).erase(self)
+	Gamemaster.world_state["candies"].erase(self)
