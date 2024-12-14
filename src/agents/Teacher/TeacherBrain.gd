@@ -22,11 +22,11 @@ func _setup() -> void:
 			var distance = body.global_position.distance_to(current_target.body.global_position)
 			body.walk()
 			if distance <= current_spell.getRange():
-				print("range check")
+				#print("range check")
 				current_spell.useSpell(current_target,self)
 				if current_spell.getName() != "teleport":
 					current_spell.spawnScene(current_target.body,self.body)
-				print("spell casted")
+				#print("spell casted")
 				current_spell = null
 	)
 	add_action("walk_and_teach",
@@ -46,7 +46,7 @@ func _setup() -> void:
 func _process(delta: float) -> void:
 	#body.global_position += body.global_position.direction_to(Vector2(250,0)) * speed
 	pass
-	print(states)
+	#print(states)
 
 #func _setup():
 	#body.set_meta("brain",self)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cimj4tf81s8c7"]
+[gd_scene load_steps=9 format=3 uid="uid://cimj4tf81s8c7"]
 
 [ext_resource type="Script" path="res://src/classes/Level.gd" id="1_gq4fo"]
 [ext_resource type="Texture2D" uid="uid://b68vfpgd525qb" path="res://resources/images/coursMagie.png" id="3_8j138"]
@@ -7,8 +7,20 @@
 [ext_resource type="PackedScene" uid="uid://dhdhjqe0paqwp" path="res://src/scenes/bench/bench.tscn" id="7_l2f0y"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0upxx"]
-radius = 19.0
+radius = 15.0
 height = 81.0
+
+[sub_resource type="Gradient" id="Gradient_8s7lx"]
+offsets = PackedFloat32Array(0.268041, 1)
+colors = PackedColorArray(0, 0, 0, 0.615686, 0.133196, 0.133196, 0.133196, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1vjjp"]
+gradient = SubResource("Gradient_8s7lx")
+width = 86
+height = 61
+fill = 1
+fill_from = Vector2(0.481962, 0.521368)
+fill_to = Vector2(0.500149, 0.132479)
 
 [node name="Level0" type="Node2D" node_paths=PackedStringArray("agents")]
 script = ExtResource("1_gq4fo")
@@ -29,71 +41,160 @@ zoom = Vector2(1.08, 1.08)
 [node name="Table1" type="StaticBody2D" parent="."]
 position = Vector2(-191, 280)
 scale = Vector2(2, 2)
-collision_layer = 2
-collision_mask = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Table1"]
 texture_filter = 1
 texture = ExtResource("3_qjb2j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Table1"]
+position = Vector2(0, -7.5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_0upxx")
+
+[node name="shadow" type="Sprite2D" parent="Table1"]
+z_index = -1
+position = Vector2(-2.5, 10.3452)
+scale = Vector2(1, 0.503122)
+texture = SubResource("GradientTexture2D_1vjjp")
 
 [node name="Table2" type="StaticBody2D" parent="."]
 position = Vector2(111, -91)
 scale = Vector2(2, 2)
-collision_layer = 2
-collision_mask = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Table2"]
 texture_filter = 1
 texture = ExtResource("3_qjb2j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Table2"]
+position = Vector2(0.5, -7.5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_0upxx")
+
+[node name="shadow" type="Sprite2D" parent="Table2"]
+z_index = -1
+position = Vector2(0.249998, 9.09522)
+scale = Vector2(0.982558, 0.544105)
+texture = SubResource("GradientTexture2D_1vjjp")
 
 [node name="Teacher" parent="." instance=ExtResource("6_ga4n2")]
 z_index = 1
 position = Vector2(130, 116)
+collision_mask = 1
 lock_rotation = true
 
 [node name="Bench1" parent="." instance=ExtResource("7_l2f0y")]
 position = Vector2(414, 167)
 
+[node name="shadow" type="Sprite2D" parent="Bench1"]
+z_index = -1
+position = Vector2(7.5, 15)
+scale = Vector2(0.662791, 1.11475)
+texture = SubResource("GradientTexture2D_1vjjp")
+
 [node name="Bench2" parent="." instance=ExtResource("7_l2f0y")]
 position = Vector2(399, -152)
+
+[node name="shadow" type="Sprite2D" parent="Bench2"]
+z_index = -1
+position = Vector2(7.5, 15)
+scale = Vector2(0.662791, 1.11475)
+texture = SubResource("GradientTexture2D_1vjjp")
 
 [node name="Bench3" parent="." instance=ExtResource("7_l2f0y")]
 position = Vector2(-31, -87)
 
+[node name="shadow" type="Sprite2D" parent="Bench3"]
+z_index = -1
+position = Vector2(7.5, 15)
+scale = Vector2(0.662791, 1.11475)
+texture = SubResource("GradientTexture2D_1vjjp")
+
 [node name="Bench4" parent="." instance=ExtResource("7_l2f0y")]
 position = Vector2(255, -77)
+
+[node name="shadow" type="Sprite2D" parent="Bench4"]
+z_index = -1
+position = Vector2(7.5, 15)
+scale = Vector2(0.662791, 1.11475)
+texture = SubResource("GradientTexture2D_1vjjp")
 
 [node name="Bench5" parent="." instance=ExtResource("7_l2f0y")]
 position = Vector2(-383, -281)
 
+[node name="shadow" type="Sprite2D" parent="Bench5"]
+z_index = -1
+position = Vector2(7.5, 15)
+scale = Vector2(0.662791, 1.11475)
+texture = SubResource("GradientTexture2D_1vjjp")
+
 [node name="Bench6" parent="." instance=ExtResource("7_l2f0y")]
 position = Vector2(-385, -151)
+
+[node name="shadow" type="Sprite2D" parent="Bench6"]
+z_index = -1
+position = Vector2(7.5, 15)
+scale = Vector2(0.662791, 1.11475)
+texture = SubResource("GradientTexture2D_1vjjp")
 
 [node name="Bench7" parent="." instance=ExtResource("7_l2f0y")]
 position = Vector2(-387, -30)
 
+[node name="shadow" type="Sprite2D" parent="Bench7"]
+z_index = -1
+position = Vector2(7.5, 15)
+scale = Vector2(0.662791, 1.11475)
+texture = SubResource("GradientTexture2D_1vjjp")
+
 [node name="Bench8" parent="." instance=ExtResource("7_l2f0y")]
 position = Vector2(-339, 293)
+
+[node name="shadow" type="Sprite2D" parent="Bench8"]
+z_index = -1
+position = Vector2(7.5, 15)
+scale = Vector2(0.662791, 1.11475)
+texture = SubResource("GradientTexture2D_1vjjp")
 
 [node name="Bench9" parent="." instance=ExtResource("7_l2f0y")]
 position = Vector2(-48, 242)
 
+[node name="shadow" type="Sprite2D" parent="Bench9"]
+z_index = -1
+position = Vector2(7.5, 15)
+scale = Vector2(0.662791, 1.11475)
+texture = SubResource("GradientTexture2D_1vjjp")
+
 [node name="Bench10" parent="." instance=ExtResource("7_l2f0y")]
 position = Vector2(-387, 96)
+
+[node name="shadow" type="Sprite2D" parent="Bench10"]
+z_index = -1
+position = Vector2(7.5, 15)
+scale = Vector2(0.662791, 1.11475)
+texture = SubResource("GradientTexture2D_1vjjp")
 
 [node name="Bench11" parent="." instance=ExtResource("7_l2f0y")]
 position = Vector2(-75, 326)
 
+[node name="shadow" type="Sprite2D" parent="Bench11"]
+z_index = -1
+position = Vector2(7.5, 15)
+scale = Vector2(0.662791, 1.11475)
+texture = SubResource("GradientTexture2D_1vjjp")
+
 [node name="Bench12" parent="." instance=ExtResource("7_l2f0y")]
 position = Vector2(414, 284)
 
+[node name="shadow" type="Sprite2D" parent="Bench12"]
+z_index = -1
+position = Vector2(7.5, 15)
+scale = Vector2(0.662791, 1.11475)
+texture = SubResource("GradientTexture2D_1vjjp")
+
 [node name="Bench13" parent="." instance=ExtResource("7_l2f0y")]
 position = Vector2(400, -284)
+
+[node name="shadow" type="Sprite2D" parent="Bench13"]
+z_index = -1
+position = Vector2(7.5, 15)
+scale = Vector2(0.662791, 1.11475)
+texture = SubResource("GradientTexture2D_1vjjp")

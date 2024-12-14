@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=12 format=3 uid="uid://8l4tkibhsa2x"]
+[gd_resource type="SpriteFrames" load_steps=14 format=3 uid="uid://8l4tkibhsa2x"]
 
 [ext_resource type="Texture2D" uid="uid://dak18fxmeg61q" path="res://resources/images/eleve/studentA1.png" id="1_3xhvb"]
 [ext_resource type="Texture2D" uid="uid://b2uc6hpfntxmk" path="res://resources/images/eleve/studentA2.png" id="2_aviwd"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://c6qgxln1ksxvl" path="res://resources/images/eleve/studentA_marche1.png" id="3_qwabg"]
 [ext_resource type="Texture2D" uid="uid://lsgddbk0o0vh" path="res://resources/images/eleve/studentA_marche2.png" id="4_8gyyf"]
 [ext_resource type="Texture2D" uid="uid://dswqhtpyu3ras" path="res://resources/images/eleve/studentAteleport-1.png" id="4_hgvgb"]
+[ext_resource type="Texture2D" uid="uid://djvmrjhon2nd7" path="res://resources/images/mouton/mouton_fixe.png" id="4_nb6iq"]
+[ext_resource type="Texture2D" uid="uid://d3t44im1b4cde" path="res://resources/images/mouton/mouton_fixe_2.png" id="5_0jwr5"]
 [ext_resource type="Texture2D" uid="uid://dyc5anamw8pm" path="res://resources/images/eleve/studentA_marche3.png" id="5_8ryjo"]
 [ext_resource type="Texture2D" uid="uid://c704rkqxeo2rw" path="res://resources/images/eleve/studentAteleport-2.png" id="5_24jg2"]
 [ext_resource type="Texture2D" uid="uid://5yps021xpjxy" path="res://resources/images/eleve/studentA_marche4.png" id="6_l21qs"]
@@ -32,6 +34,17 @@ animations = [{
 "loop": true,
 "name": &"freeze",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_nb6iq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0jwr5")
+}],
+"loop": true,
+"name": &"polymorph",
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,

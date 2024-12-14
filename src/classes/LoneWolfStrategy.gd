@@ -27,8 +27,8 @@ func _decideGoal(brain:Brain, percept:Dictionary):
 							return true
 						var dist = brain.body.global_position.distance_to(focusCandy.global_position)
 						if(dist <= 15.0):
-							print("CANDY EATEN")
 							focusCandy.queue_free()
+							Stats.increase_stats(brain)
 							return true
 						return false
 				}

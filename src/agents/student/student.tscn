@@ -1,9 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8r2w1llsibxh"]
+[gd_scene load_steps=10 format=3 uid="uid://c8r2w1llsibxh"]
 
 [ext_resource type="Script" path="res://src/agents/student/student.gd" id="1_j41ic"]
 [ext_resource type="SpriteFrames" uid="uid://8l4tkibhsa2x" path="res://resources/images/eleve/studentAframes.tres" id="1_v02kr"]
 [ext_resource type="Script" path="res://src/agents/student/StudentBrain.gd" id="2_wgrkg"]
-[ext_resource type="Script" path="res://src/agents/student/debug_show.gd" id="4_xa3mg"]
+[ext_resource type="Script" path="res://src/agents/student/debug_show.gd" id="4_fjf05"]
+
+[sub_resource type="Gradient" id="Gradient_jn0b8"]
+offsets = PackedFloat32Array(0.223368, 1)
+colors = PackedColorArray(0, 0, 0, 0.615686, 0.133196, 0.133196, 0.133196, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_p5c83"]
+gradient = SubResource("Gradient_jn0b8")
+width = 56
+height = 32
+fill = 1
+fill_from = Vector2(0.487324, 0.522535)
+fill_to = Vector2(0.202817, 0.438732)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y8tjl"]
 radius = 6.0
@@ -16,7 +28,6 @@ radius = 92.0054
 bg_color = Color(0.730742, 0, 0.0941446, 1)
 
 [node name="Student" type="RigidBody2D" groups=["student"]]
-collision_mask = 2
 gravity_scale = 0.0
 lock_rotation = true
 script = ExtResource("1_j41ic")
@@ -25,7 +36,13 @@ script = ExtResource("1_j41ic")
 texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("1_v02kr")
-animation = &"teleport"
+
+[node name="shadow" type="Sprite2D" parent="."]
+z_index = -2
+z_as_relative = false
+position = Vector2(1, 28)
+scale = Vector2(0.787109, 0.498047)
+texture = SubResource("GradientTexture2D_p5c83")
 
 [node name="Student" type="Node2D" parent="."]
 
@@ -61,7 +78,7 @@ offset_left = -74.0
 offset_top = -116.0
 offset_right = 74.0
 offset_bottom = -35.0
-script = ExtResource("4_xa3mg")
+script = ExtResource("4_fjf05")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="debugShow"]
 layout_mode = 1
