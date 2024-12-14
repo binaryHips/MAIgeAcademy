@@ -14,6 +14,13 @@ func useSpell(target:Brain , caster:Brain):
 	caster.body.freeze(spellDuration)
 	#caster.body.get_node("AnimatedSprite2D").play("freeze")
 	caster.addMana(-1*manaCost)
+	await target.get_tree().create_timer(0.5).timeout
+	
+	spawnScene(target.body,caster.body)
+	
+	await target.get_tree().create_timer(0.5).timeout
+	
+	return
 	#target.override_state("frozen") 
 	#else:
 		#printerr("Logic error : Spell cast out of range")

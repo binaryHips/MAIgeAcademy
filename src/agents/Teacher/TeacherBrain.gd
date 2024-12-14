@@ -4,6 +4,7 @@ var current_target:Brain
 var current_spell:SpellResource
 var base_pos:Vector2
 
+var casting:bool = false
 @export var spells:Array[SpellResource]
 
 # Called when the node enters the scene tree for the first time.
@@ -23,10 +24,12 @@ func _setup() -> void:
 			body.walk()
 			if distance <= current_spell.getRange():
 				#print("range check")
+				casting = true
 				current_spell.useSpell(current_target,self)
-				if current_spell.getName() != "teleport":
-					current_spell.spawnScene(current_target.body,self.body)
+				
 				#print("spell casted")
+				await current_spell.useSpell(current_target,self)
+				casting = false
 				current_spell = null
 	)
 	add_action("walk_and_teach",
@@ -73,6 +76,9 @@ func _act(percept):
 		execute_action("walk_and_teach")
 	
 	elif has_state("cast"):
+		
+		if casting: return
+			
 		#print("cast")
 		for e in percept["student"]:
 			#print(e)

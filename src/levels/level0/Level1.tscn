@@ -1,9 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgmncu0a6g187"]
+[gd_scene load_steps=12 format=3 uid="uid://dgmncu0a6g187"]
 
 [ext_resource type="Script" path="res://src/classes/Level.gd" id="1_b8sxi"]
 [ext_resource type="Texture2D" uid="uid://w1r20olpox4u" path="res://resources/images/cour_enneigee.png" id="2_x3oay"]
 [ext_resource type="PackedScene" uid="uid://f8uneibou5ua" path="res://src/agents/Teacher/Teacher.tscn" id="4_f7h6v"]
+[ext_resource type="Texture2D" uid="uid://xa0go06auxmj" path="res://resources/images/obstacles/table.png" id="5_8owwo"]
 [ext_resource type="PackedScene" uid="uid://dhdhjqe0paqwp" path="res://src/scenes/bench/bench.tscn" id="5_kcxoa"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dwkyy"]
+radius = 15.0
+height = 81.0
+
+[sub_resource type="Gradient" id="Gradient_8s7lx"]
+offsets = PackedFloat32Array(0.268041, 1)
+colors = PackedColorArray(0, 0, 0, 0.615686, 0.133196, 0.133196, 0.133196, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e1abo"]
+gradient = SubResource("Gradient_8s7lx")
+width = 86
+height = 61
+fill = 1
+fill_from = Vector2(0.481962, 0.521368)
+fill_to = Vector2(0.500149, 0.132479)
 
 [sub_resource type="Gradient" id="Gradient_bvbu1"]
 offsets = PackedFloat32Array(0, 0.160256, 0.596154)
@@ -41,13 +58,108 @@ z_index = 1
 position = Vector2(130, 116)
 lock_rotation = true
 
-[node name="Bench1" parent="." instance=ExtResource("5_kcxoa")]
-position = Vector2(11, 77)
-
 [node name="Bench2" parent="." instance=ExtResource("5_kcxoa")]
-position = Vector2(-8, 162)
+position = Vector2(-102, 126)
+
+[node name="Table1" type="StaticBody2D" parent="Bench2"]
+position = Vector2(21, 116)
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bench2/Table1"]
+texture_filter = 1
+texture = ExtResource("5_8owwo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bench2/Table1"]
+position = Vector2(0, -7.5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_dwkyy")
+
+[node name="shadow" type="Sprite2D" parent="Bench2/Table1"]
+z_index = -1
+position = Vector2(-2.5, 10.3452)
+scale = Vector2(1, 0.503122)
+texture = SubResource("GradientTexture2D_e1abo")
+
+[node name="Table2" type="StaticBody2D" parent="Bench2"]
+position = Vector2(25, -108)
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bench2/Table2"]
+texture_filter = 1
+texture = ExtResource("5_8owwo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bench2/Table2"]
+position = Vector2(0, -7.5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_dwkyy")
+
+[node name="shadow" type="Sprite2D" parent="Bench2/Table2"]
+z_index = -1
+position = Vector2(-2.5, 10.3452)
+scale = Vector2(1, 0.503122)
+texture = SubResource("GradientTexture2D_e1abo")
+
+[node name="Table3" type="StaticBody2D" parent="Bench2"]
+position = Vector2(-122, -63)
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bench2/Table3"]
+texture_filter = 1
+texture = ExtResource("5_8owwo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bench2/Table3"]
+position = Vector2(0, -7.5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_dwkyy")
+
+[node name="shadow" type="Sprite2D" parent="Bench2/Table3"]
+z_index = -1
+position = Vector2(-2.5, 10.3452)
+scale = Vector2(1, 0.503122)
+texture = SubResource("GradientTexture2D_e1abo")
+
+[node name="Table4" type="StaticBody2D" parent="Bench2"]
+position = Vector2(-119, 8.00002)
+rotation = 0.0328264
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bench2/Table4"]
+texture_filter = 1
+texture = ExtResource("5_8owwo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bench2/Table4"]
+position = Vector2(0, -7.5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_dwkyy")
+
+[node name="shadow" type="Sprite2D" parent="Bench2/Table4"]
+z_index = -1
+position = Vector2(-2.5, 10.3452)
+scale = Vector2(1, 0.503122)
+texture = SubResource("GradientTexture2D_e1abo")
+
+[node name="Table5" type="StaticBody2D" parent="Bench2"]
+position = Vector2(118, -3.99998)
+rotation = 0.0328264
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bench2/Table5"]
+texture_filter = 1
+texture = ExtResource("5_8owwo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bench2/Table5"]
+position = Vector2(0, -7.5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_dwkyy")
+
+[node name="shadow" type="Sprite2D" parent="Bench2/Table5"]
+z_index = -1
+position = Vector2(-2.5, 10.3452)
+scale = Vector2(1, 0.503122)
+texture = SubResource("GradientTexture2D_e1abo")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+visible = false
 texture_filter = 1
 position = Vector2(-340, -528)
 amount = 400

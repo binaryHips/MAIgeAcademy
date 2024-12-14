@@ -10,12 +10,12 @@
 radius = 15.0
 height = 81.0
 
-[sub_resource type="Gradient" id="Gradient_8s7lx"]
+[sub_resource type="Gradient" id="Gradient_0vo0q"]
 offsets = PackedFloat32Array(0.268041, 1)
 colors = PackedColorArray(0, 0, 0, 0.615686, 0.133196, 0.133196, 0.133196, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_1vjjp"]
-gradient = SubResource("Gradient_8s7lx")
+gradient = SubResource("Gradient_0vo0q")
 width = 86
 height = 61
 fill = 1

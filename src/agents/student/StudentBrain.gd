@@ -27,7 +27,8 @@ var previous_state:String = "goToCandy"
 func _setup():
 	
 	base_pos = body.global_position
-	ATTENTION_SPAN_DECREASE = randf_range(0.1, 0.2)
+	ATTENTION_SPAN_DECREASE = randf_range(0.05, 0.15)
+	attention_span = randf_range(0.5, 1.0)
 
 	#connect freeze_timer to on_freeze_timer_timeout
 	add_child(freeze_timer)
@@ -103,13 +104,14 @@ func _parse_event(event:Dictionary):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	attention_span = max(0.0, attention_span - delta * ATTENTION_SPAN_DECREASE)
 	if is_frozen:
 		move_target = body.global_position
 	if is_polymorphed:
 		move_target = base_pos
 	if is_teleporting:
 		move_target = body.global_position
+	if has_state("idle"):
+		attention_span = max(0.0, attention_span - delta * ATTENTION_SPAN_DECREASE)
 	get_parent().custom_debug_msg = strategy.get_class_name() + "\nmate : " + str(student_mate)
 	
 func freeze():

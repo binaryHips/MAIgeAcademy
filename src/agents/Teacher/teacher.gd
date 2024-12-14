@@ -48,5 +48,6 @@ func telekinesis(temps):
 	Stats.spells_used["Telekinesis"] += 1
 
 
+
 func _on_animated_sprite_2d_animation_finished() -> void:
-	walk()
+	_animated_sprite.play("walk")
