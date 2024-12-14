@@ -27,9 +27,9 @@ The teacher has two main states:
 * Cast: If a student is caught not paying attention and trying to sneak a candy, she casts one of her powerful spells!
 
 She possess three main spells :
-* Freeze: Freezes a student, preventing them from moving for a short period. <img src="./resources/images/eleve/StudentAgel.png" alt="AG" width="32"><img src="./resources/images/spell/freeze3.png" alt="F3" width="32"><img src="./resources/images/prof/glace3.png" alt="Mage" width="32">
-* Transform: Transforms a student into an adorable sheep. Frightened, the sheep scurries back to its place. <img src="./resources/images/mouton/mouton_fixe.png" alt="AG" width="32"><img src="./resources/images/spell/transform-3.png" alt="S3" width="32"><img src="./resources/images/prof/transform3.png" alt="T3" width="32">
-* Teleport: Channels her magical energy into her hands and instantly teleports a student back to their seat. <img src="./resources/images/eleve/studentBteleport-2.png" alt="TS3" width="32"><img src="./resources/images/prof/tele_spell3.png" alt="TS3" width="32">
+* Freeze: Freezes a student, preventing them from moving for a short period.<br><img src="./resources/images/eleve/StudentAgel.png" alt="AG" width="32"><img src="./resources/images/spell/freeze3.png" alt="F3" width="32"><img src="./resources/images/prof/glace3.png" alt="Mage" width="32">
+* Transform: Transforms a student into an adorable sheep. Frightened, the sheep scurries back to its place.<br><img src="./resources/images/mouton/mouton_fixe.png" alt="AG" width="32"><img src="./resources/images/spell/transform-3.png" alt="S3" width="32"><img src="./resources/images/prof/transform3.png" alt="T3" width="32">
+* Teleport: Channels her magical energy into her hands and instantly teleports a student back to their seat.<br><img src="./resources/images/eleve/studentBteleport-2.png" alt="TS3" width="32"><img src="./resources/images/prof/tele_spell3.png" alt="TS3" width="32">
 
 ### Student
 
