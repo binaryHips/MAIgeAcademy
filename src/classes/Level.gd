@@ -23,6 +23,7 @@ func _ready() -> void:
 	t = Timer.new()
 	t.wait_time = 2
 	t.timeout.connect(les_bonbons)
+	t.timeout.connect(Gamemaster.new_corbac)
 	add_child(t)
 	t.start()
 	
