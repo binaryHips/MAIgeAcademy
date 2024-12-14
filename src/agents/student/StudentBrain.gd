@@ -16,6 +16,10 @@ var is_polymorphed:bool = false
 var polymorph_duration:float = 5.0
 var polymorph_timer:Timer = Timer.new()
 
+var is_teleporting:bool = false
+var teleport_duration:float = 0.5
+var teleport_timer:Timer = Timer.new()
+
 
 var previous_state:String = "goToCandy"
 
@@ -29,9 +33,13 @@ func _setup():
 	add_child(freeze_timer)
 	freeze_timer.connect("timeout", Callable(self, "_on_freeze_timer_timeout"))
 
-	#connect polymorph_timer to on_polymorph_timer_timeout
+	#connect poly time
 	add_child(polymorph_timer)
 	polymorph_timer.connect("timeout", Callable(self, "_on_polymorph_timer_timeout"))
+
+	#connect teleport time
+	add_child(teleport_timer)
+	teleport_timer.connect("timeout", Callable(self, "_on_teleport_timer_timeout"))
 	
 	override_state("idle")
 	var dico = {
@@ -93,6 +101,8 @@ func _process(delta: float) -> void:
 		move_target = body.global_position
 	if is_polymorphed:
 		move_target = base_pos
+	if is_teleporting:
+		move_target = body.global_position
 	
 func freeze():
 	if !is_frozen:
@@ -101,6 +111,7 @@ func freeze():
 
 		is_frozen = true
 		is_polymorphed = false
+		is_teleporting = false
 
 		body.freeze()
 		move_target = body.global_position
@@ -123,6 +134,7 @@ func polymorph():
 
 		is_polymorphed = true
 		is_frozen = false
+		is_teleporting = false
 
 		body.polymorph()
 		move_target = base_pos
@@ -140,10 +152,29 @@ func _on_polymorph_timer_timeout():
 	body.unfreeze()
 
 func teleport():
-	print("teleporting")
-	body.global_position = base_pos
-	body.wait()
-	override_state("wait")
+	if !is_teleporting:
+
+		print("teleport")
+
+		is_teleporting = true
+		is_frozen = false
+		is_polymorphed = false
+
+		body.teleport()
+		move_target = base_pos
+		teleport_timer.start(teleport_duration)
+
+func _on_teleport_timer_timeout():
+
+	print("unteleport")
+	is_teleporting = false
 	
+	teleport_timer.stop()
+
+	body.global_position = base_pos
+	override_state("wait")
+	body.wait()
+
+
 func getStrategy():
 	return str(strategy)

@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 
 func wait():
 	if $AnimatedSprite2D.animation == "polymorph"\
-		or $AnimatedSprite2D.animation == "teleport"\
+		#or $AnimatedSprite2D.animation == "teleport"\
 		or $AnimatedSprite2D.animation == "freeze": return
 	_animated_sprite.play("default")
 
