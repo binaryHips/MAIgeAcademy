@@ -54,6 +54,11 @@ func random_spawn_candy():
 	random_candy.get_node("Sprite2D").texture = candy_sprites[random_sprite]
 	var random_x = randf_range(-400,400)
 	var random_y = randf_range(-400,400)
+	
+	if (random_x >= -300 && random_x <= -100 && random_y <= 350 && random_y >= 225) || (random_x >= 25 && random_x <= 225 && random_y <= -50 && random_y >= -150):
+		print("recalcul de position bonbon")
+		random_x = randf_range(0,400)
+		random_y = randf_range(0,400)
 	random_candy.position = Vector2(random_x,random_y)
 	add_child(random_candy)
 

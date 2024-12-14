@@ -4,7 +4,6 @@ extends Area2D
 func _ready() -> void:
 	Gamemaster.world_state["candies"].append(self)
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
