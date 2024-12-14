@@ -14,14 +14,13 @@ func _physics_process(delta: float) -> void:
 
 
 
-
 func swap_to_advanced():
 	var tween:Tween = get_tree().create_tween()
 	
 	tween.tween_property(
-		$Enclos,
+		$bg,
 		"global_position:y",
-		500,
+		-708,
 		1.5
 	).set_trans(Tween.TRANS_CUBIC)
 	tween.set_ease(Tween.EASE_IN_OUT)
@@ -29,7 +28,7 @@ func swap_to_advanced():
 	tween.tween_property(
 		$MarginContainer,
 		"position:y",
-		-225,
+		-500,
 		0.6
 	).set_trans(Tween.TRANS_CUBIC)
 	
@@ -43,13 +42,12 @@ func swap_to_advanced():
 	tween.play()
 	
 func swap_to_menu():
-	$Enclos/doggo/Timer.start()
 	var tween:Tween = get_tree().create_tween()
 	
 	tween.tween_property(
-		$Enclos,
+		$bg,
 		"global_position:y",
-		1301,
+		0,
 		1.5
 	).set_trans(Tween.TRANS_CUBIC)
 	tween.set_ease(Tween.EASE_IN_OUT)
@@ -57,7 +55,7 @@ func swap_to_menu():
 	tween.tween_property(
 		$MarginContainer2,
 		"position:y",
-		460,
+		1100,
 		0.6
 	).set_trans(Tween.TRANS_CUBIC)
 	
@@ -65,23 +63,13 @@ func swap_to_menu():
 	tween.tween_property(
 		$MarginContainer,
 		"position:y",
-		145,0.8
+		198,0.8
 	).set_delay(0.7).set_trans(Tween.TRANS_CUBIC)
 	
 	tween.play()
 
 func _ready() -> void:
-	_on_sheep_num_value_changed(Settings.n_sheep)
-	$MarginContainer/VBoxContainer/SheepNum.value = Settings.n_sheep
-	_on_turn_num_value_changed(Settings.length_in_rounds)
-	$MarginContainer/VBoxContainer/TurnNum.value = Settings.length_in_rounds
 	
-	_on_sheep_speed_value_changed(Settings.sheep_speed)
-	$MarginContainer2/VBoxContainer/SheepSpeed.value = Settings.sheep_speed
-	_on_dog_speed_value_changed(Settings.dog_speed)
-	$MarginContainer2/VBoxContainer/DogSpeed.value = Settings.dog_speed
-	$MarginContainer2/VBoxContainer/doggo_plays.button_pressed = Settings.intertwine_dog_turns
-
 	var tween:Tween = get_tree().create_tween()
 	tween.tween_method(
 		change_blur,
@@ -110,18 +98,6 @@ func _on_timer_timeout() -> void:
 	pass
 
 
-func _on_doggo_plays_toggled(toggled_on: bool) -> void:
-	Settings.intertwine_dog_turns = toggled_on
-
-
-func _on_sheep_speed_value_changed(value: float) -> void:
-	Settings.sheep_speed = value
-	$MarginContainer2/VBoxContainer/SheepText.text = "Sheep base speed : " + str(value)
-
-
-func _on_dog_speed_value_changed(value: float) -> void:
-	Settings.dog_speed = value
-	$MarginContainer2/VBoxContainer/DogText.text = "Dog speed : " + str(value)
 
 
 func _on_margin_container_mouse_entered() -> void:

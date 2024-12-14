@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://vqro77kagm5m"]
+[gd_scene load_steps=8 format=3 uid="uid://vqro77kagm5m"]
 
 [ext_resource type="Script" path="res://src/scenes/menu/menu.gd" id="1_6s0fk"]
+[ext_resource type="Script" path="res://src/scenes/menu/level_selector.gd" id="2_murei"]
+[ext_resource type="Texture2D" uid="uid://b68vfpgd525qb" path="res://resources/images/coursMagie.png" id="2_njodk"]
 [ext_resource type="Shader" path="res://resources/shaders/blur.gdshader" id="2_wivfl"]
+[ext_resource type="Script" path="res://src/scenes/menu/options.gd" id="3_gdnu3"]
 [ext_resource type="AudioStream" uid="uid://ct3316m7nqfio" path="res://resources/sound/menu.ogg" id="8_igefu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mn8wv"]
@@ -17,111 +20,20 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6s0fk")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="bg" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -108.5
-offset_top = -80.0
-offset_right = 108.5
-offset_bottom = 80.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-
-[node name="Start" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Play"
-
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Quit"
-
-[node name="SheepText" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Number of sheep :"
-fit_content = true
-
-[node name="SheepNum" type="HSlider" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-min_value = 1.0
-value = 5.0
-exp_edit = true
-
-[node name="TurnText" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Number of rounds :"
-fit_content = true
-
-[node name="TurnNum" type="HSlider" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-min_value = 1.0
-max_value = 300.0
-value = 50.0
-exp_edit = true
-
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Secret Settings"
-
-[node name="MarginContainer2" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -108.5
-offset_top = 236.51
-offset_right = 108.5
-offset_bottom = 396.51
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
-layout_mode = 2
-size_flags_vertical = 4
-
-[node name="Button" type="Button" parent="MarginContainer2/VBoxContainer"]
-layout_mode = 2
-text = "Menu"
-
-[node name="doggo_plays" type="CheckButton" parent="MarginContainer2/VBoxContainer"]
-layout_mode = 2
-
-[node name="doggo" type="RichTextLabel" parent="MarginContainer2/VBoxContainer/doggo_plays"]
-layout_mode = 2
-offset_right = 217.0
-offset_bottom = 23.0
-mouse_filter = 2
-text = "Dog turns intertwined"
-fit_content = true
-
-[node name="SheepText" type="RichTextLabel" parent="MarginContainer2/VBoxContainer"]
-layout_mode = 2
-text = "Sheep base speed"
-fit_content = true
-
-[node name="SheepSpeed" type="HSlider" parent="MarginContainer2/VBoxContainer"]
-layout_mode = 2
-max_value = 200.0
-value = 20.0
-
-[node name="DogText" type="RichTextLabel" parent="MarginContainer2/VBoxContainer"]
-layout_mode = 2
-text = "Dog speed"
-fit_content = true
-
-[node name="DogSpeed" type="HSlider" parent="MarginContainer2/VBoxContainer"]
-layout_mode = 2
-max_value = 500.0
-value = 200.0
+anchors_preset = -1
+anchor_left = -0.792279
+anchor_top = -0.021814
+anchor_right = 1.04205
+anchor_bottom = 2.50351
+offset_left = 0.359985
+offset_top = 18.76
+offset_right = -0.160156
+offset_bottom = 18.98
+texture = ExtResource("2_njodk")
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -134,17 +46,232 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.374
+anchor_top = 0.407
+anchor_right = 0.626
+anchor_bottom = 0.593
+offset_left = -234.64
+offset_top = -152.02
+offset_right = 234.64
+offset_bottom = 152.02
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 90
+text = "Play"
+
+[node name="SheepText" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Number of sheep :"
+fit_content = true
+
+[node name="SheepNum" type="HSlider" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+min_value = 1.0
+value = 5.0
+exp_edit = true
+
+[node name="TurnText" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Number of rounds :"
+fit_content = true
+
+[node name="TurnNum" type="HSlider" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+min_value = 1.0
+max_value = 300.0
+value = 50.0
+exp_edit = true
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 90
+text = "Quit"
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.00216279
+anchor_top = 1.02862
+anchor_right = 1.00216
+anchor_bottom = 1.75301
+offset_left = -0.139999
+offset_top = 0.389893
+offset_right = 0.140015
+offset_bottom = 0.409912
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+
+[node name="levelSelector" type="Control" parent="MarginContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(430, 0)
+layout_mode = 2
+script = ExtResource("2_murei")
+
+[node name="Panel" type="Panel" parent="MarginContainer2/HBoxContainer/levelSelector"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.15093
+anchor_top = 0.306581
+anchor_right = 0.7
+anchor_bottom = 0.68687
+offset_left = 0.0999985
+offset_right = 20.0
+offset_bottom = 19.08
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="previous level" type="Button" parent="MarginContainer2/HBoxContainer/levelSelector"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.151163
+anchor_top = 0.756019
+anchor_right = 0.247829
+anchor_bottom = 0.925769
+offset_bottom = -0.0479736
+text = "<"
+metadata/_edit_use_anchors_ = true
+
+[node name="next level" type="Button" parent="MarginContainer2/HBoxContainer/levelSelector"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.646279
+anchor_top = 0.756019
+anchor_right = 0.744186
+anchor_bottom = 0.926164
+offset_left = 0.0999908
+text = ">"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="MarginContainer2/HBoxContainer/levelSelector"]
+layout_mode = 2
+anchor_left = 0.063
+anchor_top = 0.061
+anchor_right = 0.312
+anchor_bottom = 0.194
+offset_left = -0.0900002
+offset_top = -0.00300217
+offset_right = -0.160004
+offset_bottom = 0.137993
+text = "Back"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(430, 0)
+layout_mode = 2
+size_flags_vertical = 4
+script = ExtResource("3_gdnu3")
+
+[node name="Naive" type="RichTextLabel" parent="MarginContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Naive Strategy (4)"
+fit_content = true
+
+[node name="slider_naive" type="HSlider" parent="MarginContainer2/HBoxContainer/VBoxContainer/Naive"]
+layout_mode = 2
+anchor_left = 0.533
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0999908
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="Escape" type="RichTextLabel" parent="MarginContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Escape Teacher (4)"
+fit_content = true
+
+[node name="slider_escape" type="HSlider" parent="MarginContainer2/HBoxContainer/VBoxContainer/Escape"]
+layout_mode = 2
+anchor_left = 0.533
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0999908
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="LoneWolf" type="RichTextLabel" parent="MarginContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Lone wolf (4)"
+fit_content = true
+
+[node name="slider_wolf" type="HSlider" parent="MarginContainer2/HBoxContainer/VBoxContainer/LoneWolf"]
+layout_mode = 2
+anchor_left = 0.533
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0999908
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="CandyByTime" type="RichTextLabel" parent="MarginContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Candy By Time (4)"
+fit_content = true
+
+[node name="slider_candy_time" type="HSlider" parent="MarginContainer2/HBoxContainer/VBoxContainer/CandyByTime"]
+layout_mode = 2
+anchor_left = 0.533
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0999908
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="Friend" type="RichTextLabel" parent="MarginContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Best Friends (4)"
+fit_content = true
+
+[node name="slider_friend" type="HSlider" parent="MarginContainer2/HBoxContainer/VBoxContainer/Friend"]
+layout_mode = 2
+anchor_left = 0.533
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0999908
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="Start" type="Button" parent="MarginContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
 [node name="sonMenu" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_igefu")
 
 [connection signal="mouse_entered" from="MarginContainer" to="." method="_on_margin_container_mouse_entered"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="swap_to_advanced"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/SheepNum" to="." method="_on_sheep_num_value_changed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/TurnNum" to="." method="_on_turn_num_value_changed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="swap_to_advanced"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="mouse_entered" from="MarginContainer2" to="." method="_on_margin_container_2_mouse_entered"]
-[connection signal="pressed" from="MarginContainer2/VBoxContainer/Button" to="." method="swap_to_menu"]
-[connection signal="toggled" from="MarginContainer2/VBoxContainer/doggo_plays" to="." method="_on_doggo_plays_toggled"]
-[connection signal="value_changed" from="MarginContainer2/VBoxContainer/SheepSpeed" to="." method="_on_sheep_speed_value_changed"]
-[connection signal="value_changed" from="MarginContainer2/VBoxContainer/DogSpeed" to="." method="_on_dog_speed_value_changed"]
+[connection signal="pressed" from="MarginContainer2/HBoxContainer/levelSelector/previous level" to="MarginContainer2/HBoxContainer/levelSelector" method="_on_previous_level_pressed"]
+[connection signal="pressed" from="MarginContainer2/HBoxContainer/levelSelector/next level" to="MarginContainer2/HBoxContainer/levelSelector" method="_on_next_level_pressed"]
+[connection signal="pressed" from="MarginContainer2/HBoxContainer/levelSelector/Button" to="." method="swap_to_menu"]
+[connection signal="value_changed" from="MarginContainer2/HBoxContainer/VBoxContainer/Naive/slider_naive" to="MarginContainer2/HBoxContainer/VBoxContainer" method="_on_slider_naive_value_changed"]
+[connection signal="value_changed" from="MarginContainer2/HBoxContainer/VBoxContainer/Escape/slider_escape" to="MarginContainer2/HBoxContainer/VBoxContainer" method="_on_slider_escape_value_changed"]
+[connection signal="value_changed" from="MarginContainer2/HBoxContainer/VBoxContainer/LoneWolf/slider_wolf" to="MarginContainer2/HBoxContainer/VBoxContainer" method="_on_slider_wolf_value_changed"]
+[connection signal="value_changed" from="MarginContainer2/HBoxContainer/VBoxContainer/CandyByTime/slider_candy_time" to="MarginContainer2/HBoxContainer/VBoxContainer" method="_on_slider_candy_time_value_changed"]
+[connection signal="value_changed" from="MarginContainer2/HBoxContainer/VBoxContainer/Friend/slider_friend" to="MarginContainer2/HBoxContainer/VBoxContainer" method="_on_slider_friend_value_changed"]
+[connection signal="pressed" from="MarginContainer2/HBoxContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]

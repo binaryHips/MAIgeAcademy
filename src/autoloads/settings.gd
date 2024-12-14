@@ -1,7 +1,7 @@
 extends Node
 
 const base_time_between_turns:float = 0.5
-var time_between_turns:float = 0.5
+var time_between_updates:float = 0.5
 
 var intertwine_dog_turns: bool = true
 

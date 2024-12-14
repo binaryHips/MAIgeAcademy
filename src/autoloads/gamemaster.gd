@@ -29,11 +29,12 @@ func _ready() -> void:
 
 func start_game():
 	agents.clear()
-	agents.assign(get_tree().get_nodes_in_group("agents"))
+	#agents.assign(get_tree().get_nodes_in_group("agents"))
 	print("----------------------------------")
 	print("At the start of the Game : ")
 	turn_timer.start()
-	turn_timer.wait_time = 0.01#Settings.time_between_turns
+	Settings.time_between_updates = 0.01
+	turn_timer.wait_time = Settings.time_between_updates
 	turn_timer.timeout.connect(next_turn)
 	game_timer.start(game_duration)
 	emit_signal("game_started")
