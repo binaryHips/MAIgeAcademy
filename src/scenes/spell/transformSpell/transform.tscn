@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dccvw86mhv68x"]
+[gd_scene load_steps=11 format=3 uid="uid://dccvw86mhv68x"]
 
 [ext_resource type="Script" path="res://src/scenes/spell/transformSpell/spell.gd" id="1_qc4bo"]
 [ext_resource type="Texture2D" uid="uid://jumn4tvgfr3l" path="res://resources/images/spell/transform-1.png" id="2_j2qfq"]
@@ -31,6 +31,17 @@ animations = [{
 radius = 5.0
 height = 26.0
 
+[sub_resource type="Gradient" id="Gradient_sp31f"]
+colors = PackedColorArray(0, 0, 0, 0.247059, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l4s0j"]
+gradient = SubResource("Gradient_sp31f")
+width = 56
+height = 32
+fill = 1
+fill_from = Vector2(0.487324, 0.522535)
+fill_to = Vector2(0.228169, 0.532394)
+
 [node name="Transform" type="Area2D"]
 collision_layer = 2
 script = ExtResource("1_qc4bo")
@@ -47,5 +58,12 @@ shape = SubResource("CapsuleShape2D_hq67s")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_somjv")
 volume_db = -10.0
+
+[node name="shadow" type="Sprite2D" parent="."]
+z_index = -2
+z_as_relative = false
+position = Vector2(0, 6)
+scale = Vector2(0.787109, 0.498047)
+texture = SubResource("GradientTexture2D_l4s0j")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
