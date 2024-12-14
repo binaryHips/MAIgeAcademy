@@ -6,7 +6,7 @@ func decideGoToCandy(brain:Brain, percept:Dictionary):
 		brain.strategy = StudentStrategy.new()
 	if percept["candies_by_distance"].is_empty():
 		decideGoBackToPlace(brain, percept)
-	elif brain.getStrategy() == "TwoByTwoStrategy" && brain.student_mate.attention_span <= 0 :
+	elif brain.getStrategy() == "TwoByTwoStrategy" && brain.student_mate.attention_span <= 0 && !brain.student_mate.has_state("goBackToPlace"):
 			var minDistCommune = 9999
 			var focusCandy = percept["candies_by_distance"][0]
 			for candy in percept["candies_by_distance"]:
@@ -56,13 +56,15 @@ func decideGoToCandy(brain:Brain, percept:Dictionary):
 		brain.override_state("goToCandy")
 		brain.override_goal(dico)
 		
+	elif !brain.student_mate == null && (brain.student_mate.has_state("idle") || brain.student_mate.is_frozen || brain.student_mate.is_polymorphed):
+		decideGoBackToPlace(brain, percept)
 	else:
 		decideIdle(brain, percept)
 
 func _decideGoal(brain:Brain, percept:Dictionary):
 	match brain.states[0]:
 		"idle":
-			if brain.attention_span <= 0:
+			if brain.attention_span <= 0 :
 				decideGoToCandy(brain, percept)
 		"goToCandy":
 			if brain.student_mate.states[0] == "goBackToPlace":

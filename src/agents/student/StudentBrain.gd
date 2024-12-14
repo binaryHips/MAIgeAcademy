@@ -131,6 +131,7 @@ func freeze():
 func _on_freeze_timer_timeout():
 	#print("unfreeze")
 	is_frozen = false
+	freeze_timer.stop()
 	
 	#remove_state("frozen") #but did not work
 	override_state(previous_state)
@@ -152,11 +153,12 @@ func polymorph():
 	# actions quand il est polymorph
 
 func _on_polymorph_timer_timeout():
-	#print("unpolymorph")
+	print("unpolymorph")
 	is_polymorphed = false
+	polymorph_timer.stop()
 
 	#remove_state("polymorphed") # :(
-	if body.global_position.distance_to(base_pos) > 1.0:
+	if body.global_position.distance_to(base_pos) <= 1.0:
 		attention_span = min(attention_span + 0.5, 1.0)
 		strategy.decideIdle(self,_see())
 	else : 
@@ -186,6 +188,7 @@ func _on_teleport_timer_timeout():
 	teleport_timer.stop()
 
 	body.global_position = base_pos
+	move_target = base_pos
 
 	attention_span = min(attention_span + 0.5, 1.0)
 	strategy.decideIdle(self,_see())
