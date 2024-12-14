@@ -53,15 +53,13 @@ func _setup():
 		#print("début du timer")
 		add_child(timer)
 		timer.start(10.0)
-	get_parent().custom_debug_msg = strategy.get_class_name()
 	if strategy.get_class_name() == "TwoByTwoStrategy":
 		var students = get_tree().get_nodes_in_group("student")
 		for student in students:
 			if student.get_node("brain").getStrategy() == "TwoByTwoStrategy" && student_mate == null && student.get_node("brain").student_mate == null:
 				student_mate = student.brain
 				student.student_mate = self
-		if student_mate == null:
-			strategy = [StudentStrategy, CandyByTimeStrategy, LoneWolfStrategy, EscapeTeacherStrategy].pick_random().new()
+		
 
 func _see():
 	var percept = {
@@ -111,6 +109,7 @@ func _process(delta: float) -> void:
 		move_target = base_pos
 	if is_teleporting:
 		move_target = body.global_position
+	get_parent().custom_debug_msg = strategy.get_class_name()
 	
 func freeze():
 	if !is_frozen:
