@@ -1,7 +1,7 @@
 extends Brain
 
-@export var strategy:StudentStrategy = [StudentStrategy, CandyByTimeStrategy, LoneWolfStrategy, EscapeTeacherStrategy].pick_random().new()
-
+@export var strategy:StudentStrategy = [StudentStrategy, CandyByTimeStrategy, LoneWolfStrategy, EscapeTeacherStrategy, TwoByTwoStrategy].pick_random().new()
+var student_mate:Brain = null
 
 var ATTENTION_SPAN_DECREASE:float = 0.1
 var attention_span:float = 1.0;
@@ -45,6 +45,14 @@ func _setup():
 		add_child(timer)
 		timer.start(10.0)
 	get_parent().custom_debug_msg = strategy.get_class_name()
+	if strategy.get_class_name() == "TwoByTwoStrategy":
+		var students = get_tree().get_nodes_in_group("student")
+		for student in students:
+			if student.get_node("brain").getStrategy() == "TwoByTwoStrategy" && student_mate == null && student.get_node("brain").student_mate == null:
+				student_mate = student.brain
+				student.student_mate = self
+		if student_mate == null:
+			strategy = [StudentStrategy, CandyByTimeStrategy, LoneWolfStrategy, EscapeTeacherStrategy].pick_random().new()
 
 func _see():
 	var percept = {
