@@ -153,7 +153,11 @@ func _on_polymorph_timer_timeout():
 	is_polymorphed = false
 
 	#remove_state("polymorphed") # :(
-	override_state(previous_state)
+	if body.global_position.distance_to(base_pos) > 1.0:
+		attention_span = min(attention_span + 0.5, 1.0)
+		strategy.decideIdle(self,_see())
+	else : 
+		override_state(previous_state)
 
 	#body.unpolymorph() maybe later but for now unfreeze does the same thing
 	body.unfreeze()
@@ -179,7 +183,11 @@ func _on_teleport_timer_timeout():
 	teleport_timer.stop()
 
 	body.global_position = base_pos
-	override_state("wait")
+
+	attention_span = min(attention_span + 0.5, 1.0)
+	strategy.decideIdle(self,_see())
+	print("goal : ", goals[0].name)
+	
 	body.wait()
 
 
