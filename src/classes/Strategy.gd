@@ -73,7 +73,15 @@ func _decideGoal(brain:Brain, percept:Dictionary): #percept contient positionPla
 func _act(brain:Brain, percept:Dictionary):
 	_decideGoal(brain, percept)
 	if brain.goals[0]["goal_check"] is Callable:
-		if brain.goals[0]["goal_check"].call(brain, percept):
+		
+		if (brain.goals[0]["goal_check"].call(brain, percept) == null):
+			print("NULLED ")
+			print("is_null ", brain.goals[0]["goal_check"].is_null())
+			print("is_valid ", brain.goals[0]["goal_check"].is_valid())
+	
+		
+		if !brain.goals[0]["goal_check"].is_valid() or brain.goals[0]["goal_check"].call(brain, percept):
+			
 			brain.body.wait()
 			brain.override_state("idle")
 		else:

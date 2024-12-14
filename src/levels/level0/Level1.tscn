@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgmncu0a6g187"]
+[gd_scene load_steps=8 format=3 uid="uid://dgmncu0a6g187"]
 
 [ext_resource type="Script" path="res://src/classes/Level.gd" id="1_b8sxi"]
 [ext_resource type="Texture2D" uid="uid://w1r20olpox4u" path="res://resources/images/cour_enneigee.png" id="2_x3oay"]
@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dhdhjqe0paqwp" path="res://src/scenes/bench/bench.tscn" id="5_kcxoa"]
 
 [sub_resource type="Gradient" id="Gradient_bvbu1"]
-offsets = PackedFloat32Array(0.49359, 1)
+offsets = PackedFloat32Array(0, 0.160256, 0.596154)
+colors = PackedColorArray(1, 1, 1, 1, 0.525426, 0.663272, 1, 1, 0.929412, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_50eh4"]
 gradient = SubResource("Gradient_bvbu1")
@@ -14,6 +15,10 @@ width = 7
 height = 7
 fill = 1
 fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Curve" id="Curve_g4kgd"]
+_data = [Vector2(0, 0.989011), 0.0, 0.513948, 0, 0, Vector2(0.666667, 0.472527), -0.783673, -0.783673, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [node name="Level1" type="Node2D" node_paths=PackedStringArray("agents")]
 script = ExtResource("1_b8sxi")
@@ -44,7 +49,18 @@ position = Vector2(-8, 162)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 texture_filter = 1
-position = Vector2(-525, -521)
-amount = 250
+position = Vector2(-340, -528)
+amount = 400
+lifetime = 15.0
+preprocess = 10.0
 draw_order = 1
 texture = SubResource("GradientTexture2D_50eh4")
+emission_shape = 3
+emission_rect_extents = Vector2(700, 1)
+direction = Vector2(1, 1)
+spread = 22.92
+gravity = Vector2(0, 0)
+initial_velocity_min = 80.0
+initial_velocity_max = 100.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_g4kgd")
