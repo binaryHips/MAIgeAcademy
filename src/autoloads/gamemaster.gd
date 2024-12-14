@@ -8,6 +8,8 @@ var main_scene:Node2D
 
 var agents:Array[Brain] = []
 
+const PIAF = preload("res://src/scenes/oiseau/oiseau.tscn")
+
 @onready var turn_timer:Timer = Timer.new()
 
 
@@ -46,6 +48,11 @@ func next_turn():
 	for a in agents:
 		if is_instance_valid(a): a.run()
 	
+func new_corbac():
+	if randf_range(0, 1) <= Settings.birds_per_turn:
+		var oiseau_instance = PIAF.instantiate()
+		oiseau_instance.add_to_group("birds")
+		add_child(oiseau_instance)
 
 func end():
 	#print("FINI")

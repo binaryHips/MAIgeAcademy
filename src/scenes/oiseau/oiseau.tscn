@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://cwtekvlbfh61c"]
+
+[ext_resource type="Texture2D" uid="uid://c8pdwg2emb7kb" path="res://resources/images/oiseau/oiseau_vole1.png" id="1_0mlko"]
+[ext_resource type="Script" path="res://src/scenes/oiseau/oiseau.gd" id="1_48x7b"]
+[ext_resource type="Texture2D" uid="uid://c6lmoeju6nfxa" path="res://resources/images/oiseau/oiseau_vole2.png" id="2_ukidj"]
+[ext_resource type="Texture2D" uid="uid://crgmoj5w5iup" path="res://resources/images/oiseau/oiseau_vole3.png" id="3_kmtq7"]
+[ext_resource type="AudioStream" uid="uid://46wm72j72nsn" path="res://resources/sound/corbeau.ogg" id="5_m8mkj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iwkm4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0mlko")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ukidj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kmtq7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ukidj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_tochv"]
+colors = PackedColorArray(0, 0, 0, 0.615686, 0.133196, 0.133196, 0.133196, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_stj2n"]
+gradient = SubResource("Gradient_tochv")
+width = 56
+height = 32
+fill = 1
+fill_from = Vector2(0.487324, 0.522535)
+fill_to = Vector2(0.338028, 0.512676)
+
+[node name="Oiseau" type="AnimatedSprite2D"]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_iwkm4")
+frame_progress = 0.39469
+script = ExtResource("1_48x7b")
+
+[node name="bruitCorbeau" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_m8mkj")
+volume_db = -15.0
+
+[node name="shadow" type="Sprite2D" parent="."]
+z_index = -2
+z_as_relative = false
+position = Vector2(2, 33)
+scale = Vector2(0.787109, 0.498047)
+texture = SubResource("GradientTexture2D_stj2n")

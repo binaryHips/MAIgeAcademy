@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://pgbuk611eup1"]
 
 [ext_resource type="Script" path="res://src/scenes/end/end.gd" id="1_0mlu8"]
-[ext_resource type="Texture2D" uid="uid://difvyndmfhtpb" path="res://resources/images/Enclos.png" id="2_nvxde"]
+[ext_resource type="Texture2D" uid="uid://b68vfpgd525qb" path="res://resources/images/coursMagie.png" id="2_7opxd"]
 
 [node name="End" type="Control"]
 layout_mode = 3
@@ -12,25 +12,107 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0mlu8")
 
-[node name="Enclos" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(235, 224)
-scale = Vector2(1.88, 1.777)
-texture = ExtResource("2_nvxde")
+[node name="CoursMagie" type="Sprite2D" parent="."]
+position = Vector2(435, 432)
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("2_7opxd")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 23.0
+offset_bottom = 349.0
 grow_horizontal = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="RemainingSheepText" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+[node name="spells" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
-text = "Sheep remaining : "
+theme_override_font_sizes/font_size = 35
+text = "Spells used "
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_direction = 2
+layout_mode = 2
+
+[node name="freeze" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(280, 100)
+layout_mode = 2
+theme_override_font_sizes/mono_font_size = 0
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 0
+text = "Freeze : "
+fit_content = true
+
+[node name="poly" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 30
+text = "Polymorph : "
+fit_content = true
+
+[node name="tele" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 30
+text = "Telekinesis : "
+fit_content = true
+
+[node name="strats" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Strategies"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_direction = 2
+layout_mode = 2
+
+[node name="Default" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+theme_override_font_sizes/mono_font_size = 0
+theme_override_font_sizes/normal_font_size = 17
+theme_override_font_sizes/bold_font_size = 0
+text = "Naive :"
+fit_content = true
+
+[node name="Time" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+theme_override_font_sizes/mono_font_size = 0
+theme_override_font_sizes/normal_font_size = 17
+theme_override_font_sizes/bold_font_size = 0
+text = "Time :"
+fit_content = true
+
+[node name="LoneWolf" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+theme_override_font_sizes/mono_font_size = 0
+theme_override_font_sizes/normal_font_size = 17
+theme_override_font_sizes/bold_font_size = 0
+text = "Lone :"
+fit_content = true
+
+[node name="EscapeTeach" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/mono_font_size = 0
+theme_override_font_sizes/normal_font_size = 17
+theme_override_font_sizes/bold_font_size = 0
+text = "Escape :"
+fit_content = true
+
+[node name="Duo" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+theme_override_font_sizes/mono_font_size = 0
+theme_override_font_sizes/normal_font_size = 17
+theme_override_font_sizes/bold_font_size = 0
+text = "Duo :"
 fit_content = true
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]

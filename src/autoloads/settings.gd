@@ -14,4 +14,5 @@ var student_speed:float = 80.0
 var dog_speed:float = 100.0
 var sheep_speed:float = 40.0
 
-var birds_per_turn = 0.1
+var birds_per_turn = 0.5
+var candy_chance = 0.01
