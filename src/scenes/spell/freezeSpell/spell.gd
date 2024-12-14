@@ -17,6 +17,7 @@ func orientation():
 	var direction = target.global_position - global_position
 	var angle = direction.angle() - PI
 	rotation = angle
+	$shadow.global_rotation = 0
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("student"):
