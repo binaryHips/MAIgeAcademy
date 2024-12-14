@@ -55,10 +55,11 @@ func _setup():
 		timer.start(10.0)
 	if strategy.get_class_name() == "TwoByTwoStrategy":
 		var students = get_tree().get_nodes_in_group("student")
+		print(getStrategy())
 		for student in students:
-			if student.get_node("brain").getStrategy() == "TwoByTwoStrategy" && student_mate == null && student.get_node("brain").student_mate == null:
-				student_mate = student.brain
-				student.student_mate = self
+			if student.get_node("brain") != self && student.get_node("brain").getStrategy() == "TwoByTwoStrategy" && student_mate == null && student.get_node("brain").student_mate == null:
+				student_mate = student.get_node("brain")
+				student.get_node("brain").student_mate = self
 		
 
 func _see():
@@ -109,12 +110,12 @@ func _process(delta: float) -> void:
 		move_target = base_pos
 	if is_teleporting:
 		move_target = body.global_position
-	get_parent().custom_debug_msg = strategy.get_class_name()
+	get_parent().custom_debug_msg = strategy.get_class_name() + "\nmate : " + str(student_mate)
 	
 func freeze():
 	if !is_frozen:
 
-		print("freeze")
+		#print("freeze")
 
 		is_frozen = true
 		is_polymorphed = false
@@ -126,7 +127,7 @@ func freeze():
 	# actions quand il est freeze
 
 func _on_freeze_timer_timeout():
-	print("unfreeze")
+	#print("unfreeze")
 	is_frozen = false
 	
 	#remove_state("frozen") #but did not work
@@ -137,7 +138,7 @@ func _on_freeze_timer_timeout():
 func polymorph():
 	if !is_polymorphed:
 
-		print("polymorph")
+		#print("polymorph")
 
 		is_polymorphed = true
 		is_frozen = false
@@ -149,7 +150,7 @@ func polymorph():
 	# actions quand il est polymorph
 
 func _on_polymorph_timer_timeout():
-	print("unpolymorph")
+	#print("unpolymorph")
 	is_polymorphed = false
 
 	#remove_state("polymorphed") # :(
@@ -165,7 +166,7 @@ func _on_polymorph_timer_timeout():
 func teleport():
 	if !is_teleporting:
 
-		print("teleport")
+		#print("teleport")
 
 		is_teleporting = true
 		is_frozen = false
@@ -177,7 +178,7 @@ func teleport():
 
 func _on_teleport_timer_timeout():
 
-	print("unteleport")
+	#print("unteleport")
 	is_teleporting = false
 	
 	teleport_timer.stop()
@@ -186,10 +187,10 @@ func _on_teleport_timer_timeout():
 
 	attention_span = min(attention_span + 0.5, 1.0)
 	strategy.decideIdle(self,_see())
-	print("goal : ", goals[0].name)
+	#print("goal : ", goals[0].name)
 	
 	body.wait()
 
 
 func getStrategy():
-	return str(strategy)
+	return strategy.get_class_name()

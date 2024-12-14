@@ -41,8 +41,6 @@ zoom = Vector2(1.08, 1.08)
 [node name="Table1" type="StaticBody2D" parent="."]
 position = Vector2(-191, 280)
 scale = Vector2(2, 2)
-collision_layer = 2
-collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="Table1"]
 texture_filter = 1
@@ -62,8 +60,6 @@ texture = SubResource("GradientTexture2D_1vjjp")
 [node name="Table2" type="StaticBody2D" parent="."]
 position = Vector2(111, -91)
 scale = Vector2(2, 2)
-collision_layer = 2
-collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="Table2"]
 texture_filter = 1
@@ -81,9 +77,9 @@ scale = Vector2(0.982558, 0.544105)
 texture = SubResource("GradientTexture2D_1vjjp")
 
 [node name="Teacher" parent="." instance=ExtResource("6_ga4n2")]
-visible = false
 z_index = 1
 position = Vector2(130, 116)
+collision_mask = 1
 lock_rotation = true
 
 [node name="Bench1" parent="." instance=ExtResource("7_l2f0y")]

@@ -28,7 +28,6 @@ radius = 92.0054
 bg_color = Color(0.730742, 0, 0.0941446, 1)
 
 [node name="Student" type="RigidBody2D" groups=["student"]]
-collision_mask = 2
 gravity_scale = 0.0
 lock_rotation = true
 script = ExtResource("1_j41ic")
