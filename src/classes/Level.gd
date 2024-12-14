@@ -22,7 +22,7 @@ func _ready() -> void:
 	
 	t = Timer.new()
 	t.wait_time = 2
-	t.timeout.connect(les_bonbons)
+	#t.timeout.connect(les_bonbons)
 	t.timeout.connect(Gamemaster.new_corbac)
 	add_child(t)
 	t.start()
@@ -41,6 +41,9 @@ func setup_agents():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	for bird in get_tree().get_nodes_in_group("birds"):
+		if randf_range(0, 1) <= Settings.candy_chance:
+			spawn_candy(bird.global_position)
 	pass
 
 
@@ -48,6 +51,13 @@ func les_bonbons():
 	spawn_count = randf_range(2,5)
 	for i in range(spawn_count):
 		random_spawn_candy()
+		
+func spawn_candy(positionCandy):
+	var candy = candy_scene.instantiate()
+	var random_sprite =  randi() % candy_sprites.size()
+	candy.get_node("Sprite2D").texture = candy_sprites[random_sprite]
+	candy.position = positionCandy
+	add_child(candy)
 
 func random_spawn_candy():
 	var random_candy = candy_scene.instantiate()

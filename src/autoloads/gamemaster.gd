@@ -49,7 +49,9 @@ func next_turn():
 	
 func new_corbac():
 	if randf_range(0, 1) <= Settings.birds_per_turn:
-		add_child(PIAF.instantiate())
+		var oiseau_instance = PIAF.instantiate()
+		oiseau_instance.add_to_group("birds")
+		add_child(oiseau_instance)
 
 func end():
 	#print("FINI")

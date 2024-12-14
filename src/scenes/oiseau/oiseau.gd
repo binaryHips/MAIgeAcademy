@@ -47,7 +47,7 @@ func _process(delta: float) -> void:
 	
 	#$shadow.global_position.x = global_position.x + lerp(-0.5, 0.5, fac) * 70 #because scaling on x
 
-	if abs(position.x) >= 1000: queue_free()
+	if abs(position.x) >= 510: queue_free()
 
 func f(x: float) -> float:
 	var res = 0
