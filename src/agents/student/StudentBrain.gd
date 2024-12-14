@@ -16,6 +16,7 @@ var is_polymorphed:bool = false
 var polymorph_duration:float = 5.0
 var polymorph_timer:Timer = Timer.new()
 
+
 var previous_state:String = "goToCandy"
 
 # Called when the node enters the scene tree for the first time.
@@ -76,6 +77,9 @@ func _act(percept:Dictionary):
 	if(has_state("polymorphed")):
 		polymorph()	
 		return
+	if(has_state("teleporting")):
+		teleport()
+		return
 	strategy._act(self, percept)
 	#print(strategy.get_class_name(), " : ", states)
 
@@ -134,6 +138,12 @@ func _on_polymorph_timer_timeout():
 
 	#body.unpolymorph() maybe later but for now unfreeze does the same thing
 	body.unfreeze()
+
+func teleport():
+	print("teleporting")
+	body.global_position = base_pos
+	body.wait()
+	override_state("wait")
 	
 func getStrategy():
 	return str(strategy)
