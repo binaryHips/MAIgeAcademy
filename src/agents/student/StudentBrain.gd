@@ -52,7 +52,7 @@ func _setup():
 	if strategy.get_class_name() == "CandyByTimeStrategy":
 		#print("début du timer")
 		add_child(timer)
-		timer.start(10.0)
+		timer.start(2.0)
 	if strategy.get_class_name() == "TwoByTwoStrategy":
 		var students = get_tree().get_nodes_in_group("student")
 		print(getStrategy())

@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dccvw86mhv68x"]
+[gd_scene load_steps=9 format=3 uid="uid://dccvw86mhv68x"]
 
 [ext_resource type="Script" path="res://src/scenes/spell/transformSpell/spell.gd" id="1_qc4bo"]
 [ext_resource type="Texture2D" uid="uid://jumn4tvgfr3l" path="res://resources/images/spell/transform-1.png" id="2_j2qfq"]
 [ext_resource type="Texture2D" uid="uid://crgm406xhkm1k" path="res://resources/images/spell/transform-2.png" id="3_bygk5"]
 [ext_resource type="Texture2D" uid="uid://dmxfprkbif02t" path="res://resources/images/spell/transform-3.png" id="4_7h2ru"]
 [ext_resource type="Texture2D" uid="uid://b7kfvfgamv10c" path="res://resources/images/spell/transform-4.png" id="5_64odm"]
+[ext_resource type="AudioStream" uid="uid://c1gu8kfcx6ad" path="res://resources/sound/transform.mp3" id="6_somjv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k13gq"]
 animations = [{
@@ -42,5 +43,9 @@ animation = &"transform"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_hq67s")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_somjv")
+volume_db = -10.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

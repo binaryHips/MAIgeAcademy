@@ -4,7 +4,7 @@ class_name LoneWolfStrategy
 func _decideGoal(brain:Brain, percept:Dictionary):
 	match brain.states[0]:
 		"idle":
-			if !percept["candies_by_distance"].is_empty():
+			if !percept["candies_by_distance"].is_empty() && brain.attention_span <= 0:
 				var students = brain.get_tree().get_nodes_in_group("student")
 				var candyMinFocus = students.size()
 				

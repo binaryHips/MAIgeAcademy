@@ -23,7 +23,7 @@ func decideGoToCandy(brain:Brain, percept:Dictionary):
 func _decideGoal(brain:Brain, percept:Dictionary):
 	match brain.states[0]:
 		"idle":
-			if brain.attention_span == 0:
+			if brain.attention_span <= 0:
 				decideGoToCandy(brain, percept)
 			
 		"goToCandy":
