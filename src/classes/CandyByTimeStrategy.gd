@@ -8,8 +8,9 @@ func _decideGoal(brain:Brain, percept:Dictionary):
 				brain.timer.stop()
 				decideGoToCandy(brain, percept)
 		"goToCandy":
-			if brain.goals[0]["goal_check"].call(brain, percept):
-				decideGoBackToPlace(brain, percept)
+			if brain.goals[0]["goal_check"] is Callable:
+				if brain.goals[0]["goal_check"].call(brain, percept):
+					decideGoBackToPlace(brain, percept)
 		"goBackToPlace":
 			decideIdle(brain, percept)
 			brain.timer.start(10)

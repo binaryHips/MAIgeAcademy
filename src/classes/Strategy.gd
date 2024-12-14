@@ -16,17 +16,7 @@ func decideGoToCandy(brain:Brain, percept:Dictionary):
 				var dist = brain.body.global_position.distance_to(candy.global_position)
 				if(dist <= 15.0):
 					candy.queue_free()
-					#add to candy_by_student
-					var student_name = str(brain.get_parent().name)
-					if student_name not in Stats.candy_per_student:
-						Stats.candy_per_student[student_name] = 0
-					Stats.candy_per_student[student_name] += 1
-					
-					#add to candy_by_strategy
-					var strat = brain.getStrategy()
-					if strat not in Stats.candy_per_strategy:
-						Stats.candy_per_strategy[strat] = 0
-					Stats.candy_per_strategy[strat] += 1
+					Stats.increase_stats(brain)
 					
 					return true
 				return false
