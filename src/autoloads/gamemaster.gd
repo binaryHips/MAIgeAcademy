@@ -12,6 +12,10 @@ const PIAF = preload("res://src/scenes/oiseau/oiseau.tscn")
 
 @onready var turn_timer:Timer = Timer.new()
 
+
+@onready var game_timer:Timer = Timer.new()
+var game_duration:float = 60.0
+
 signal game_started
 signal game_ended(result:int)
 
@@ -21,6 +25,8 @@ signal new_turn(player_idx:int)
 
 func _ready() -> void:
 	add_child(turn_timer)
+	add_child(game_timer)
+	game_timer.connect("timeout", Callable(self, "end"))
 	start_game()
 
 func start_game():
@@ -31,6 +37,7 @@ func start_game():
 	turn_timer.start()
 	turn_timer.wait_time = 0.01#Settings.time_between_turns
 	turn_timer.timeout.connect(next_turn)
+	game_timer.start(game_duration)
 	emit_signal("game_started")
 
 var round_count:int
@@ -47,6 +54,7 @@ func new_corbac():
 func end():
 	#print("FINI")
 	#print("------------------------------------------------------\n")
+	game_timer.stop()
 	turn_timer.stop()
 	get_tree().change_scene_to_file("res://src/scenes/end/End.tscn")
 	#get_tree().paused = true

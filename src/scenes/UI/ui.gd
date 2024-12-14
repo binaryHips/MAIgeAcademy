@@ -1,7 +1,5 @@
 extends Control
 
-const PIAF = preload("res://src/scenes/oiseau/oiseau.tscn")
-
 func _ready():
 	$Panel.position = Vector2(0, -100)
 	$Panel/time.text = "[center]Round " + str(Gamemaster.round_count) + "/" + str(Settings.length_in_rounds)
@@ -46,7 +44,3 @@ func _on_mouse_exited() -> void:
 
 func _on_finished_presse() -> void:
 	Gamemaster.end()
-
-
-func _on_button_2_pressed() -> void:
-	add_child(PIAF.instantiate())
