@@ -44,7 +44,7 @@ func polymorph(temps):
 
 func telekinesis(temps):
 	_animated_sprite.play("telekinesis")
-
+	$teleport_sound.play()
 	Stats.spells_used["Telekinesis"] += 1
 
 

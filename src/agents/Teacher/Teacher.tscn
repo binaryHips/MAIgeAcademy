@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://f8uneibou5ua"]
+[gd_scene load_steps=35 format=3 uid="uid://f8uneibou5ua"]
 
 [ext_resource type="Script" path="res://src/agents/Teacher/teacher.gd" id="1_sf280"]
 [ext_resource type="Texture2D" uid="uid://cpgdueixhy760" path="res://resources/images/prof/mage1.png" id="2_bdjb2"]
@@ -25,6 +25,7 @@
 [ext_resource type="Script" path="res://src/spells/polymorph_script.gd" id="23_kubvy"]
 [ext_resource type="Script" path="res://src/spells/telekinesis_script.gd" id="24_4oxau"]
 [ext_resource type="Script" path="res://src/agents/student/debug_show.gd" id="25_s0idl"]
+[ext_resource type="AudioStream" uid="uid://xug3354untr2" path="res://resources/sound/teleport.mp3" id="26_nu4q4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lpi3t"]
 animations = [{
@@ -201,5 +202,9 @@ layout_mode = 2
 theme_override_font_sizes/normal_font_size = 11
 bbcode_enabled = true
 text = "[color=orange]"
+
+[node name="teleport_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("26_nu4q4")
+volume_db = -10.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
