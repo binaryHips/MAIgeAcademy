@@ -86,7 +86,7 @@ func random_spawn_student_on_bench():
 	position_benches.erase(bench_choice)
 	var spawned_student = student_scene.instantiate()
 	spawned_student.global_position = bench_choice
-	var countdown_strategy = Gamemaster.students_by_strategy
+	var countdown_strategy = Gamemaster.students_by_strategy.duplicate(true)
 	filter_strat_nulle(countdown_strategy)
 	var strategies = countdown_strategy.keys()
 	var random_strat = strategies.pick_random()
