@@ -4,8 +4,6 @@ class_name TwoByTwoStrategy
 func decideGoToCandy(brain:Brain, percept:Dictionary):
 	if brain.student_mate == null:
 		brain.strategy = StudentStrategy.new()
-	if percept["candies_by_distance"].is_empty():
-		decideGoBackToPlace(brain, percept)
 	elif brain.getStrategy() == "TwoByTwoStrategy" && brain.student_mate.attention_span <= 0 && !brain.student_mate.has_state("goBackToPlace"):
 			var minDistCommune = 9999
 			var focusCandy = percept["candies_by_distance"][0]
@@ -64,14 +62,17 @@ func decideGoToCandy(brain:Brain, percept:Dictionary):
 func _decideGoal(brain:Brain, percept:Dictionary):
 	match brain.states[0]:
 		"idle":
-			if brain.attention_span <= 0 :
+			brain.body.wait()
+			if brain.attention_span <= 0 && !percept["candies_by_distance"].is_empty():
 				decideGoToCandy(brain, percept)
 		"goToCandy":
-			if brain.student_mate.states[0] == "goBackToPlace":
+			brain.body.walk()
+			if brain.student_mate.states[0] == "goBackToPlace" || percept["candies_by_distance"].is_empty():
 				decideGoBackToPlace(brain, percept)
 			else:
 				decideGoToCandy(brain, percept)
 		"goBackToPlace":
+			brain.body.walk()
 			decideIdle(brain, percept)
 		
 func get_class_name():

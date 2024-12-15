@@ -23,10 +23,12 @@ func decideGoToCandy(brain:Brain, percept:Dictionary):
 func _decideGoal(brain:Brain, percept:Dictionary):
 	match brain.states[0]:
 		"idle":
+			brain.body.wait()
 			if brain.attention_span <= 0:
 				decideGoToCandy(brain, percept)
 			
 		"goToCandy":
+			brain.body.walk()
 			for candy in percept["candies_by_distance"]:
 				if brain.body.global_position.distance_to(candy.global_position) < 15:
 					print("CANDY EATEN")
