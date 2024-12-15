@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dgmncu0a6g187"]
+[gd_scene load_steps=16 format=3 uid="uid://dgmncu0a6g187"]
 
 [ext_resource type="Script" path="res://src/classes/Level.gd" id="1_b8sxi"]
 [ext_resource type="Texture2D" uid="uid://w1r20olpox4u" path="res://resources/images/cour_enneigee.png" id="2_x3oay"]
@@ -50,10 +50,6 @@ height = 61
 fill = 1
 fill_from = Vector2(0.481962, 0.521368)
 fill_to = Vector2(0.500149, 0.132479)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0tf7q"]
-radius = 40.0
-height = 134.0
 
 [node name="Level1" type="Node2D" node_paths=PackedStringArray("agents")]
 script = ExtResource("1_b8sxi")
@@ -249,6 +245,7 @@ scale = Vector2(0.662791, 1.11475)
 texture = SubResource("GradientTexture2D_kls0b")
 
 [node name="sapin_noel" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(13, -279)
 scale = Vector2(2.18966, 2.27778)
 texture = ExtResource("6_70pxw")
@@ -260,6 +257,7 @@ scale = Vector2(0.621315, 1.09362)
 texture = SubResource("GradientTexture2D_e1abo")
 
 [node name="sapin1" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(400, -441)
 scale = Vector2(1.81579, 2.5)
 texture = ExtResource("7_w483x")
@@ -271,6 +269,7 @@ scale = Vector2(0.621315, 1.09362)
 texture = SubResource("GradientTexture2D_e1abo")
 
 [node name="sapin2" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(-359, -432)
 scale = Vector2(1.83333, 2.43103)
 texture = ExtResource("7_w483x")
@@ -281,20 +280,14 @@ position = Vector2(1.63636, 5.34751)
 scale = Vector2(0.621315, 1.09362)
 texture = SubResource("GradientTexture2D_e1abo")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(-434, 266)
-
-[node name="sapin3" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(3.05176e-05, 1)
+[node name="sapin3" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(-434, 267)
 scale = Vector2(1.81579, 2.5)
 texture = ExtResource("7_w483x")
 
-[node name="shadow" type="Sprite2D" parent="StaticBody2D"]
+[node name="shadow" type="Sprite2D" parent="sapin3"]
 z_index = -1
-position = Vector2(4.7442, 15)
-scale = Vector2(1.192, 2.73406)
+position = Vector2(2.61273, 5.6)
+scale = Vector2(0.656464, 1.09362)
 texture = SubResource("GradientTexture2D_e1abo")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1, 6)
-shape = SubResource("CapsuleShape2D_0tf7q")

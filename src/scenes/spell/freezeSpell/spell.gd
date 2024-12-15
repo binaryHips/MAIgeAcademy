@@ -9,8 +9,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	orientation()
-	global_position = global_position.move_toward(target.global_position,delta*150)
+	if is_instance_valid(self):
+		orientation()
+		global_position = global_position.move_toward(target.global_position,delta*150)
 	pass
 	
 func orientation():
