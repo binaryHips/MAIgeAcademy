@@ -16,7 +16,7 @@ It is a chase-like minigame where a teacher needs to stop her students from bein
 
 ---
 
-## States and strategies.
+## States and strategies
 
 ### Teacher 
 
