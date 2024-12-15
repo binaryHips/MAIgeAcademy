@@ -100,7 +100,7 @@ scale_amount_curve = SubResource("Curve_g4kgd")
 navigation_polygon = SubResource("NavigationPolygon_7sgj8")
 
 [node name="Table1" type="StaticBody2D" parent="NavigationRegion2D"]
-position = Vector2(131, -86)
+position = Vector2(131, -101)
 scale = Vector2(2, 2)
 
 [node name="Sprite2D" type="Sprite2D" parent="NavigationRegion2D/Table1"]
