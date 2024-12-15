@@ -223,6 +223,7 @@ texture = SubResource("GradientTexture2D_1vjjp")
 
 [node name="sapin1" type="Sprite2D" parent="."]
 z_index = 1
+texture_filter = 1
 position = Vector2(403, -421)
 scale = Vector2(1.81579, 2.5)
 texture = ExtResource("6_7osw3")
@@ -235,6 +236,7 @@ texture = SubResource("GradientTexture2D_pgjjw")
 
 [node name="sapin2" type="Sprite2D" parent="."]
 z_index = 1
+texture_filter = 1
 position = Vector2(-405, -394)
 scale = Vector2(1.81579, 2.5)
 texture = ExtResource("6_7osw3")
@@ -247,6 +249,7 @@ texture = SubResource("GradientTexture2D_pgjjw")
 
 [node name="sapin3" type="Sprite2D" parent="."]
 z_index = 1
+texture_filter = 1
 position = Vector2(-333, -454)
 scale = Vector2(1.81579, 2.5)
 texture = ExtResource("6_7osw3")
@@ -259,6 +262,7 @@ texture = SubResource("GradientTexture2D_pgjjw")
 
 [node name="sapin4" type="Sprite2D" parent="."]
 z_index = 1
+texture_filter = 1
 position = Vector2(-437, 246)
 scale = Vector2(1.81579, 2.5)
 texture = ExtResource("6_7osw3")
