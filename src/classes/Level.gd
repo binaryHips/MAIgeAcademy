@@ -16,7 +16,7 @@ var position_benches:Array = []
 func _ready() -> void:
 	for bench in get_tree().get_nodes_in_group("benches"): position_benches.push_back(bench.global_position)
 	
-	for i in range(min(10, position_benches.size())):
+	for i in range(position_benches.size()):
 		
 		random_spawn_student_on_bench()
 	
@@ -73,11 +73,25 @@ func random_spawn_candy():
 		random_y = randf_range(0,400)
 	random_candy.position = Vector2(random_x,random_y)
 	add_child(random_candy)
+	
+func filter_strat_nulle(stratsDico):
+	for elem in stratsDico.keys():
+		if stratsDico[elem] == 0:
+			stratsDico.erase(elem)
 
 func random_spawn_student_on_bench():
+	print(Gamemaster.students_by_strategy)
+	var convertStringStrat = {"StudentStrategy" : StudentStrategy, "CandyByTimeStrategy" : CandyByTimeStrategy, "LoneWolfStrategy" : LoneWolfStrategy, "EscapeTeacherStrategy" : EscapeTeacherStrategy, "TwoByTwoStrategy" : TwoByTwoStrategy}
 	var bench_choice = position_benches.pick_random()
 	position_benches.erase(bench_choice)
 	var spawned_student = student_scene.instantiate()
 	spawned_student.global_position = bench_choice
+	var countdown_strategy = Gamemaster.students_by_strategy
+	filter_strat_nulle(countdown_strategy)
+	var strategies = countdown_strategy.keys()
+	var random_strat = strategies.pick_random()
+	countdown_strategy[random_strat] -= 1
+	
+	spawned_student.get_node("brain").strategy = convertStringStrat[random_strat].new()
 	add_child(spawned_student)
 	agents.push_back(spawned_student)
