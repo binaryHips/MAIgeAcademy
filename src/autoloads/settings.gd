@@ -16,7 +16,7 @@ var dog_speed:float = 100.0
 var sheep_speed:float = 40.0
 
 var birds_per_turn = 1
-var candy_chance = 0.01
+var candy_chance = 0.03
 
 func update_speed(t_b_u):
 	time_between_updates = t_b_u

@@ -21,7 +21,7 @@ func _ready() -> void:
 		random_spawn_student_on_bench()
 	
 	t = Timer.new()
-	t.wait_time = 2*Settings.speed_scale
+	t.wait_time = 1*Settings.speed_scale
 	#t.timeout.connect(les_bonbons)
 	t.timeout.connect(Gamemaster.new_corbac)
 	add_child(t)
