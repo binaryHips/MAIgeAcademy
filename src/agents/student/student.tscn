@@ -104,3 +104,5 @@ layout_mode = 2
 theme_override_font_sizes/normal_font_size = 11
 bbcode_enabled = true
 text = "[color=orange]"
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

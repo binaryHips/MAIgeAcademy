@@ -4,7 +4,7 @@ extends Node2D
 var student_sprites:Array[SpriteFrames] = [preload("res://resources/images/eleve/studentAframes.tres"),preload("res://resources/images/eleve/studentBframes.tres")]
 var prev_position = Vector2()
 
-
+@onready var nav_agent := $NavigationAgent2D
 var custom_debug_msg:String = ""
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

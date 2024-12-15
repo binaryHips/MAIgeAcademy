@@ -5,6 +5,8 @@ var prev_position = Vector2()
 
 var custom_debug_msg:String
 
+@onready var nav_agent := $NavigationAgent2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	prev_position = position

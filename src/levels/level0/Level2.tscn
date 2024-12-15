@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dg1361c5kfbv8"]
+[gd_scene load_steps=11 format=3 uid="uid://dg1361c5kfbv8"]
 
 [ext_resource type="Texture2D" uid="uid://b68vfpgd525qb" path="res://resources/images/coursMagie.png" id="1_datjq"]
 [ext_resource type="Script" path="res://src/classes/Level.gd" id="1_skguo"]
@@ -29,6 +29,11 @@ height = 61
 fill = 1
 fill_from = Vector2(0.481962, 0.521368)
 fill_to = Vector2(0.500149, 0.132479)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_76ri2"]
+vertices = PackedVector2Array(457.922, 322.727, 422.57, 438.109, -412.039, 451.797, -407.797, 427.75, 450, 154.242, -428.102, 338.43, -441.969, 173.898, 33.75, -390, 440.047, -380.227, 442.063, -50.5391, 432.07, 96.1406, -406.609, -401.742, 450, 134.242, 501.328, -8.97656, 489.023, 34.9688, 481.648, -48.3438)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(3, 5, 6, 7, 8, 9, 10), PackedInt32Array(6, 11, 7), PackedInt32Array(12, 4, 3, 10), PackedInt32Array(13, 14, 10, 9, 15)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(34, -400, 450, -390, 452, -60, 488, -58, 512, -10, 498, 40, 444, 98, 460, 132, 460, 154, 468, 324, 430, 448, -424, 462, -418, 428, -438, 340, -452, 174, -416, -412)])
 
 [node name="Level2" type="Node2D" node_paths=PackedStringArray("agents")]
 script = ExtResource("1_skguo")
@@ -259,3 +264,6 @@ z_index = -1
 position = Vector2(-1.65218, 3.19997)
 scale = Vector2(0.91574, 1.18944)
 texture = SubResource("GradientTexture2D_8pnax")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_76ri2")

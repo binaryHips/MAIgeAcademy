@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dgmncu0a6g187"]
+[gd_scene load_steps=17 format=3 uid="uid://dgmncu0a6g187"]
 
 [ext_resource type="Script" path="res://src/classes/Level.gd" id="1_b8sxi"]
 [ext_resource type="Texture2D" uid="uid://w1r20olpox4u" path="res://resources/images/cour_enneigee.png" id="2_x3oay"]
@@ -22,6 +22,11 @@ fill_from = Vector2(0.5, 0.5)
 [sub_resource type="Curve" id="Curve_g4kgd"]
 _data = [Vector2(0, 0.989011), 0.0, 0.513948, 0, 0, Vector2(0.666667, 0.472527), -0.783673, -0.783673, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_7sgj8"]
+vertices = PackedVector2Array(216.953, -80.8203, 222.352, -101, 440.047, -380.227, 442.063, -50.5391, 432.07, 96.1406, 216.953, -121.18, 33.75, -390, 202.18, -135.953, 183.32, -141, 78.6797, -141, 422.57, 438.109, -412.039, 451.797, -407.797, 427.75, -441.969, 173.898, -406.609, -401.742, 59.8203, -135.953, 45.0469, -121.18, 39.6484, -101, 45.0469, -80.8203, 450, 154.242, 457.922, 322.727, -428.102, 338.43, 450, 134.242, 59.8203, -66.0469, 78.6797, -61, 183.32, -61, 202.18, -66.0469, 501.328, -8.97656, 489.023, 34.9688, 481.648, -48.3438)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(2, 1, 5), PackedInt32Array(6, 2, 5, 7), PackedInt32Array(6, 7, 8), PackedInt32Array(6, 8, 9), PackedInt32Array(10, 11, 12), PackedInt32Array(13, 14, 6, 15, 16), PackedInt32Array(6, 9, 15), PackedInt32Array(13, 16, 17), PackedInt32Array(13, 17, 18), PackedInt32Array(19, 20, 10, 12, 21, 13), PackedInt32Array(4, 22, 19, 13, 23, 24), PackedInt32Array(13, 18, 23), PackedInt32Array(4, 24, 25), PackedInt32Array(4, 25, 26), PackedInt32Array(4, 26, 0), PackedInt32Array(27, 28, 4, 3, 29)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(34, -400, 450, -390, 452, -60, 488, -58, 512, -10, 498, 40, 444, 98, 460, 132, 460, 154, 468, 324, 430, 448, -424, 462, -418, 428, -438, 340, -452, 174, -416, -412)])
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dwkyy"]
 radius = 15.0
@@ -90,20 +95,23 @@ initial_velocity_max = 100.0
 scale_amount_max = 2.0
 scale_amount_curve = SubResource("Curve_g4kgd")
 
-[node name="Table1" type="StaticBody2D" parent="."]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_7sgj8")
+
+[node name="Table1" type="StaticBody2D" parent="NavigationRegion2D"]
 position = Vector2(131, -86)
 scale = Vector2(2, 2)
 
-[node name="Sprite2D" type="Sprite2D" parent="Table1"]
+[node name="Sprite2D" type="Sprite2D" parent="NavigationRegion2D/Table1"]
 texture_filter = 1
 texture = ExtResource("5_8owwo")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Table1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/Table1"]
 position = Vector2(0, -7.5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_dwkyy")
 
-[node name="shadow" type="Sprite2D" parent="Table1"]
+[node name="shadow" type="Sprite2D" parent="NavigationRegion2D/Table1"]
 z_index = -1
 position = Vector2(-2.5, 10.3452)
 scale = Vector2(1, 0.503122)

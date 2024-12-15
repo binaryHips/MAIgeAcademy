@@ -41,15 +41,14 @@ func _act(percept):
 
 func move():
 	if move_target:
-		#var tween = get_tree().create_tween()
-		#tween.tween_property(body,
-		#"global_position",
+		body.nav_agent.target_position = move_target
+
 		
-		body.global_position = body.global_position.move_toward(move_target, Settings.student_speed*get_physics_process_delta_time())
-		#Settings.time_between_turns
-		#).set_trans(Tween.TRANS_SINE)
-		#tween.play()
-		#return deplacement
+		body.global_position = body.global_position.move_toward(
+			body.nav_agent.get_next_path_position(),
+			Settings.student_speed*get_physics_process_delta_time()
+			)
+
 
 func parse_events():
 	while !event_queue.is_empty():
