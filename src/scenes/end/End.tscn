@@ -115,6 +115,61 @@ theme_override_font_sizes/bold_font_size = 0
 text = "Duo :"
 fit_content = true
 
+[node name="ratio" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Candy / Students"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_direction = 2
+layout_mode = 2
+
+[node name="Default" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+theme_override_font_sizes/mono_font_size = 0
+theme_override_font_sizes/normal_font_size = 17
+theme_override_font_sizes/bold_font_size = 0
+text = "Naive :"
+fit_content = true
+
+[node name="Time" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+theme_override_font_sizes/mono_font_size = 0
+theme_override_font_sizes/normal_font_size = 17
+theme_override_font_sizes/bold_font_size = 0
+text = "Time :"
+fit_content = true
+
+[node name="LoneWolf" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+theme_override_font_sizes/mono_font_size = 0
+theme_override_font_sizes/normal_font_size = 17
+theme_override_font_sizes/bold_font_size = 0
+text = "Lone :"
+fit_content = true
+
+[node name="EscapeTeach" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/mono_font_size = 0
+theme_override_font_sizes/normal_font_size = 17
+theme_override_font_sizes/bold_font_size = 0
+text = "Escape :"
+fit_content = true
+
+[node name="Duo" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+theme_override_font_sizes/mono_font_size = 0
+theme_override_font_sizes/normal_font_size = 17
+theme_override_font_sizes/bold_font_size = 0
+text = "Duo :"
+fit_content = true
+
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 7
