@@ -42,6 +42,7 @@ func start_game():
 	turn_timer.timeout.connect(next_turn)
 	#game_timer.start(game_duration * Settings.speed_scale)
 	game_timer.start(Gamemaster.game_duration*Settings.speed_scale)
+	get_tree().change_scene_to_packed(current_level_data["scene"])
 	emit_signal("game_started")
 
 var round_count:int
