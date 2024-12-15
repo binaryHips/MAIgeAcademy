@@ -3,6 +3,7 @@ extends AnimatedSprite2D
 var coeffs = []
 var sens = 1
 @onready var bruitCorbeau = $bruitCorbeau
+@onready var collisionCandy = $Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,10 +31,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	#print(global_position)
 	#const h = 0.001
-	const speed = 60;
+	const speed = 200;
 	#var diff = abs(f(global_position.x+h)-f(global_position.x)/h)
 
-	global_position.x += delta*speed * sens / Settings.time_between_turns
+	global_position.x += delta*speed * sens
 
 	global_position.y = f(global_position.x)
 	
@@ -42,8 +43,6 @@ func _process(delta: float) -> void:
 	var fac = min(1.0, 1.0 / Settings.length_in_rounds * Gamemaster.round_count + 0.0001)
 	#print(fac)
 	
-	var anim_speed = Settings.base_time_between_turns / Settings.time_between_turns
-	speed_scale = anim_speed
 	
 	#$shadow.global_position.x = global_position.x + lerp(-0.5, 0.5, fac) * 70 #because scaling on x
 
