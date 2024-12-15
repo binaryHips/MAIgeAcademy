@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cimj4tf81s8c7"]
+[gd_scene load_steps=13 format=3 uid="uid://cimj4tf81s8c7"]
 
 [ext_resource type="Script" path="res://src/classes/Level.gd" id="1_gq4fo"]
 [ext_resource type="Texture2D" uid="uid://b68vfpgd525qb" path="res://resources/images/coursMagie.png" id="3_8j138"]
 [ext_resource type="Texture2D" uid="uid://xa0go06auxmj" path="res://resources/images/obstacles/table.png" id="3_qjb2j"]
+[ext_resource type="Texture2D" uid="uid://ck82p44evnmmk" path="res://resources/images/obstacles/sapin.png" id="6_7osw3"]
 [ext_resource type="PackedScene" uid="uid://f8uneibou5ua" path="res://src/agents/Teacher/Teacher.tscn" id="6_ga4n2"]
 [ext_resource type="PackedScene" uid="uid://dhdhjqe0paqwp" path="res://src/scenes/bench/bench.tscn" id="7_l2f0y"]
 
@@ -10,17 +11,33 @@
 radius = 15.0
 height = 81.0
 
-[sub_resource type="Gradient" id="Gradient_0vo0q"]
+[sub_resource type="Gradient" id="Gradient_deqep"]
 offsets = PackedFloat32Array(0.268041, 1)
 colors = PackedColorArray(0, 0, 0, 0.615686, 0.133196, 0.133196, 0.133196, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_1vjjp"]
-gradient = SubResource("Gradient_0vo0q")
+gradient = SubResource("Gradient_deqep")
 width = 86
 height = 61
 fill = 1
 fill_from = Vector2(0.481962, 0.521368)
 fill_to = Vector2(0.500149, 0.132479)
+
+[sub_resource type="Gradient" id="Gradient_8s7lx"]
+offsets = PackedFloat32Array(0.268041, 1)
+colors = PackedColorArray(0, 0, 0, 0.615686, 0.133196, 0.133196, 0.133196, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pgjjw"]
+gradient = SubResource("Gradient_8s7lx")
+width = 86
+height = 61
+fill = 1
+fill_from = Vector2(0.481962, 0.521368)
+fill_to = Vector2(0.500149, 0.132479)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qvox3"]
+radius = 38.0
+height = 122.0
 
 [node name="Level0" type="Node2D" node_paths=PackedStringArray("agents")]
 script = ExtResource("1_gq4fo")
@@ -198,3 +215,54 @@ z_index = -1
 position = Vector2(7.5, 15)
 scale = Vector2(0.662791, 1.11475)
 texture = SubResource("GradientTexture2D_1vjjp")
+
+[node name="sapin1" type="Sprite2D" parent="."]
+position = Vector2(400, -441)
+scale = Vector2(1.81579, 2.5)
+texture = ExtResource("6_7osw3")
+
+[node name="shadow" type="Sprite2D" parent="sapin1"]
+z_index = -1
+position = Vector2(9.08696, 3.87777)
+scale = Vector2(0.91574, 1.18944)
+texture = SubResource("GradientTexture2D_pgjjw")
+
+[node name="sapin2" type="Sprite2D" parent="."]
+position = Vector2(-405, -394)
+scale = Vector2(1.81579, 2.5)
+texture = ExtResource("6_7osw3")
+
+[node name="shadow" type="Sprite2D" parent="sapin2"]
+z_index = -1
+position = Vector2(0.550724, 6.79999)
+scale = Vector2(0.621315, 1.09362)
+texture = SubResource("GradientTexture2D_pgjjw")
+
+[node name="sapin3" type="Sprite2D" parent="."]
+position = Vector2(-333, -454)
+scale = Vector2(1.81579, 2.5)
+texture = ExtResource("6_7osw3")
+
+[node name="shadow" type="Sprite2D" parent="sapin3"]
+z_index = -1
+position = Vector2(0.550724, 6.79999)
+scale = Vector2(0.621315, 1.09362)
+texture = SubResource("GradientTexture2D_pgjjw")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-438, 255)
+
+[node name="sapin4" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(1, -9)
+scale = Vector2(1.81579, 2.5)
+texture = ExtResource("6_7osw3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(4, -5)
+shape = SubResource("CapsuleShape2D_qvox3")
+
+[node name="shadow" type="Sprite2D" parent="StaticBody2D"]
+z_index = -1
+position = Vector2(1, 14)
+scale = Vector2(1.12818, 2.73406)
+texture = SubResource("GradientTexture2D_pgjjw")
