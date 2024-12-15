@@ -70,6 +70,9 @@ func swap_to_menu():
 
 func _ready() -> void:
 	
+	$MarginContainer2/HBoxContainer/levelSelector.update_level()
+	$MarginContainer2/HBoxContainer/VBoxContainer.update_values()
+	
 	var tween:Tween = get_tree().create_tween()
 	tween.tween_method(
 		change_blur,

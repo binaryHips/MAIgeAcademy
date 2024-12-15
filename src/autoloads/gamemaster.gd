@@ -10,6 +10,9 @@ var agents:Array[Brain] = []
 
 const PIAF = preload("res://src/scenes/oiseau/oiseau.tscn")
 
+var current_level_data := {}  #set from the menu
+var students_by_strategy := {} #set from the menu
+
 @onready var turn_timer:Timer = Timer.new()
 
 

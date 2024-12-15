@@ -9,7 +9,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if is_instance_valid(self):
+	if is_instance_valid(self) && is_instance_valid(target):
 		orientation()
 		global_position = global_position.move_toward(target.global_position,delta*150/Settings.speed_scale)
 	pass
