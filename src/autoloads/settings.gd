@@ -23,3 +23,9 @@ func update_speed(t_b_u):
 	speed_scale = time_between_updates * 100
 	teacher_speed = 200.0/speed_scale
 	student_speed = 80.0/speed_scale
+	"""
+	Gamemaster.game_timer.wait_time = (
+		(Gamemaster.game_timer.wait_time - Gamemaster.game_timer.time_left) +
+		Gamemaster.game_timer.time_left / speed_scale
+	)
+	"""

@@ -2,18 +2,14 @@ extends Control
 
 func _ready():
 	$Panel.position = Vector2(0, -100)
-	$Panel/time.text = "[center]Round " + str(Gamemaster.round_count) + "/" + str(Settings.length_in_rounds)
-	_on_h_slider_value_changed(Settings.time_between_turns)
-	$Panel/VBoxContainer/HSlider.value = Settings.time_between_turns
-func set_time(time:float):
-	$Panel/time.text = "[center]Round " + str(Gamemaster.round_count) + "/" + str(Settings.length_in_rounds)
 	
+func _process(delta: float) -> void:
+	$ProgressBar.value = (Gamemaster.game_timer.wait_time - Gamemaster.game_timer.time_left) / Gamemaster.game_timer.wait_time
 
 func _on_h_slider_value_changed(value: float) -> void:
 	value = snapped(value, 0.001)
-	$Panel/VBoxContainer/turn_time.text = "Turn time (" + str(value) + "s)"
-	Settings.time_between_turns = value
-	Gamemaster.turn_timer.wait_time = value
+	$Panel/VBoxContainer/turn_time.text = "Speed (" + str(value) + "s)"
+	Settings.update_speed(0.01 / value)
 
 var tween:Tween
 func _on_mouse_entered() -> void:

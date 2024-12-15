@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dg1361c5kfbv8"]
+[gd_scene load_steps=12 format=3 uid="uid://dg1361c5kfbv8"]
 
 [ext_resource type="Texture2D" uid="uid://b68vfpgd525qb" path="res://resources/images/coursMagie.png" id="1_datjq"]
 [ext_resource type="Script" path="res://src/classes/Level.gd" id="1_skguo"]
 [ext_resource type="PackedScene" uid="uid://f8uneibou5ua" path="res://src/agents/Teacher/Teacher.tscn" id="3_ref4b"]
 [ext_resource type="Texture2D" uid="uid://ck82p44evnmmk" path="res://resources/images/obstacles/sapin.png" id="4_ilrdu"]
 [ext_resource type="PackedScene" uid="uid://dhdhjqe0paqwp" path="res://src/scenes/bench/bench.tscn" id="5_j3dcf"]
+[ext_resource type="PackedScene" uid="uid://b64eogwqgw02t" path="res://src/scenes/UI/ui.tscn" id="6_da27e"]
 
 [sub_resource type="Gradient" id="Gradient_0vo0q"]
 offsets = PackedFloat32Array(0.268041, 1)
@@ -267,3 +268,8 @@ texture = SubResource("GradientTexture2D_8pnax")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_76ri2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("6_da27e")]
+z_index = 346

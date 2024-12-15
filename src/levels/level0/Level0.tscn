@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://cimj4tf81s8c7"]
+[gd_scene load_steps=14 format=3 uid="uid://cimj4tf81s8c7"]
 
 [ext_resource type="Script" path="res://src/classes/Level.gd" id="1_gq4fo"]
 [ext_resource type="Texture2D" uid="uid://b68vfpgd525qb" path="res://resources/images/coursMagie.png" id="3_8j138"]
 [ext_resource type="Texture2D" uid="uid://xa0go06auxmj" path="res://resources/images/obstacles/table.png" id="3_qjb2j"]
 [ext_resource type="Texture2D" uid="uid://ck82p44evnmmk" path="res://resources/images/obstacles/sapin.png" id="6_7osw3"]
 [ext_resource type="PackedScene" uid="uid://f8uneibou5ua" path="res://src/agents/Teacher/Teacher.tscn" id="6_ga4n2"]
+[ext_resource type="PackedScene" uid="uid://b64eogwqgw02t" path="res://src/scenes/UI/ui.tscn" id="7_dbd74"]
 [ext_resource type="PackedScene" uid="uid://dhdhjqe0paqwp" path="res://src/scenes/bench/bench.tscn" id="7_l2f0y"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_6f0um"]
@@ -267,3 +268,8 @@ z_index = -1
 position = Vector2(0, 9.2)
 scale = Vector2(0.621316, 1.09362)
 texture = SubResource("GradientTexture2D_pgjjw")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("7_dbd74")]
+z_index = 346

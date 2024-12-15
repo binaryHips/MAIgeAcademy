@@ -13,11 +13,9 @@ shadow_offset = Vector2(3.865, 2.7)
 
 [node name="UI" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 860.0
+offset_bottom = 860.0
 script = ExtResource("1_w5855")
 
 [node name="Panel" type="Panel" parent="."]
@@ -46,24 +44,11 @@ text = "Turn time () "
 [node name="HSlider" type="HSlider" parent="Panel/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
-min_value = 0.01
-max_value = 2.718
+min_value = 0.4
+max_value = 40.0
 step = 0.001
-value = 0.51
+value = 1.0
 exp_edit = true
-
-[node name="time" type="RichTextLabel" parent="Panel"]
-custom_minimum_size = Vector2(0, 25)
-layout_mode = 2
-anchor_top = 0.22
-anchor_right = 0.282
-anchor_bottom = 0.276
-offset_top = 71.94
-offset_right = 91.186
-offset_bottom = 90.052
-mouse_filter = 1
-bbcode_enabled = true
-text = "0.0"
 
 [node name="Button" type="Button" parent="Panel"]
 layout_mode = 2
@@ -90,6 +75,19 @@ offset_right = 0.0399971
 offset_bottom = -0.0310059
 mouse_filter = 1
 text = "CAW"
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.305
+anchor_top = 0.019
+anchor_right = 0.973
+anchor_bottom = 0.05
+offset_left = -0.300018
+offset_top = -0.34
+offset_right = 0.219971
+max_value = 1.0
+show_percentage = false
 
 [connection signal="mouse_entered" from="Panel" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Panel" to="." method="_on_mouse_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dgmncu0a6g187"]
+[gd_scene load_steps=18 format=3 uid="uid://dgmncu0a6g187"]
 
 [ext_resource type="Script" path="res://src/classes/Level.gd" id="1_b8sxi"]
 [ext_resource type="Texture2D" uid="uid://w1r20olpox4u" path="res://resources/images/cour_enneigee.png" id="2_x3oay"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dhdhjqe0paqwp" path="res://src/scenes/bench/bench.tscn" id="5_kcxoa"]
 [ext_resource type="Texture2D" uid="uid://46f83a188ule" path="res://resources/images/obstacles/sapin noël.png" id="6_70pxw"]
 [ext_resource type="Texture2D" uid="uid://ds2kyjbeixbsg" path="res://resources/images/obstacles/sapin enneigé.png" id="7_w483x"]
+[ext_resource type="PackedScene" uid="uid://b64eogwqgw02t" path="res://src/scenes/UI/ui.tscn" id="8_junc4"]
 
 [sub_resource type="Gradient" id="Gradient_bvbu1"]
 offsets = PackedFloat32Array(0, 0.160256, 0.596154)
@@ -299,3 +300,8 @@ z_index = -1
 position = Vector2(2.61273, 5.6)
 scale = Vector2(0.656464, 1.09362)
 texture = SubResource("GradientTexture2D_e1abo")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("8_junc4")]
+z_index = 346
