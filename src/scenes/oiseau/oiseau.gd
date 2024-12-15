@@ -10,7 +10,7 @@ func _ready() -> void:
 	sens = [1, -1].pick_random()
 	position.x = -500 * sens
 	coeffs = []
-	coeffs.append(randf_range(-100, 100)) # constant
+	coeffs.append(randf_range(-400, 400)) # constant
 	
 	coeffs.append(randf_range(-1, 1)) # deg 1
 	
@@ -31,14 +31,14 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	#print(global_position)
 	#const h = 0.001
-	const speed = 200;
+	var speed = 200/Settings.speed_scale;
 	#var diff = abs(f(global_position.x+h)-f(global_position.x)/h)
 
 	global_position.x += delta*speed * sens
 
 	global_position.y = f(global_position.x)
 	
-	
+	speed_scale = 1/Settings.speed_scale
 	
 	var fac = min(1.0, 1.0 / Settings.length_in_rounds * Gamemaster.round_count + 0.0001)
 	#print(fac)

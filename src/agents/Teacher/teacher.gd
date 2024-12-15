@@ -19,6 +19,7 @@ func _process(delta: float) -> void:
 	if(prev_position.x<position.x):
 		_animated_sprite.scale.x = -2
 	prev_position = position
+	_animated_sprite.speed_scale = 1/Settings.speed_scale
 	
 
 func wait():

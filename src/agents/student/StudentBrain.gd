@@ -9,15 +9,15 @@ var timer = Timer.new()
 var base_pos:Vector2
 
 var is_frozen:bool = false
-var freeze_duration:float = 2.0
+var freeze_duration:float = 2.0*Settings.speed_scale
 var freeze_timer:Timer = Timer.new()
 
 var is_polymorphed:bool = false
-var polymorph_duration:float = 5.0
+var polymorph_duration:float = 5.0*Settings.speed_scale
 var polymorph_timer:Timer = Timer.new()
 
 var is_teleporting:bool = false
-var teleport_duration:float = 0.5
+var teleport_duration:float = 0.5*Settings.speed_scale
 var teleport_timer:Timer = Timer.new()
 
 
@@ -111,7 +111,7 @@ func _process(delta: float) -> void:
 	if is_teleporting:
 		move_target = body.global_position
 	if has_state("idle"):
-		attention_span = max(0.0, attention_span - delta * ATTENTION_SPAN_DECREASE)
+		attention_span = max(0.0, attention_span - delta * ATTENTION_SPAN_DECREASE/Settings.speed_scale)
 	get_parent().custom_debug_msg = strategy.get_class_name() + "\nmate : " + str(student_mate)
 	
 func freeze():

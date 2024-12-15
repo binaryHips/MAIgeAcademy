@@ -35,7 +35,7 @@ func start_game():
 	print("----------------------------------")
 	print("At the start of the Game : ")
 	turn_timer.start()
-	Settings.time_between_updates = 0.01
+	Settings.update_speed(0.1)
 	turn_timer.wait_time = Settings.time_between_updates
 	turn_timer.timeout.connect(next_turn)
 	game_timer.start(game_duration)
