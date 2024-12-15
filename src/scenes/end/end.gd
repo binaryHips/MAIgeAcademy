@@ -2,7 +2,8 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-
+	
+	$TextureRect.texture= Gamemaster.current_level_data.map
 	#Oui c'est fait a la main. Non vous n'allez pas me juger.
 	$MarginContainer/VBoxContainer/HBoxContainer/freeze.text = "Freeze : " + str(Stats.spells_used["Freeze"])
 	$MarginContainer/VBoxContainer/HBoxContainer/poly.text = "Polymorph : " + str(Stats.spells_used["Polymorph"])

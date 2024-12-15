@@ -29,8 +29,7 @@ signal new_turn(player_idx:int)
 func _ready() -> void:
 	add_child(turn_timer)
 	add_child(game_timer)
-	game_timer.connect("timeout", Callable(self, "end"))
-	start_game()
+	game_timer.timeout.connect(end)
 
 func start_game():
 	agents.clear()
@@ -42,6 +41,7 @@ func start_game():
 	turn_timer.wait_time = Settings.time_between_updates
 	turn_timer.timeout.connect(next_turn)
 	#game_timer.start(game_duration * Settings.speed_scale)
+	game_timer.start(Gamemaster.game_duration*Settings.speed_scale)
 	emit_signal("game_started")
 
 var round_count:int

@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://pgbuk611eup1"]
+[gd_scene load_steps=2 format=3 uid="uid://pgbuk611eup1"]
 
 [ext_resource type="Script" path="res://src/scenes/end/end.gd" id="1_0mlu8"]
-[ext_resource type="Texture2D" uid="uid://b68vfpgd525qb" path="res://resources/images/coursMagie.png" id="2_7opxd"]
 
 [node name="End" type="Control"]
 layout_mode = 3
@@ -12,10 +11,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0mlu8")
 
-[node name="CoursMagie" type="Sprite2D" parent="."]
-position = Vector2(435, 432)
-scale = Vector2(1.75, 1.75)
-texture = ExtResource("2_7opxd")
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

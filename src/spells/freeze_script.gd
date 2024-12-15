@@ -16,7 +16,8 @@ func useSpell(target:Brain , caster:Brain):
 	caster.addMana(-1*manaCost)
 	await target.get_tree().create_timer(0.5).timeout
 	
-	spawnScene(target.body,caster.body)
+	if is_instance_valid(target) && is_instance_valid(caster):
+		spawnScene(target.body,caster.body)
 	
 	await target.get_tree().create_timer(0.5).timeout
 	
