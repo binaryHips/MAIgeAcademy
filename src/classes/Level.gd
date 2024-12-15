@@ -42,8 +42,8 @@ func setup_agents():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	for bird in get_tree().get_nodes_in_group("birds"):
-		if randf_range(0, 1) <= Settings.candy_chance:
-			spawn_candy(bird.global_position)
+		if randf_range(0, 1) <= Settings.candy_chance && bird.collisionCandy.get_overlapping_bodies().is_empty():
+			spawn_candy(Vector2(bird.global_position.x+2, bird.global_position.y+33))
 	pass
 
 
@@ -53,11 +53,12 @@ func les_bonbons():
 		random_spawn_candy()
 		
 func spawn_candy(positionCandy):
-	var candy = candy_scene.instantiate()
-	var random_sprite =  randi() % candy_sprites.size()
-	candy.get_node("Sprite2D").texture = candy_sprites[random_sprite]
-	candy.position = positionCandy
-	add_child(candy)
+	if positionCandy.x >= -400 && positionCandy.x <= 400 && positionCandy.y >= -400 && positionCandy.y <= 400:
+		var candy = candy_scene.instantiate()
+		var random_sprite =  randi() % candy_sprites.size()
+		candy.get_node("Sprite2D").texture = candy_sprites[random_sprite]
+		candy.position = positionCandy
+		add_child(candy)
 
 func random_spawn_candy():
 	var random_candy = candy_scene.instantiate()
