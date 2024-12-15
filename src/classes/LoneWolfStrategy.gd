@@ -4,6 +4,7 @@ class_name LoneWolfStrategy
 func _decideGoal(brain:Brain, percept:Dictionary):
 	match brain.states[0]:
 		"idle":
+			brain.body.wait()
 			if !percept["candies_by_distance"].is_empty() && brain.attention_span <= 0:
 				var students = brain.get_tree().get_nodes_in_group("student")
 				var candyMinFocus = students.size()
@@ -38,9 +39,11 @@ func _decideGoal(brain:Brain, percept:Dictionary):
 				brain.override_goal(dico)
 			
 		"goToCandy":
+			brain.body.walk()
 			if percept["candies_by_distance"].size() == 0:
 				super.decideGoBackToPlace(brain, percept)
-		"goBackToSpace":
+		"goBackToPlace":
+			brain.body.walk()
 			super.decideIdle(brain, percept)
 
 func get_class_name():

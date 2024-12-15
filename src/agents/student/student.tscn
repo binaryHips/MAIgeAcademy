@@ -72,6 +72,7 @@ value = 1.0
 show_percentage = false
 
 [node name="debugShow" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -74.0

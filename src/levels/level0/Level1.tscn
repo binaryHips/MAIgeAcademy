@@ -100,7 +100,7 @@ scale_amount_curve = SubResource("Curve_g4kgd")
 navigation_polygon = SubResource("NavigationPolygon_7sgj8")
 
 [node name="Table1" type="StaticBody2D" parent="NavigationRegion2D"]
-position = Vector2(131, -86)
+position = Vector2(131, -101)
 scale = Vector2(2, 2)
 
 [node name="Sprite2D" type="Sprite2D" parent="NavigationRegion2D/Table1"]
@@ -255,6 +255,7 @@ texture = SubResource("GradientTexture2D_kls0b")
 
 [node name="sapin_noel" type="Sprite2D" parent="."]
 z_index = 1
+texture_filter = 1
 position = Vector2(13, -279)
 scale = Vector2(2.18966, 2.27778)
 texture = ExtResource("6_70pxw")
@@ -267,6 +268,7 @@ texture = SubResource("GradientTexture2D_e1abo")
 
 [node name="sapin1" type="Sprite2D" parent="."]
 z_index = 1
+texture_filter = 1
 position = Vector2(400, -441)
 scale = Vector2(1.81579, 2.5)
 texture = ExtResource("7_w483x")
@@ -279,6 +281,7 @@ texture = SubResource("GradientTexture2D_e1abo")
 
 [node name="sapin2" type="Sprite2D" parent="."]
 z_index = 1
+texture_filter = 1
 position = Vector2(-359, -432)
 scale = Vector2(1.83333, 2.43103)
 texture = ExtResource("7_w483x")
@@ -291,6 +294,7 @@ texture = SubResource("GradientTexture2D_e1abo")
 
 [node name="sapin3" type="Sprite2D" parent="."]
 z_index = 1
+texture_filter = 1
 position = Vector2(-434, 267)
 scale = Vector2(1.81579, 2.5)
 texture = ExtResource("7_w483x")
