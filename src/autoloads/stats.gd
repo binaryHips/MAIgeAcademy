@@ -21,6 +21,10 @@ var spells_used:Dictionary = {
 	"Freeze" : 0
 }
 
+var candy_spawned:int = 0
+
+var added_candy_list:Array = []
+
 func increase_stats(brain:Brain):
 	#add to candy_by_student
 	var student_name = str(brain.get_parent().name)

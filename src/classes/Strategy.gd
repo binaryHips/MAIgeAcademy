@@ -1,6 +1,7 @@
 extends Resource
 class_name StudentStrategy
 
+
 func decideGoToCandy(brain:Brain, percept:Dictionary):
 	if percept["candies_by_distance"].size() != 0:
 		brain.override_state("goToCandy")
@@ -16,8 +17,9 @@ func decideGoToCandy(brain:Brain, percept:Dictionary):
 				var dist = brain.body.global_position.distance_to(candy.global_position)
 				if(dist <= 15.0):
 					candy.queue_free()
-					Stats.increase_stats(brain)
-					
+					if !Stats.added_candy_list.has(candy):
+						Stats.added_candy_list.append(candy)
+						Stats.increase_stats(brain)
 					return true
 				return false
 		}

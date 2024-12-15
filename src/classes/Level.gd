@@ -59,6 +59,7 @@ func spawn_candy(positionCandy):
 		candy.get_node("Sprite2D").texture = candy_sprites[random_sprite]
 		candy.position = positionCandy
 		add_child(candy)
+		Stats.candy_spawned += 1
 
 func random_spawn_candy():
 	var random_candy = candy_scene.instantiate()
@@ -73,6 +74,7 @@ func random_spawn_candy():
 		random_y = randf_range(0,400)
 	random_candy.position = Vector2(random_x,random_y)
 	add_child(random_candy)
+	Stats.candy_spawned += 1
 	
 func filter_strat_nulle(stratsDico):
 	for elem in stratsDico.keys():

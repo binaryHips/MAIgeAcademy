@@ -1,6 +1,7 @@
 extends StudentStrategy
 class_name EscapeTeacherStrategy
 
+
 func decideGoToCandy(brain:Brain, percept:Dictionary):
 	const corners = [Vector2(-400, 400), Vector2(400, 400), Vector2(-400, -400), Vector2(400, -400)]
 	var maxDistanceCorner = Vector2(0, 0)
@@ -31,7 +32,9 @@ func _decideGoal(brain:Brain, percept:Dictionary):
 				if brain.body.global_position.distance_to(candy.global_position) < 15:
 					print("CANDY EATEN")
 					candy.queue_free()
-					Stats.increase_stats(brain)
+					if !Stats.added_candy_list.has(candy):
+						Stats.added_candy_list.append(candy)
+						Stats.increase_stats(brain)
 			decideGoToCandy(brain, percept)
 
 

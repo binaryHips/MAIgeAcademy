@@ -28,7 +28,9 @@ func _decideGoal(brain:Brain, percept:Dictionary):
 						var dist = brain.body.global_position.distance_to(focusCandy.global_position)
 						if(dist <= 15.0):
 							focusCandy.queue_free()
-							Stats.increase_stats(brain)
+							if(!Stats.added_candy_list.has(focusCandy)):
+								Stats.added_candy_list.append(focusCandy)
+								Stats.increase_stats(brain)
 							return true
 						return false
 				}

@@ -3,7 +3,18 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
+	var candy_collected:int = Stats.candy_per_strategy["StudentStrategy"] + Stats.candy_per_strategy["CandyByTimeStrategy"] + Stats.candy_per_strategy["LoneWolfStrategy"] + Stats.candy_per_strategy["EscapeTeacherStrategy"] + Stats.candy_per_strategy["TwoByTwoStrategy"]
+	var candy_left:int = Stats.candy_spawned - candy_collected
+
 	$TextureRect.texture= Gamemaster.current_level_data["map"]
+	
+	print("Candy spawned : " + str(Stats.candy_spawned))
+	print("Candy collected : " + str(candy_collected))
+	print("Candy left : " + str(candy_left))
+
+	$MarginContainer/VBoxContainer/HboxCandy/Candy.text = "Candy spawned : " + str(Stats.candy_spawned)
+	$MarginContainer/VBoxContainer/HboxCandy/Left.text = "Candy Left : " + str(candy_left)
+
 	#Oui c'est fait a la main. Non vous n'allez pas me juger.
 	$MarginContainer/VBoxContainer/HBoxContainer/freeze.text = "Freeze : " + str(Stats.spells_used["Freeze"])
 	$MarginContainer/VBoxContainer/HBoxContainer/poly.text = "Polymorph : " + str(Stats.spells_used["Polymorph"])
@@ -15,7 +26,12 @@ func _ready() -> void:
 	$MarginContainer/VBoxContainer/HBoxContainer2/EscapeTeach.text = "EscapeTeacher : " + str(Stats.candy_per_strategy["EscapeTeacherStrategy"])
 	$MarginContainer/VBoxContainer/HBoxContainer2/Duo.text = "TwoByTwo : " + str(Stats.candy_per_strategy["TwoByTwoStrategy"])
 
-	#Commented until tom pushes
+
+	$MarginContainer/VBoxContainer/HBoxContainer4/Default.text = "Naive : " + str(Gamemaster.students_by_strategy["StudentStrategy"])
+	$MarginContainer/VBoxContainer/HBoxContainer4/Time.text = "Time : " + str(Gamemaster.students_by_strategy["CandyByTimeStrategy"])
+	$MarginContainer/VBoxContainer/HBoxContainer4/LoneWolf.text = "LoneWolf : " + str(Gamemaster.students_by_strategy["LoneWolfStrategy"])
+	$MarginContainer/VBoxContainer/HBoxContainer4/EscapeTeach.text = "EscapeTeacher : " + str(Gamemaster.students_by_strategy["EscapeTeacherStrategy"])
+	$MarginContainer/VBoxContainer/HBoxContainer4/Duo.text = "TwoByTwo : " + str(Gamemaster.students_by_strategy["TwoByTwoStrategy"])
 
 	var naive:String = "null data"
 	var time:String = "null data"
@@ -24,15 +40,15 @@ func _ready() -> void:
 	var duo:String = "null data"
 
 	if Gamemaster.students_by_strategy["StudentStrategy"] != 0:
-		naive = str(Stats.candy_per_strategy["StudentStrategy"] / Gamemaster.students_by_strategy["StudentStrategy"])
+		naive = str(floor(float(Stats.candy_per_strategy["StudentStrategy"]) / Gamemaster.students_by_strategy["StudentStrategy"] * 100) / 100)
 	if Gamemaster.students_by_strategy["CandyByTimeStrategy"] != 0:
-		time = str(Stats.candy_per_strategy["CandyByTimeStrategy"] / Gamemaster.students_by_strategy["CandyByTimeStrategy"])
+		time = str(floor(float(Stats.candy_per_strategy["CandyByTimeStrategy"]) / Gamemaster.students_by_strategy["CandyByTimeStrategy"] * 100) / 100)
 	if Gamemaster.students_by_strategy["LoneWolfStrategy"] != 0:
-		lone = str(Stats.candy_per_strategy["LoneWolfStrategy"] / Gamemaster.students_by_strategy["LoneWolfStrategy"])
+		lone = str(floor(float(Stats.candy_per_strategy["LoneWolfStrategy"]) / Gamemaster.students_by_strategy["LoneWolfStrategy"] * 100) / 100)
 	if Gamemaster.students_by_strategy["EscapeTeacherStrategy"] != 0:
-		escape = str(Stats.candy_per_strategy["EscapeTeacherStrategy"] / Gamemaster.students_by_strategy["EscapeTeacherStrategy"])
+		escape = str(floor(float(Stats.candy_per_strategy["EscapeTeacherStrategy"]) / Gamemaster.students_by_strategy["EscapeTeacherStrategy"] * 100) / 100)
 	if Gamemaster.students_by_strategy["TwoByTwoStrategy"] != 0:
-		duo = str(Stats.candy_per_strategy["TwoByTwoStrategy"] / Gamemaster.students_by_strategy["TwoByTwoStrategy"])
+		duo = str(floor(float(Stats.candy_per_strategy["TwoByTwoStrategy"]) / Gamemaster.students_by_strategy["TwoByTwoStrategy"] * 100) / 100)
 
 	$MarginContainer/VBoxContainer/HBoxContainer3/Default.text = "Naive : " + naive
 	$MarginContainer/VBoxContainer/HBoxContainer3/Time.text = "Time : " + time

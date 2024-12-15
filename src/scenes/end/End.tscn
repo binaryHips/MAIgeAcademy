@@ -30,6 +30,26 @@ grow_horizontal = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
+[node name="HboxCandy" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_direction = 2
+layout_mode = 2
+
+[node name="Candy" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HboxCandy"]
+custom_minimum_size = Vector2(400, 70)
+layout_mode = 2
+theme_override_font_sizes/mono_font_size = 0
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 0
+text = "Candy Spawned : "
+fit_content = true
+
+[node name="Left" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HboxCandy"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 30
+text = "Candy Left : "
+fit_content = true
+
 [node name="spells" type="Label" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
@@ -41,10 +61,10 @@ layout_direction = 2
 layout_mode = 2
 
 [node name="freeze" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(280, 100)
+custom_minimum_size = Vector2(280, 50)
 layout_mode = 2
 theme_override_font_sizes/mono_font_size = 0
-theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/normal_font_size = 25
 theme_override_font_sizes/bold_font_size = 0
 text = "Freeze : "
 fit_content = true
@@ -52,14 +72,14 @@ fit_content = true
 [node name="poly" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(280, 0)
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/normal_font_size = 25
 text = "Polymorph : "
 fit_content = true
 
 [node name="tele" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(280, 0)
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/normal_font_size = 25
 text = "Telekinesis : "
 fit_content = true
 
@@ -67,7 +87,7 @@ fit_content = true
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
-text = "Strategies"
+text = "Candy per strategies"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_direction = 2
@@ -110,6 +130,61 @@ text = "Escape :"
 fit_content = true
 
 [node name="Duo" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+theme_override_font_sizes/mono_font_size = 0
+theme_override_font_sizes/normal_font_size = 17
+theme_override_font_sizes/bold_font_size = 0
+text = "Duo :"
+fit_content = true
+
+[node name="Students" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Number of students"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_direction = 2
+layout_mode = 2
+
+[node name="Default" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+theme_override_font_sizes/mono_font_size = 0
+theme_override_font_sizes/normal_font_size = 17
+theme_override_font_sizes/bold_font_size = 0
+text = "Naive :"
+fit_content = true
+
+[node name="Time" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+theme_override_font_sizes/mono_font_size = 0
+theme_override_font_sizes/normal_font_size = 17
+theme_override_font_sizes/bold_font_size = 0
+text = "Time :"
+fit_content = true
+
+[node name="LoneWolf" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+theme_override_font_sizes/mono_font_size = 0
+theme_override_font_sizes/normal_font_size = 17
+theme_override_font_sizes/bold_font_size = 0
+text = "Lone :"
+fit_content = true
+
+[node name="EscapeTeach" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/mono_font_size = 0
+theme_override_font_sizes/normal_font_size = 17
+theme_override_font_sizes/bold_font_size = 0
+text = "Escape :"
+fit_content = true
+
+[node name="Duo" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
 custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 theme_override_font_sizes/mono_font_size = 0
