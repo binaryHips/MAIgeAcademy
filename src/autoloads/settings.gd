@@ -10,22 +10,22 @@ var length_in_rounds:int = 50
 
 var n_sheep:int = 5
 
-var teacher_speed:float = 200.0*speed_scale
-var student_speed:float = 80.0*speed_scale
+var max_candy:int = 8
+var teacher_speed_factor:float = 4.0
+var student_speed:float = 50.0/speed_scale
+var teacher_speed:float =  student_speed * teacher_speed_factor
 var dog_speed:float = 100.0
 var sheep_speed:float = 40.0
-
+var base_game_length:float = 50.0
 var birds_per_turn = 1
-var candy_chance = 0.03
+var candy_chance = 0.003
+
+var infos_visible := false
 
 func update_speed(t_b_u):
 	time_between_updates = t_b_u
-	speed_scale = time_between_updates * 100
-	teacher_speed = 200.0/speed_scale
-	student_speed = 80.0/speed_scale
-	"""
-	Gamemaster.game_timer.wait_time = (
-		(Gamemaster.game_timer.wait_time - Gamemaster.game_timer.time_left) +
-		Gamemaster.game_timer.time_left / speed_scale
-	)
-	"""
+	Gamemaster.turn_timer.wait_time = time_between_updates
+	speed_scale = time_between_updates * 20
+	student_speed = 50.0/speed_scale
+	teacher_speed = student_speed * teacher_speed_factor
+	

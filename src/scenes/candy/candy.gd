@@ -10,3 +10,10 @@ func _process(delta: float) -> void:
 
 func _exit_tree() -> void:
 	Gamemaster.world_state["candies"].erase(self)
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is StaticBody2D:
+		# oopsie
+		Stats.candy_spawned -= 1
+		queue_free()

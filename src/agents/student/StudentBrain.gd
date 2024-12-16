@@ -27,7 +27,7 @@ var previous_state:String = "goToCandy"
 func _setup():
 	
 	base_pos = body.global_position
-	ATTENTION_SPAN_DECREASE = randf_range(0.05, 0.15)
+	ATTENTION_SPAN_DECREASE = randf_range(0.02, 0.10)
 	attention_span = randf_range(0.5, 1.0)
 
 	#connect freeze_timer to on_freeze_timer_timeout
@@ -104,6 +104,10 @@ func _parse_event(event:Dictionary):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	speed = Settings.student_speed
+	freeze_duration = 2.0*Settings.speed_scale #TODO technically not fine!!! if a dude gets transformed at speed 0.4 and then speed highered again, he will stay for long like that
+	polymorph_duration = 5.0*Settings.speed_scale
+	teleport_duration = 0.5*Settings.speed_scale
 	if is_frozen:
 		move_target = body.global_position
 	if is_polymorphed:
@@ -112,13 +116,13 @@ func _process(delta: float) -> void:
 		move_target = body.global_position
 	if has_state("idle"):
 		attention_span = max(0.0, attention_span - delta * ATTENTION_SPAN_DECREASE/Settings.speed_scale)
-	get_parent().custom_debug_msg = strategy.get_class_name() + "\nmate : " + str(student_mate)
+	#get_parent().custom_debug_msg = strategy.get_class_name() + "\nmate : " + str(student_mate)
 	
 func freeze():
 	if !is_frozen:
 
 		#print("freeze")
-
+		attention_span = 0.5
 		is_frozen = true
 		is_polymorphed = false
 		is_teleporting = false
@@ -132,6 +136,7 @@ func _on_freeze_timer_timeout():
 	#print("unfreeze")
 	is_frozen = false
 	freeze_timer.stop()
+	attention_span = 0.5
 	
 	#remove_state("frozen") #but did not work
 	override_state(previous_state)
@@ -140,7 +145,7 @@ func _on_freeze_timer_timeout():
 
 func polymorph():
 	if !is_polymorphed:
-
+		attention_span = 1.0
 		#print("polymorph")
 
 		is_polymorphed = true
@@ -153,13 +158,12 @@ func polymorph():
 	# actions quand il est polymorph
 
 func _on_polymorph_timer_timeout():
-	print("unpolymorph")
 	is_polymorphed = false
 	polymorph_timer.stop()
 
 	#remove_state("polymorphed") # :(
 	if body.global_position.distance_to(base_pos) <= 1.0:
-		attention_span = min(attention_span + 0.5, 1.0)
+		attention_span = 1.0
 		strategy.decideIdle(self,_see())
 	else : 
 		override_state(previous_state)
@@ -190,7 +194,7 @@ func _on_teleport_timer_timeout():
 	body.global_position = base_pos
 	move_target = base_pos
 
-	attention_span = min(attention_span + 0.5, 1.0)
+	attention_span = 1.0
 	strategy.decideIdle(self,_see())
 	#print("goal : ", goals[0].name)
 	

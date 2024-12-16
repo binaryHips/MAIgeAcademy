@@ -14,10 +14,11 @@ func useSpell(target:Brain , caster:Brain):
 	#caster.body.get_node("AnimatedSprite2D").play("polymorph")
 	caster.body.polymorph(spellDuration)
 	caster.addMana(-1*manaCost)
-	await target.get_tree().create_timer(0.5).timeout
-
-	spawnScene(target.body,caster.body)
-	await target.get_tree().create_timer(0.5).timeout
+	await caster.get_tree().create_timer(0.5 * Settings.speed_scale).timeout
+	
+	if is_instance_valid(target) && is_instance_valid(caster):
+		spawnScene(target.body,caster.body)
+		await caster.get_tree().create_timer(0.5 * Settings.speed_scale).timeout
 	return
 	#target.override_state("polymorphed")
 	#else:

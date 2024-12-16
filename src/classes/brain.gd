@@ -3,6 +3,7 @@ class_name Brain
 
 ## A list of strings that define state flags for the agent
 var moving := false
+var speed:float
 var move_target:Vector2 #FIXME
 
 ##  goals
@@ -42,11 +43,12 @@ func _act(percept):
 func move():
 	if move_target:
 		body.nav_agent.target_position = move_target
-
+		
+		if body.nav_agent.is_target_reached(): return
 		
 		body.global_position = body.global_position.move_toward(
 			body.nav_agent.get_next_path_position(),
-			Settings.student_speed*get_physics_process_delta_time()
+			speed*get_physics_process_delta_time()
 			)
 
 

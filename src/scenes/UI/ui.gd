@@ -4,12 +4,10 @@ func _ready():
 	$Panel.position = Vector2(0, -100)
 	
 func _process(delta: float) -> void:
-	$ProgressBar.value = (Gamemaster.game_timer.wait_time - Gamemaster.game_timer.time_left) / Gamemaster.game_timer.wait_time
-
+	$ProgressBar.value = Gamemaster.progress
 func _on_h_slider_value_changed(value: float) -> void:
-	value = snapped(value, 0.001)
-	$Panel/VBoxContainer/turn_time.text = "Speed (" + str(value) + "s)"
-	Settings.update_speed(0.01 / value)
+	$Panel/VBoxContainer/turn_time.text = "Speed (" + str(value) + ")"
+	Settings.update_speed(0.05 / value)
 
 var tween:Tween
 func _on_mouse_entered() -> void:
@@ -40,3 +38,9 @@ func _on_mouse_exited() -> void:
 
 func _on_finished_presse() -> void:
 	Gamemaster.end()
+
+
+
+
+func _on_button_2_toggled(toggled_on: bool) -> void:
+	Settings.infos_visible = toggled_on

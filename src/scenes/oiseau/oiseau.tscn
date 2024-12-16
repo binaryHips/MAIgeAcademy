@@ -38,7 +38,7 @@ fill_from = Vector2(0.487324, 0.522535)
 fill_to = Vector2(0.338028, 0.512676)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fa8w6"]
-radius = 12.51
+radius = 29.0172
 
 [node name="Oiseau" type="AnimatedSprite2D"]
 z_index = 1

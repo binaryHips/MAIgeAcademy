@@ -48,7 +48,7 @@ func _setup() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#body.global_position += body.global_position.direction_to(Vector2(250,0)) * speed
-	pass
+	speed = Settings.teacher_speed
 	#print(states)
 
 #func _setup():
@@ -71,9 +71,9 @@ func _act(percept):
 		#print("teach")
 		body.wait()
 		# Faudrait détecter si les élèves écoutent ou vont chercher des bonbons
+		execute_action("walk_and_teach")
 		if !percept["student"].is_empty():
 			override_state("cast")
-		execute_action("walk_and_teach")
 	
 	elif has_state("cast"):
 		
@@ -87,9 +87,8 @@ func _act(percept):
 				not student_brain.has_state("goBackToPlace")
 				and student_brain.has_state("goToCandy")
 			):
-				var current_distance = e.global_position.distance_to(body.global_position)
 				var new_distance = student_brain.body.global_position.distance_to(body.global_position)
-				if current_target == null && current_distance >= new_distance :
+				if current_target == null or current_target.body.global_position.distance_to(body.global_position) >= new_distance :
 					current_target = student_brain
 					#print(current_target)
 		#print(current_target)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://vqro77kagm5m"]
+[gd_scene load_steps=10 format=3 uid="uid://vqro77kagm5m"]
 
 [ext_resource type="Script" path="res://src/scenes/menu/menu.gd" id="1_6s0fk"]
 [ext_resource type="Script" path="res://src/scenes/menu/level_selector.gd" id="2_murei"]
@@ -13,6 +13,16 @@ shader_parameter/lod = 4.219
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uqv6b"]
 bg_color = Color(0, 0.0627451, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g7rfs"]
+bg_color = Color(0.176419, 0.176419, 0.176419, 1)
+border_width_left = 40
+border_width_right = 40
+border_color = Color(0.8, 0.8, 0.8, 0)
 corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
@@ -289,6 +299,57 @@ max_value = 1.0
 step = 0.001
 value = 1.0
 
+[node name="Panel" type="Panel" parent="MarginContainer2/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g7rfs")
+
+[node name="teacher" type="RichTextLabel" parent="MarginContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Teacher speed (4x student's)"
+fit_content = true
+
+[node name="slider_teacher" type="HSlider" parent="MarginContainer2/HBoxContainer/VBoxContainer/teacher"]
+layout_mode = 2
+anchor_left = 0.533
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0999908
+min_value = 1.0
+max_value = 10.0
+step = 0.1
+value = 4.0
+
+[node name="duration" type="RichTextLabel" parent="MarginContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Game duration (50s)"
+fit_content = true
+
+[node name="slider_duration" type="HSlider" parent="MarginContainer2/HBoxContainer/VBoxContainer/duration"]
+layout_mode = 2
+anchor_left = 0.533
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0999908
+min_value = 10.0
+max_value = 90.0
+value = 50.0
+
+[node name="max_candy" type="RichTextLabel" parent="MarginContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Max candy on ground (8)"
+fit_content = true
+
+[node name="slider_candy" type="HSlider" parent="MarginContainer2/HBoxContainer/VBoxContainer/max_candy"]
+layout_mode = 2
+anchor_left = 0.533
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0999908
+min_value = 1.0
+max_value = 30.0
+value = 8.0
+
 [node name="Start" type="Button" parent="MarginContainer2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Play"
@@ -309,4 +370,7 @@ pitch_scale = 2.0
 [connection signal="pressed" from="MarginContainer2/HBoxContainer/levelSelector/previous level" to="MarginContainer2/HBoxContainer/levelSelector" method="_on_previous_level_pressed"]
 [connection signal="pressed" from="MarginContainer2/HBoxContainer/levelSelector/next level" to="MarginContainer2/HBoxContainer/levelSelector" method="_on_next_level_pressed"]
 [connection signal="pressed" from="MarginContainer2/HBoxContainer/levelSelector/Button" to="." method="swap_to_menu"]
+[connection signal="value_changed" from="MarginContainer2/HBoxContainer/VBoxContainer/teacher/slider_teacher" to="." method="_on_slider_teacher_value_changed"]
+[connection signal="value_changed" from="MarginContainer2/HBoxContainer/VBoxContainer/duration/slider_duration" to="." method="_on_slider_duration_value_changed"]
+[connection signal="value_changed" from="MarginContainer2/HBoxContainer/VBoxContainer/max_candy/slider_candy" to="." method="_on_slider_candy_value_changed"]
 [connection signal="pressed" from="MarginContainer2/HBoxContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]

@@ -11,7 +11,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if is_instance_valid(self) && is_instance_valid(target):
 		orientation()
-		global_position = global_position.move_toward(target.global_position,delta*150/Settings.speed_scale)
+		global_position = global_position.move_toward(target.global_position,delta*350/Settings.speed_scale)
 		_animated_sprite.speed_scale = 1/Settings.speed_scale
 	pass
 	

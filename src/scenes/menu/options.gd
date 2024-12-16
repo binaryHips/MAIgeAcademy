@@ -41,8 +41,6 @@ func update_sliders(just_modified:int):
 	
 	update_values()
 
-
-
 func update_values():
 	var strategies := ["StudentStrategy", "EscapeTeacherStrategy", "LoneWolfStrategy", "CandyByTimeStrategy", "TwoByTwoStrategy"]
 	var total_n_students:int = Gamemaster.current_level_data["max_students"]

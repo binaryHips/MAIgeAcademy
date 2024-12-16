@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bnr2r0yybdhpi"]
+[gd_scene load_steps=12 format=3 uid="uid://bnr2r0yybdhpi"]
 
 [ext_resource type="Script" path="res://src/scenes/spell/freezeSpell/spell.gd" id="1_fqnxq"]
 [ext_resource type="Texture2D" uid="uid://cs3726r6vmfbp" path="res://resources/images/spell/freeze1.png" id="2_e1jhg"]
@@ -42,6 +42,9 @@ fill = 1
 fill_from = Vector2(0.487324, 0.522535)
 fill_to = Vector2(0.2, 0.527465)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_at5px"]
+radius = 37.0135
+
 [node name="Freeze" type="Area2D"]
 collision_layer = 2
 script = ExtResource("1_fqnxq")
@@ -65,5 +68,10 @@ z_as_relative = false
 position = Vector2(0, 5)
 scale = Vector2(0.787109, 0.498047)
 texture = SubResource("GradientTexture2D_li5tu")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_at5px")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -11,7 +11,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if is_instance_valid(self) && is_instance_valid(target):
 		orientation()
-		global_position = global_position.move_toward(target.global_position,delta*150/Settings.speed_scale)
+		global_position = global_position.move_toward(target.global_position,delta*400/Settings.speed_scale)
 	pass
 	
 func orientation():
@@ -22,6 +22,7 @@ func orientation():
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("student"):
-		body.get_meta("brain").override_state("frozen") 
+		for b in $Area2D.get_overlapping_bodies():
+			if b.is_in_group("student"):
+				b.get_meta("brain").override_state("frozen") 
 		self.queue_free()
-	pass # Replace with function body.

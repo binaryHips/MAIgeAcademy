@@ -21,7 +21,7 @@ func _ready() -> void:
 		random_spawn_student_on_bench()
 	
 	t = Timer.new()
-	t.wait_time = 1*Settings.speed_scale
+	t.wait_time = 1.0*Settings.speed_scale
 	#t.timeout.connect(les_bonbons)
 	t.timeout.connect(Gamemaster.new_corbac)
 	add_child(t)
@@ -40,11 +40,11 @@ func setup_agents():
 		)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	t.wait_time = 1.0*Settings.speed_scale
 	for bird in get_tree().get_nodes_in_group("birds"):
-		if randf_range(0, 1)*Settings.speed_scale <= Settings.candy_chance && bird.collisionCandy.get_overlapping_bodies().is_empty():
-			spawn_candy(Vector2(bird.global_position.x+2, bird.global_position.y+33))
-	pass
+		if Gamemaster.world_state["candies"].size() < Settings.max_candy && randf_range(0, 1)*Settings.speed_scale <= Settings.candy_chance && bird.collisionCandy.get_overlapping_bodies().is_empty():
+			spawn_candy(bird.get_node("Area2D/CollisionShape2D").global_position)
 
 
 func les_bonbons():

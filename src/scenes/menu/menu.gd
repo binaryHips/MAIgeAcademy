@@ -108,3 +108,19 @@ func _on_margin_container_mouse_entered() -> void:
 
 func _on_margin_container_2_mouse_entered() -> void:
 	$sonMenu.play()
+
+
+func _on_slider_teacher_value_changed(value: float) -> void:
+	$MarginContainer2/HBoxContainer/VBoxContainer/teacher.text = "Teacher speed (" + str(value) + "x student's)"
+	Settings.teacher_speed_factor = value
+	Settings.teacher_speed = Settings.student_speed * Settings.teacher_speed_factor
+
+
+func _on_slider_duration_value_changed(value: float) -> void:
+	$MarginContainer2/HBoxContainer/VBoxContainer/duration.text = "Game duration (" + str(value) + "s)"
+	Settings.max_candy = value
+
+
+func _on_slider_candy_value_changed(value: float) -> void:
+	$MarginContainer2/HBoxContainer/VBoxContainer/max_candy.text = "Max candy on ground (" + str(value) + ")"
+	Settings.max_candy = value
